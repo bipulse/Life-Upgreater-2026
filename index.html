@@ -3,162 +3,278 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Life Upgreater — Dein Upgrade beginnt jetzt</title>
+  <title>Life Upgreater® — Upgreat your Life</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- ===================== NAVIGATION ===================== -->
-  <nav class="navbar">
+  <!-- ===== SEKTION 0a: ANNOUNCEMENT BAR ===== -->
+  <div class="announcement-bar">
+    <div class="container">
+      <p>Bist du bereit zum Glücklichsein? <a href="#kontakt">Nimm jetzt Kontakt auf!</a></p>
+    </div>
+  </div>
+
+  <!-- ===== SEKTION 0b: HAUPTNAVIGATION ===== -->
+  <nav class="navbar" id="navbar">
     <div class="container nav-container">
-      <a href="#" class="logo">LIFE <span>UPGREATER</span></a>
+      <a href="#" class="logo">Life Upgreater<sup>®</sup></a>
       <button class="nav-toggle" aria-label="Menü öffnen">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links">
-        <li><a href="#angebote">Angebote</a></li>
+        <li><a href="#seminare">Seminare</a></li>
+        <li><a href="#angebote">Business Training</a></li>
+        <li><a href="#angebote">Personal Training</a></li>
+        <li><a href="#ueber">Über uns</a></li>
         <li><a href="#selbsttest">Selbsttest</a></li>
-        <li><a href="#ueber">Über mich</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
-        <li><a href="#seminar" class="btn btn-nav">Nächstes Seminar</a></li>
+        <li><a href="#kontakt" class="btn btn-nav">Kontakt</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- ===================== HERO SECTION ===================== -->
+  <!-- ===== SEKTION 1: HERO ===== -->
   <header class="hero" id="hero">
     <div class="hero-overlay"></div>
     <div class="container hero-content">
-      <p class="hero-tag">Coaching · Seminare · Transformation</p>
-      <h1>Hör auf zu funktionieren.<br><span class="highlight">Fang an zu leben.</span></h1>
-      <p class="hero-sub">Du spürst, dass mehr in dir steckt — aber der Alltag frisst deine Energie? Life Upgreater gibt dir die Werkzeuge, um Klarheit, Richtung und Antrieb zurückzugewinnen.</p>
+      <h1>Entfalte Dein volles Potenzial mit <span class="highlight">Life Upgreater®</span></h1>
+      <p class="hero-sub">Trainiere körperlich & mental – um glücklich & gesund zu sein.</p>
       <div class="hero-ctas">
-        <a href="#seminar" class="btn btn-primary btn-lg">Seminar-Platz sichern</a>
+        <a href="#angebote" class="btn btn-primary btn-lg">Finde Dein Angebot</a>
         <a href="#selbsttest" class="btn btn-outline btn-lg">Kostenloser Selbsttest →</a>
       </div>
+      <span class="hero-handwriting">Upgreat your Life</span>
     </div>
   </header>
 
-  <!-- ===================== VERTRAUENSLEISTE (NEU) ===================== -->
+  <!-- ===== SEKTION 2: VERTRAUENSLEISTE (NEU) ===== -->
   <section class="trust-bar">
     <div class="container trust-container">
       <div class="trust-item">
+        <span class="trust-icon">📅</span>
+        <span class="trust-number">Seit 2017</span>
+        <span class="trust-label">aktiv</span>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <span class="trust-icon">👥</span>
         <span class="trust-number">500+</span>
         <span class="trust-label">Teilnehmer</span>
       </div>
       <div class="trust-divider"></div>
       <div class="trust-item">
-        <span class="trust-number">12+</span>
-        <span class="trust-label">Jahre Erfahrung</span>
-      </div>
-      <div class="trust-divider"></div>
-      <div class="trust-item">
-        <span class="trust-number">98%</span>
-        <span class="trust-label">Weiterempfehlung</span>
-      </div>
-      <div class="trust-divider"></div>
-      <div class="trust-item">
-        <span class="trust-number">4.9★</span>
+        <span class="trust-icon">⭐</span>
+        <span class="trust-number">4.9 ★</span>
         <span class="trust-label">Bewertung</span>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <span class="trust-icon">📍</span>
+        <span class="trust-number">Aachen</span>
+        <span class="trust-label">& Online</span>
       </div>
     </div>
   </section>
 
-  <!-- ===================== ANGEBOTE (3 KARTEN) ===================== -->
+  <!-- ===== SEKTION 3: ÜBER UNS TEASER ===== -->
+  <section class="ueber-uns" id="ueber">
+    <div class="container ueber-grid">
+      <div class="ueber-text">
+        <span class="section-label">Über uns</span>
+        <h2>Die Gesichter hinter Life Upgreater® – Marco & Lisa</h2>
+        <p>Als zertifizierte Trainer und Coaches verbinden wir körperliches mit mentalem Training. Unsere persönliche Geschichte hat uns gelehrt: Wahres Glück entsteht, wenn Kopf und Körper zusammenarbeiten.</p>
+        <p>Heute helfen wir Menschen, Familien und Unternehmen in der Region Aachen, ihr volles Potenzial zu entfalten.</p>
+        <a href="#kontakt" class="btn btn-primary">Lerne uns kennen</a>
+      </div>
+      <div class="ueber-image">
+        <div class="image-placeholder">
+          <span>Marco & Lisa</span>
+          <small>Gründer Life Upgreater®</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SEKTION 4: ANGEBOTE – 3 KARTEN ===== -->
   <section class="angebote" id="angebote">
     <div class="container">
-      <h2 class="section-title">Finde dein Format</h2>
-      <p class="section-sub">Drei Wege zu deinem persönlichen Upgrade — wähle, was zu dir passt.</p>
+      <span class="section-label center">Unsere Angebote für Dich</span>
+      <h2 class="section-title">Finde den richtigen Weg für Dein Upgrade</h2>
 
       <div class="cards-grid">
-        <!-- Karte 1: Seminare (Hauptprodukt) -->
-        <div class="card card-featured">
-          <div class="card-badge">Beliebteste Wahl</div>
-          <div class="card-icon">🔥</div>
-          <h3>Seminare</h3>
-          <p class="card-price">ab 497 €</p>
-          <p>Intensive Gruppenerfahrung an einem Wochenende. Du durchbrichst Muster, gewinnst Klarheit und gehst mit einem konkreten Aktionsplan nach Hause.</p>
-          <ul class="card-features">
-            <li>2 Tage intensives Live-Seminar</li>
-            <li>Max. 20 Teilnehmer für persönliche Betreuung</li>
-            <li>Workbook & 30-Tage Follow-Up</li>
-          </ul>
-          <a href="#seminar" class="btn btn-primary">Nächsten Termin ansehen</a>
+        <!-- Karte 1: Seminare (Hauptangebot) -->
+        <div class="card card-light">
+          <div class="card-image">
+            <div class="image-placeholder dark">
+              <span>Seminar-Foto</span>
+              <small>Gruppenbild</small>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Seminare</h3>
+            <p class="card-subtitle">Impulse für ein erfüllteres Leben</p>
+            <p>Für Familien, Paare & alle, die Verbindung suchen. Präsenz & Online.</p>
+            <a href="#seminare" class="btn btn-primary">Seminare entdecken</a>
+          </div>
         </div>
 
         <!-- Karte 2: Personal Training -->
-        <div class="card">
-          <div class="card-icon">🎯</div>
-          <h3>Personal Training</h3>
-          <p class="card-price">ab 197 € / Monat</p>
-          <p>1:1 Coaching für maximale Tiefe. Wir arbeiten gezielt an deinen individuellen Themen — ob Karriere, Beziehung oder Selbstwert.</p>
-          <ul class="card-features">
-            <li>Wöchentliche 60-min Sessions</li>
-            <li>WhatsApp-Support zwischen den Sessions</li>
-            <li>Individueller Entwicklungsplan</li>
-          </ul>
-          <a href="#kontakt" class="btn btn-secondary">Erstgespräch buchen</a>
+        <div class="card card-light">
+          <div class="card-image">
+            <div class="image-placeholder dark">
+              <span>Training-Foto</span>
+              <small>Marco & Lisa in Aktion</small>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Personal Training</h3>
+            <p class="card-subtitle">Körperlich & Mental – Dein 1:1 Coach</p>
+            <p>Maßgeschneidertes Training mit Marco & Lisa. Inkl. Blickwinkel Training®.</p>
+            <a href="#kontakt" class="btn btn-primary">Training starten</a>
+          </div>
         </div>
 
         <!-- Karte 3: Business Training -->
-        <div class="card">
-          <div class="card-icon">💼</div>
-          <h3>Business Training</h3>
-          <p class="card-price">auf Anfrage</p>
-          <p>Für Teams und Führungskräfte: Workshops zu Leadership, Teamdynamik und persönlicher Performance im Berufskontext.</p>
-          <ul class="card-features">
-            <li>Maßgeschneiderte Firmen-Workshops</li>
-            <li>Keynotes & Impulsvorträge</li>
-            <li>Langfristige Entwicklungsprogramme</li>
-          </ul>
-          <a href="#kontakt" class="btn btn-secondary">Angebot anfragen</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== NÄCHSTES SEMINAR (DRINGLICHKEIT) ===================== -->
-  <section class="seminar-cta" id="seminar">
-    <div class="container">
-      <div class="seminar-box">
-        <div class="seminar-info">
-          <p class="seminar-label">Nächstes Live-Seminar</p>
-          <h2>„Durchbruch" — Dein Wochenende der Veränderung</h2>
-          <div class="seminar-details">
-            <span>📅 26.–27. April 2026</span>
-            <span>📍 München</span>
-            <span>👥 Nur noch <strong>6 Plätze</strong> frei</span>
+        <div class="card card-light">
+          <div class="card-image">
+            <div class="image-placeholder dark">
+              <span>Business-Foto</span>
+              <small>Firmenfitness</small>
+            </div>
           </div>
-          <p>Zwei Tage, die dein Leben verändern können. Du lernst, alte Muster zu erkennen, deine Blockaden aufzulösen und mit einem klaren Plan in dein neues Kapitel zu starten.</p>
-        </div>
-        <div class="seminar-action">
-          <p class="seminar-price"><span class="price-old">697 €</span> <span class="price-new">497 €</span></p>
-          <p class="price-note">Frühbucher-Preis — nur noch bis 31. März</p>
-          <a href="#kontakt" class="btn btn-primary btn-lg">Jetzt Platz sichern</a>
+          <div class="card-body">
+            <h3>Business Training</h3>
+            <p class="card-subtitle">Stärke Dein Team – Firmenfitness & Coaching</p>
+            <p>Firmenfitness, Gesundheitstage, Teambuilding – für Unternehmen in der Region.</p>
+            <a href="#kontakt" class="btn btn-primary">Angebot für Firmen</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== SELBSTTEST + E-MAIL CAPTURE ===================== -->
+  <!-- ===== SEKTION 5: SEMINAR HIGHLIGHT ===== -->
+  <section class="seminare-highlight" id="seminare">
+    <div class="container seminare-grid">
+      <div class="seminare-text">
+        <span class="section-label">Seminare</span>
+        <h2>Seminare für ein erfüllteres Leben</h2>
+        <p class="seminare-termin">Nächster Termin: <strong>HappyMe-HappyFamily</strong> – Bald verfügbar</p>
+        <p>Unsere Impulsseminare verbinden körperliches und mentales Training. Von Familienseminaren über Gesundheits-Workshops bis zu Partnerschafts-Impulsen – finde das Seminar, das Dein Leben bereichert.</p>
+        <a href="#kontakt" class="btn btn-primary">Alle Seminare & Termine</a>
+      </div>
+      <div class="seminare-image">
+        <div class="image-placeholder">
+          <span>Marco auf der Bühne</span>
+          <small>Seminar-Session</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SEKTION 6: TESTIMONIALS ===== -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <span class="section-label center">Echte Ergebnisse</span>
+      <h2 class="section-title">Echte Menschen, echte Veränderungen</h2>
+
+      <div class="testimonial-carousel" id="testimonialCarousel">
+        <div class="testimonial-track" id="testimonialTrack">
+          <blockquote class="testimonial-slide">
+            <div class="testimonial-quote">"</div>
+            <p>Ein beeindruckendes Training, das unsere Mannschaft auf ein neues Level gehoben hat. Die Kombination aus mentalem und körperlichem Coaching ist einzigartig.</p>
+            <footer>
+              <strong>Marcel Mobertz</strong>
+              <span>Alemannia Aachen, Aufsichtsratsvorsitzender</span>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial-slide">
+            <div class="testimonial-quote">"</div>
+            <p>Das HappyMe-HappyFamily Seminar hat unsere Familie komplett verändert. Wir kommunizieren besser und fühlen uns als Team stärker verbunden als je zuvor.</p>
+            <footer>
+              <strong>Seminar-Teilnehmerin</strong>
+              <span>HappyMe-HappyFamily</span>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial-slide">
+            <div class="testimonial-quote">"</div>
+            <p>Durch das Personal Training mit Marco habe ich nicht nur körperlich, sondern auch mental eine unglaubliche Entwicklung gemacht. Absolut empfehlenswert!</p>
+            <footer>
+              <strong>Personal Training Kunde</strong>
+              <span>Blickwinkel Training®</span>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial-slide">
+            <div class="testimonial-quote">"</div>
+            <p>Die Firmenfitness mit Life Upgreater hat unseren Teamzusammenhalt gestärkt und die Krankenquote deutlich gesenkt. Eine Investition, die sich auszahlt.</p>
+            <footer>
+              <strong>Firmenkunde</strong>
+              <span>Business Training</span>
+            </footer>
+          </blockquote>
+        </div>
+        <div class="carousel-dots" id="carouselDots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SEKTION 7: ZITAT ===== -->
+  <section class="quote-section">
+    <div class="container">
+      <blockquote class="big-quote">
+        <span class="quote-mark">"</span>
+        <p>Glücklich und gesund zu sein ist keine Frage des Glücks. Es ist eine Entscheidung – jeden Tag aufs Neue.</p>
+        <footer>– Marco Fuchs, Gründer Life Upgreater®</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ===== SEKTION 8: SELBSTTEST (LEAD-MAGNET) ===== -->
   <section class="selbsttest" id="selbsttest">
     <div class="container">
-      <h2 class="section-title">Wo stehst du gerade?</h2>
-      <p class="section-sub">Finde in 2 Minuten heraus, in welchem Lebensbereich dein größtes Upgrade-Potenzial liegt.</p>
+      <span class="section-label center">Kostenlos für Dich</span>
+      <h2 class="section-title">Finde Deinen Startpunkt</h2>
+      <p class="section-sub">In nur 2 Minuten weißt Du, wo Du stehst – und was Dein nächster Schritt ist.</p>
 
-      <!-- Test Container -->
-      <div class="test-container" id="testContainer">
-        <!-- Fortschrittsbalken -->
+      <!-- Test-Auswahl (2 Karten wie im Mockup) -->
+      <div class="test-selection" id="testSelection">
+        <div class="test-card" data-test="glueck">
+          <div class="freebee-badge">FREEBEE</div>
+          <div class="test-card-image">
+            <div class="image-placeholder dark">
+              <span>Mental</span>
+            </div>
+          </div>
+          <h3>Wie glücklich bin ich?</h3>
+          <p>Finde heraus, wie es um Deine Lebenszufriedenheit steht.</p>
+          <button class="btn btn-primary" data-start="glueck">Jetzt testen – kostenlos</button>
+        </div>
+
+        <div class="test-card" data-test="staerken">
+          <div class="freebee-badge">FREEBEE</div>
+          <div class="test-card-image">
+            <div class="image-placeholder dark">
+              <span>Körperlich</span>
+            </div>
+          </div>
+          <h3>Was kann ich?</h3>
+          <p>Entdecke Deine Stärken und Entwicklungsbereiche.</p>
+          <button class="btn btn-primary" data-start="staerken">Jetzt testen – kostenlos</button>
+        </div>
+      </div>
+
+      <!-- Selbsttest-Bereich (wird per JS eingeblendet) -->
+      <div class="test-container" id="testContainer" style="display: none;">
         <div class="test-progress">
           <div class="test-progress-bar" id="progressBar"></div>
         </div>
         <p class="test-step" id="testStep">Frage 1 von 5</p>
 
-        <!-- Fragen -->
-        <div class="test-question active" data-question="1">
-          <h3>Wie zufrieden bist du mit deiner aktuellen Lebenssituation?</h3>
+        <!-- Glückstest-Fragen -->
+        <div class="test-question" data-question="glueck-1">
+          <h3>Wie zufrieden bist Du mit Deiner aktuellen Lebenssituation?</h3>
           <div class="test-options">
             <button class="test-option" data-value="1">Sehr unzufrieden</button>
             <button class="test-option" data-value="2">Eher unzufrieden</button>
@@ -167,9 +283,8 @@
             <button class="test-option" data-value="5">Sehr zufrieden</button>
           </div>
         </div>
-
-        <div class="test-question" data-question="2">
-          <h3>Wie oft fühlst du dich im Alltag energielos oder ausgebrannt?</h3>
+        <div class="test-question" data-question="glueck-2">
+          <h3>Wie oft fühlst Du Dich im Alltag energielos oder ausgebrannt?</h3>
           <div class="test-options">
             <button class="test-option" data-value="5">Täglich</button>
             <button class="test-option" data-value="4">Mehrmals pro Woche</button>
@@ -178,9 +293,8 @@
             <button class="test-option" data-value="1">Nie</button>
           </div>
         </div>
-
-        <div class="test-question" data-question="3">
-          <h3>Hast du klare Ziele für die nächsten 12 Monate?</h3>
+        <div class="test-question" data-question="glueck-3">
+          <h3>Hast Du klare Ziele für die nächsten 12 Monate?</h3>
           <div class="test-options">
             <button class="test-option" data-value="5">Nein, gar nicht</button>
             <button class="test-option" data-value="4">Vage Vorstellungen</button>
@@ -189,9 +303,8 @@
             <button class="test-option" data-value="1">Ja, glasklar</button>
           </div>
         </div>
-
-        <div class="test-question" data-question="4">
-          <h3>Wie gut kannst du Grenzen setzen — beruflich und privat?</h3>
+        <div class="test-question" data-question="glueck-4">
+          <h3>Wie gut kannst Du Grenzen setzen – beruflich und privat?</h3>
           <div class="test-options">
             <button class="test-option" data-value="5">Sehr schlecht</button>
             <button class="test-option" data-value="4">Eher schlecht</button>
@@ -200,9 +313,8 @@
             <button class="test-option" data-value="1">Sehr gut</button>
           </div>
         </div>
-
-        <div class="test-question" data-question="5">
-          <h3>Wie oft schiebst du wichtige Entscheidungen vor dir her?</h3>
+        <div class="test-question" data-question="glueck-5">
+          <h3>Wie oft schiebst Du wichtige Entscheidungen vor Dir her?</h3>
           <div class="test-options">
             <button class="test-option" data-value="5">Ständig</button>
             <button class="test-option" data-value="4">Oft</button>
@@ -212,16 +324,68 @@
           </div>
         </div>
 
+        <!-- Stärkentest-Fragen -->
+        <div class="test-question" data-question="staerken-1">
+          <h3>Wie gut kennst Du Deine persönlichen Stärken?</h3>
+          <div class="test-options">
+            <button class="test-option" data-value="5">Gar nicht</button>
+            <button class="test-option" data-value="4">Kaum</button>
+            <button class="test-option" data-value="3">Teilweise</button>
+            <button class="test-option" data-value="2">Gut</button>
+            <button class="test-option" data-value="1">Sehr gut</button>
+          </div>
+        </div>
+        <div class="test-question" data-question="staerken-2">
+          <h3>Wie fit fühlst Du Dich körperlich im Alltag?</h3>
+          <div class="test-options">
+            <button class="test-option" data-value="5">Sehr unfit</button>
+            <button class="test-option" data-value="4">Eher unfit</button>
+            <button class="test-option" data-value="3">Mittelmäßig</button>
+            <button class="test-option" data-value="2">Eher fit</button>
+            <button class="test-option" data-value="1">Topfit</button>
+          </div>
+        </div>
+        <div class="test-question" data-question="staerken-3">
+          <h3>Wie regelmäßig bewegst Du Dich sportlich?</h3>
+          <div class="test-options">
+            <button class="test-option" data-value="5">Nie</button>
+            <button class="test-option" data-value="4">Selten (1x/Monat)</button>
+            <button class="test-option" data-value="3">Gelegentlich (1x/Woche)</button>
+            <button class="test-option" data-value="2">Regelmäßig (2-3x/Woche)</button>
+            <button class="test-option" data-value="1">Täglich</button>
+          </div>
+        </div>
+        <div class="test-question" data-question="staerken-4">
+          <h3>Hast Du Spaß an dem, was Du beruflich machst?</h3>
+          <div class="test-options">
+            <button class="test-option" data-value="5">Überhaupt nicht</button>
+            <button class="test-option" data-value="4">Eher nicht</button>
+            <button class="test-option" data-value="3">Geht so</button>
+            <button class="test-option" data-value="2">Meistens ja</button>
+            <button class="test-option" data-value="1">Absolut</button>
+          </div>
+        </div>
+        <div class="test-question" data-question="staerken-5">
+          <h3>Wie gut bringst Du Beruf und Privatleben in Einklang?</h3>
+          <div class="test-options">
+            <button class="test-option" data-value="5">Sehr schlecht</button>
+            <button class="test-option" data-value="4">Eher schlecht</button>
+            <button class="test-option" data-value="3">Mittelmäßig</button>
+            <button class="test-option" data-value="2">Eher gut</button>
+            <button class="test-option" data-value="1">Sehr gut</button>
+          </div>
+        </div>
+
         <!-- E-Mail Capture (nach dem Test) -->
         <div class="test-email" id="testEmail">
           <div class="test-email-icon">📊</div>
-          <h3>Dein Ergebnis ist bereit!</h3>
-          <p>Gib deine E-Mail-Adresse ein und erhalte deine persönliche Auswertung mit konkreten Tipps — kostenlos.</p>
+          <h3>Dein Ergebnis ist fertig!</h3>
+          <p>Gib Deine E-Mail-Adresse ein und erhalte Deine persönliche Auswertung mit konkreten Tipps – kostenlos.</p>
           <form class="email-form" id="emailForm">
             <input type="email" placeholder="Deine E-Mail-Adresse" required>
             <button type="submit" class="btn btn-primary">Ergebnis erhalten</button>
           </form>
-          <p class="email-note">Kein Spam. Du kannst dich jederzeit abmelden.</p>
+          <p class="email-note">Kein Spam. Du kannst Dich jederzeit abmelden.</p>
         </div>
 
         <!-- Ergebnis -->
@@ -232,85 +396,73 @@
           </div>
           <p class="result-score" id="resultScore"></p>
           <p id="resultText"></p>
-          <a href="#seminar" class="btn btn-primary">Dein nächster Schritt →</a>
+          <a href="#seminare" class="btn btn-primary">Dein nächster Schritt →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== ZITAT / TESTIMONIALS ===================== -->
-  <section class="testimonials" id="ueber">
-    <div class="container">
-      <h2 class="section-title">Was Teilnehmer sagen</h2>
-      <div class="testimonials-grid">
-        <blockquote class="testimonial">
-          <p>„Ich dachte, ich kenne mich selbst. Nach dem Seminar habe ich verstanden, was mich wirklich zurückgehalten hat. Seitdem läuft vieles anders — besser."</p>
-          <footer>
-            <strong>Sandra M.</strong>
-            <span>Teamleiterin, 34</span>
-          </footer>
-        </blockquote>
-        <blockquote class="testimonial">
-          <p>„Das Personal Training hat mir geholfen, endlich klare Prioritäten zu setzen. Ich verschwende keine Energie mehr an Dinge, die mir nichts bringen."</p>
-          <footer>
-            <strong>Markus K.</strong>
-            <span>Unternehmer, 41</span>
-          </footer>
-        </blockquote>
-        <blockquote class="testimonial">
-          <p>„Ich war skeptisch — Coaching ist nicht mein Ding, dachte ich. Aber die Methoden sind so praxisnah, dass sich schon in der ersten Woche etwas verändert hat."</p>
-          <footer>
-            <strong>Julia R.</strong>
-            <span>Lehrerin, 29</span>
-          </footer>
-        </blockquote>
+  <!-- ===== SEKTION 9: FOOTER ===== -->
+  <footer class="site-footer" id="kontakt">
+    <div class="container footer-grid">
+      <!-- Spalte 1: Kontakt -->
+      <div class="footer-col">
+        <a href="#" class="logo footer-logo">Life Upgreater<sup>®</sup></a>
+        <p class="footer-tagline">Trainiere mental & körperlich<br>um glücklich & gesund zu sein.</p>
+        <div class="footer-contact">
+          <p><strong>Marco Fuchs</strong> – Inhaber & Geschäftsführer<br>📱 0173 – 19 49 242</p>
+          <p><strong>Lisa Fuchs</strong> – Inhaberin & Geschäftsführerin<br>📱 0176 – 644 711 48</p>
+          <p>📧 info@life-upgreater.com</p>
+        </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ===================== KONTAKT / FOOTER ===================== -->
-  <section class="kontakt" id="kontakt">
-    <div class="container">
-      <h2 class="section-title">Bereit für dein Upgrade?</h2>
-      <p class="section-sub">Schreib mir eine Nachricht oder buch direkt dein kostenloses Erstgespräch.</p>
-      <div class="kontakt-grid">
-        <form class="kontakt-form" id="kontaktForm">
-          <input type="text" placeholder="Dein Name" required>
-          <input type="email" placeholder="Deine E-Mail" required>
-          <select>
-            <option value="" disabled selected>Wofür interessierst du dich?</option>
-            <option value="seminar">Seminar</option>
-            <option value="personal">Personal Training</option>
-            <option value="business">Business Training</option>
-            <option value="sonstiges">Sonstiges</option>
-          </select>
-          <textarea placeholder="Deine Nachricht (optional)" rows="4"></textarea>
-          <button type="submit" class="btn btn-primary btn-lg">Nachricht senden</button>
+      <!-- Spalte 2: Angebote / Links -->
+      <div class="footer-col">
+        <h4>Angebote</h4>
+        <ul class="footer-links">
+          <li><a href="#seminare">Seminare</a></li>
+          <li><a href="#angebote">Personal Training</a></li>
+          <li><a href="#angebote">Business Training</a></li>
+          <li><a href="#ueber">Über uns</a></li>
+          <li><a href="#selbsttest">Selbsttest</a></li>
+        </ul>
+        <h4>Online-Shop</h4>
+        <ul class="footer-links">
+          <li><a href="#">Equipment</a></li>
+          <li><a href="#">Gutscheine</a></li>
+          <li><a href="#">Kurse</a></li>
+        </ul>
+      </div>
+
+      <!-- Spalte 3: Newsletter -->
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <p>Abonniere unseren Newsletter für eine gemeinsame Weiterentwicklung. Bleibe auf dem neuesten Stand über Angebote, Neuigkeiten und Trends.</p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="text" placeholder="Vorname">
+          <input type="email" placeholder="E-Mail" required>
+          <label class="checkbox-label">
+            <input type="checkbox" required>
+            <span>Ich habe die Datenschutzbestimmungen gelesen und erkenne diese ausdrücklich an.</span>
+          </label>
+          <button type="submit" class="btn btn-primary">Anmelden</button>
         </form>
-        <div class="kontakt-info">
-          <h3>Oder direkt:</h3>
-          <p>📧 info@life-upgreater.de</p>
-          <p>📱 +49 123 456 789</p>
-          <p>📍 München, Deutschland</p>
-          <div class="social-links">
-            <a href="#" aria-label="Instagram">Instagram</a>
-            <a href="#" aria-label="LinkedIn">LinkedIn</a>
-            <a href="#" aria-label="YouTube">YouTube</a>
-          </div>
-        </div>
       </div>
     </div>
-  </section>
 
-  <footer class="footer">
-    <div class="container footer-container">
-      <a href="#" class="logo">LIFE <span>UPGREATER</span></a>
-      <div class="footer-links">
-        <a href="#">Impressum</a>
-        <a href="#">Datenschutz</a>
-        <a href="#">AGB</a>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <div class="footer-legal">
+          <a href="#">Kooperationen</a>
+          <a href="#">Downloads</a>
+          <a href="#">AGB</a>
+          <a href="#">Widerrufsbelehrung</a>
+          <a href="#">Datenschutz</a>
+          <a href="#">Impressum</a>
+          <a href="#">Kontakt</a>
+        </div>
+        <p class="footer-copy">© 2026 Life Upgreater®. Alle Rechte vorbehalten.</p>
       </div>
-      <p class="footer-copy">© 2026 Life Upgreater. Alle Rechte vorbehalten.</p>
     </div>
   </footer>
 
