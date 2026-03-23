@@ -1,0 +1,441 @@
+
+LIFE UPGREATER®
+Upgreat your Life
+
+Homepage – Detaillierte Seitenspezifikation
+Basierend auf dem Mockup-Design (lifeupgreaterfinal.pdf)
+Angepasst an das neue Conversion-Konzept
+
+Legende in diesem Dokument:
+ 
+ = Element aus dem bestehenden Mockup
+ 
+ = Anpassung / Ergänzung gemäß Neukonzept
+ 
+ = Design-Hinweis für den Entwickler
+
+März 2026 | www.life-upgreater.com
+
+Design-Analyse des Mockups
+
+Das vorliegende Mockup (lifeupgreaterfinal.pdf) zeigt ein modernes, dunkles Design mit klarer Struktur. Hier die extrahierten Design-Entscheidungen, die beibehalten werden:
+
+Farbschema (aus dem Mockup)
+Farbe
+Hex-Wert
+Verwendung
+Dunkler Hintergrund
+#1A1A1A / #2A2220
+Hauptflächen, Sections mit dunklem Look
+Rot (CTA)
+#CC2936
+Buttons, Akzente, Navigation-Highlights, Section-Labels
+Weiß
+#FFFFFF
+Texte auf dunklem Grund, Zwischensections
+Helles Grau
+#F5F5F5
+Helle Hintergrundsections (z.B. Angebote)
+Gold/Beige
+#C8A951
+Premium-Akzente, Zitat-Section
+
+Typografie (aus dem Mockup)
+Headlines: Groß, fett, Weiß auf dunklem Grund – starker Kontrast. Body: Helle, gut lesbare Schrift auf dunklem Grund. CTA-Buttons: Rot mit weißem Text, gerundete Ecken, klare Beschriftung. Section-Labels: Rote Kleinbuchstaben-Labels über den Headlines (z.B. "Über uns", "Unsere Angebote für Dich").
+
+Layout-Prinzipien (aus dem Mockup)
+Full-Width Sections mit alternierenden Hintergründen (dunkel / hell / dunkel). Klare visuelle Trennung der Bereiche. Große, emotionale Bilder (Marco in Aktion als Hero-Bild). Kartenbasiertes Layout für Angebote (3-Spalten). Zentrierte Inhalte mit großzügigem Whitespace.
+
+Sektion 0: Navigation & Top-Bar
+
+0a
+Announcement Bar (Top-Bar)
+Hintergrund: Rot (#CC2936)
+
+📋 Aus dem Mockup: "Bist du bereit zum Glücklichsein? Nimm jetzt Kontakt auf!" – Roter Balken ganz oben.
+✅ Anpassung Neukonzept: Beibehalten. Ggf. rotierend mit Seminar-Terminen: "Nächstes Seminar: HappyMe-HappyFamily am [Datum] – Jetzt buchen!"
+🎨 Design-Hinweis: Sticky on Scroll: Nein. Nur sichtbar ganz oben. Klick öffnet Kontaktseite oder scrollt zum Footer.
+
+0b
+Hauptnavigation
+Hintergrund: Dunkel (#1A1A1A)
+
+📋 Aus dem Mockup: Logo links: "Life Upgreater®" | Menüpunkte: Startseite, Über uns, Unsere Angebote (Dropdown mit Personal Coaching / Kurs-Angebote / Business-Angebote), Teste Dich selbst, Seminare, Online-Shop | Rechts: Roter "Kontakt"-Button
+
+✅ Anpassung Neukonzept: Navigation anpassen an die neue Struktur. Weniger Punkte, klarer fokussiert:
+
+Position
+Menüpunkt
+Funktion
+Links
+Logo: Life Upgreater®
+Link zur Startseite
+Mitte
+Seminare
+Direkt-Link zu /seminare (Landing Page)
+Mitte
+Business Training
+Direkt-Link zu /business (Landing Page)
+Mitte
+Personal Training
+Direkt-Link zu /personal-training (Landing Page)
+Mitte
+Über uns
+Link zu /ueber-uns
+Mitte
+Selbsttest
+Link zum Selbsttest-Funnel
+Rechts
+Kontakt (roter Button)
+Link zu /kontakt oder Scroll-to-Footer
+
+🎨 Design-Hinweis: Sticky Navigation: Ja – bleibt beim Scrollen fixiert. Auf Mobile: Hamburger-Menü. Der rote Kontakt-Button bleibt als Floating-Button auf Mobile sichtbar.
+
+Sektion 1: Hero-Bereich
+
+1
+Hero Section
+Hintergrund: Dunkler Hintergrund mit Bild-Overlay
+
+📋 Aus dem Mockup: Großes Foto von Marco (energisch, auf einer Bühne/im Training). Darauf: Headline "Entfalte Dein volles Potenzial mit Life Upgreater®" + Subline "Deine Reise zu einem glücklicheren, gesünderen Ich beginnt hier." + CTA-Button "Starte jetzt deine Transformation" (rot). Rechts im Bild: Handschriftlicher Text "Upgreat your Life".
+
+✅ Anpassung Neukonzept: Headline und Subline beibehalten – sie treffen den Kern. Den CTA-Button konkretisieren: Statt "Starte jetzt deine Transformation" (zu vage) besser:
+
+Angepasster Hero-Content
+Headline: "Entfalte Dein volles Potenzial mit Life Upgreater®"
+→ Beibehalten aus dem Mockup – stark, klar, markenkonform.
+
+Subline: "Trainiere körperlich & mental – um glücklich & gesund zu sein."
+→ Angepasst. Konkreter als "Deine Reise zu einem glücklicheren..." – benennt direkt den Ansatz (körperlich + mental).
+
+Primärer CTA: "Finde Dein Angebot" (rot, groß)
+→ Scrollt zur Angebots-Sektion. Niedrigschwelliger als "Transformation starten".
+
+Sekundärer CTA: "Kostenloser Selbsttest" (Ghost-Button / weißer Rahmen)
+→ Neu hinzugefügt als Lead-Magnet-Einstieg für Besucher, die noch nicht kaufbereit sind.
+
+Visuell: Bild von Marco beibehalten. Handschrift-Element "Upgreat your Life" beibehalten – persönliche Note.
+🎨 Design-Hinweis: Hero-Höhe: 90vh (fast Fullscreen). Bild: Cover mit dunklem Gradient-Overlay (links dunkel → rechts transparent), damit der Text lesbar bleibt. Auf Mobile: Text zentriert, Bild als Hintergrund.
+
+Sektion 2: Vertrauensleiste (NEU)
+
+2
+Trust Bar / Social Proof Leiste
+Hintergrund: Dunkelblau (#1B2A4A)
+
+📋 Aus dem Mockup: Im Mockup nicht explizit vorhanden. Die aktuelle Website zeigt Marcel Mobertz (Alemannia Aachen) als Testimonial weiter unten.
+
+✅ Anpassung Neukonzept: Direkt unter dem Hero eine kompakte Vertrauensleiste einfügen. Diese fehlt im Mockup, ist aber für die Conversion entscheidend.
+
+Inhalt der Vertrauensleiste
+Vier Elemente nebeneinander in einer Reihe:
+
+Element
+Text
+Icon/Symbol
+Erfahrung
+"Seit 2017 aktiv"
+Kalender-Icon
+Teilnehmer
+"500+ Teilnehmer"
+Personen-Icon
+Bewertung
+"4.9 ★ Bewertung"
+Stern-Icon
+Standort
+"Aachen & Online"
+Pin-Icon
+
+🎨 Design-Hinweis: Dunkelblauer Hintergrund. Weiße Schrift. Icons in Gold. Kompakte Höhe (~80px). Auf Mobile: 2x2 Grid.
+
+Sektion 3: Über uns – Kurzvorstellung
+
+3
+Über uns Teaser
+Hintergrund: Warmes Dunkel (#2A2220) / dunkler Hintergrund
+
+📋 Aus dem Mockup: Section-Label in Rot: "Über uns". Headline: "Die Gesichter hinter Life Upgreater® – Marco & Lisa". Darunter: Teaser-Text mit Erwähnung der persönlichen Geschichte. Roter CTA-Button: "Erfahre mehr". Rechts daneben: Foto von Marco & Lisa.
+
+✅ Anpassung Neukonzept: Struktur beibehalten, Text schärfen. Die Sektion bleibt bewusst kurz – sie ist ein Teaser, keine vollständige Bio.
+
+Angepasster Content
+Section-Label: "Über uns" (rot, Kleinbuchstaben mit Spacing – wie im Mockup)
+Headline: "Die Gesichter hinter Life Upgreater® – Marco & Lisa"
+→ Beibehalten – funktioniert gut.
+
+Text (NEU, schärfer): "Als zertifizierte Trainer und Coaches verbinden wir körperliches mit mentalem Training. Unsere persönliche Geschichte hat uns gelehrt: Wahres Glück entsteht, wenn Kopf und Körper zusammenarbeiten. Heute helfen wir Menschen, Familien und Unternehmen in der Region Aachen, ihr volles Potenzial zu entfalten."
+→ Konkreter als der Lorem-Ipsum-Platzhalter im Mockup. Nennt die drei Zielgruppen (Menschen, Familien, Unternehmen) und den Standort.
+
+CTA: "Lerne uns kennen" (roter Button → /ueber-uns)
+Visuell: Warmes Foto von Marco & Lisa – wie im Mockup. Dunkler Hintergrund mit hellem Text.
+
+🎨 Design-Hinweis: Layout: 60% Text (links) / 40% Bild (rechts). Auf Mobile: Bild oben, Text unten. Abstand zur vorherigen Sektion: ~80px.
+
+Sektion 4: Unsere Angebote (Kernstück)
+
+4
+Angebotsübersicht – 3 Karten
+Hintergrund: Heller Hintergrund (#F5F5F5)
+
+📋 Aus dem Mockup: Section-Label in Rot: "Unsere Angebote für Dich". Headline: "Maßgeschneiderte Lösungen für Dein Wachstum". Drei Karten nebeneinander: (1) Personal Coaching – "Persönliche Betreuung durch Marco & Lisa" (2) Kurs-Angebote – "Kurse, die Dich bewegen – Mamaletics® & Yogaletics®" (3) Business-Angebote – "Firmenfitness & Personal Training". Jede Karte hat ein Bild oben, Titel, Subtext, und einen roten CTA-Button.
+
+✅ Anpassung Neukonzept: Dies ist die ZENTRALE SEKTION für die neue Conversion-Strategie. Die drei Karten werden zu den drei Landing Pages umstrukturiert. Statt "Kurs-Angebote" (Mamaletics/Yogaletics) als eigene Säule wird "Seminare" zum Hauptangebot. Kurs-Angebote können als Unterkategorie bei Personal Training eingebunden werden.
+
+Angepasster Content
+Section-Label: "Unsere Angebote für Dich" (beibehalten)
+Headline: "Finde den richtigen Weg für Dein Upgrade"
+→ Angepasst. Aktiver als "Maßgeschneiderte Lösungen" – lädt zum Klicken ein.
+
+Karte 1: Seminare (NEU als Hauptangebot)
+Element
+Inhalt
+Bild
+Emotionales Seminar-Foto (z.B. HappyMe-HappyFamily Gruppenbild)
+Titel
+"Seminare"
+Untertitel
+"Impulse für ein erfüllteres Leben"
+Subtext
+"Für Familien, Paare & alle, die Verbindung suchen. Präsenz & Online."
+CTA
+"Seminare entdecken" (roter Button → /seminare)
+
+Karte 2: Personal Training (aus dem Mockup)
+Element
+Inhalt
+Bild
+Dynamisches Training-Foto (Marco/Lisa in Aktion)
+Titel
+"Personal Training"
+Untertitel
+"Körperlich & Mental – Dein 1:1 Coach"
+Subtext
+"Maßgeschneidertes Training mit Marco & Lisa. Inkl. Blickwinkel Training®."
+CTA
+"Training starten" (roter Button → /personal-training)
+
+Karte 3: Business Training (aus dem Mockup, umbenannt)
+Element
+Inhalt
+Bild
+Business-/Team-Foto (Firmenfitness in Aktion)
+Titel
+"Business Training"
+Untertitel
+"Stärke Dein Team – Firmenfitness & Coaching"
+Subtext
+"Firmenfitness, Gesundheitstage, Teambuilding – für Unternehmen in der Region."
+CTA
+"Angebot für Firmen" (roter Button → /business)
+
+🎨 Design-Hinweis: Karten-Layout wie im Mockup: 3 Spalten, gleiche Höhe, Bild oben (16:9), darunter weiße Fläche mit Text und CTA. Hover-Effekt: Leichter Schatten + Bild-Zoom. Auf Mobile: Gestapelt (1 Spalte). Jede Karte ist vollflächig klickbar.
+
+Sektion 5: Seminare Highlight
+
+5
+Seminar-Teaser mit nächstem Termin
+Hintergrund: Dunkler Hintergrund (#1A1A1A)
+
+📋 Aus dem Mockup: Section-Label: "Seminare". Headline: "Seminare für ein erfüllteres Leben". Subline: "Erfahre mehr über unsere exklusiven Seminare für Eltern, Paare und alle, die mehr Verbindung suchen." Roter CTA: "Zu den Seminaren". Rechts: Bild von einer Seminar-Session (Marco auf Bühne).
+
+✅ Anpassung Neukonzept: Diesen Bereich nutzen, um den NÄCHSTEN SEMINAR-TERMIN prominent zu bewerben. Das erzeugt Dringlichkeit und erhöht die Conversion.
+
+Angepasster Content
+Section-Label: "Seminare" (rot)
+Headline: "Seminare für ein erfüllteres Leben" (beibehalten)
+Subline: "Nächster Termin: [Seminarname] am [Datum] – [Ort/Online]"
+→ NEU: Konkreter Termin erzeugt Dringlichkeit und Handlungsdruck.
+
+Kurztext: "Unsere Impulsseminare verbinden körperliches und mentales Training. Von Familienseminaren über Gesundheits-Workshops bis zu Partnerschafts-Impulsen – finde das Seminar, das Dein Leben bereichert."
+CTA: "Alle Seminare & Termine" (roter Button → /seminare)
+Visuell: Bild von Marco auf der Bühne (wie im Mockup). Optional: Countdown-Timer bis zum nächsten Seminar.
+
+🎨 Design-Hinweis: Layout: 55% Text (links) / 45% Bild (rechts), wie im Mockup. Dunkler Hintergrund. Bild leicht überlappend zur nächsten Sektion für visuellen Flow.
+
+Sektion 6: Social Proof – Testimonials
+
+6
+Kundenstimmen / Testimonials
+Hintergrund: Hell (#F5F5F5)
+
+📋 Aus dem Mockup: Section-Label: "Unsere Angebote für Dich" (fehlerhaft im Mockup – hier sollte ein Testimonial-Label stehen). Headline: "Echte Menschen, echte Veränderungen". Darunter: Karussell mit Testimonial-Bildern und Zitat von Marcel Mobertz (Alemannia Aachen, Aufsichtsratsvorsitzender).
+
+✅ Anpassung Neukonzept: Testimonial-Bereich deutlich aufwerten. Statt nur einem Zitat: Karussell mit 3–4 Testimonials aus verschiedenen Bereichen.
+
+Angepasster Content
+Section-Label: "Echte Ergebnisse" (rot)
+Headline: "Echte Menschen, echte Veränderungen" (beibehalten – stark!)
+
+Testimonial-Karussell mit folgenden Kundenstimmen:
+
+Testimonial
+Bereich
+Besonderheit
+Marcel Mobertz – Alemannia Aachen
+Business / Kooperation
+Prominente Referenz, schafft B2B-Vertrauen
+Teilnehmer*in HappyMe-HappyFamily
+Seminare / Familie
+Emotionale Transformation – zieht Familien an
+Personal Training Kunde*in
+Personal Training
+Messbare Ergebnisse (z.B. Lothar, Conny)
+Firmenkunde (z.B. NEA/Prym)
+Business Training
+Professionelle Empfehlung für Firmenkunden
+
+Jedes Testimonial besteht aus: Foto der Person, Zitat (2–3 Sätze), Name + Kontext. Optional: Link zum Video-Testimonial.
+
+🎨 Design-Hinweis: Karussell mit Auto-Rotation (alle 6 Sek). Navigationspunkte (Dots) unten. Große Anführungszeichen als Design-Element (wie im Mockup bei der Zitat-Sektion). Auf Mobile: Swipe-fähig.
+
+Sektion 7: Inspirational Quote
+
+7
+Zitat / Motivations-Section
+Hintergrund: Warmer dunkler Hintergrund
+
+📋 Aus dem Mockup: Große Anführungszeichen. Zitat: "Der einzige Weg, großartige Arbeit zu leisten, ist, das zu lieben, was man tut. Wenn du es noch nicht gefunden hast, suche weiter. Gib nicht auf. Wie bei allen Herzensangelegenheiten wirst du es wissen, wenn du es gefunden hast."
+
+✅ Anpassung Neukonzept: Sektion beibehalten – sie gibt der Seite einen emotionalen Ruhepunkt zwischen den Angeboten. Aber: Eigenes Zitat von Marco oder Lisa verwenden statt ein generisches Zitat. Das stärkt die Personenmarke.
+
+Angepasster Content
+Option A (empfohlen): Eigenes Zitat von Marco, z.B.: "Glücklich und gesund zu sein ist keine Frage des Glücks. Es ist eine Entscheidung – jeden Tag aufs Neue." – Marco Fuchs, Gründer Life Upgreater®
+
+Option B: Das bestehende Zitat beibehalten, wenn kein eigenes vorliegt.
+
+🎨 Design-Hinweis: Volle Breite. Große Anführungszeichen in Gold/Creme. Schriftgröße: ~28px. Zentriert. Minimalistische Gestaltung. Padding: 120px oben/unten.
+
+Sektion 8: Selbsttest-Bereich (Lead-Magnet)
+
+8
+Selbsttest / Finde Deinen Startpunkt
+Hintergrund: Weiß / Hell
+
+📋 Aus dem Mockup: Section-Label: "Selbst-Tests". Headline: "Finde Deinen Startpunkt". Subline: "Sind mentale oder körperliche Herausforderungen Dein nächster Schritt?". Erklärtext: "Grundsatzätzlich unterscheiden wir zwischen mentalem und körperlichem Training. Beides ist unserer Meinung nach wichtig um glücklich UND gesund zu sein." Zwei Test-Karten: (1) "Wie glücklich bin ich?" – FREEBEE (2) "Was kann ich?" – FREEBEE. Jede mit rotem Button: "Starte mit dem Test". CTA unten: "Zum Testbereich".
+
+✅ Anpassung Neukonzept: Dieser Bereich ist der zentrale Lead-Magnet. Die Struktur aus dem Mockup ist gut – sie wird zum echten Conversion-Tool ausgebaut.
+
+Angepasster Content
+Section-Label: "Kostenlos für Dich" (rot)
+→ Statt "Selbst-Tests" – betont den Gratis-Charakter und senkt die Hürde.
+
+Headline: "Finde Deinen Startpunkt" (beibehalten)
+Subline: "In nur 2 Minuten weißt Du, wo Du stehst – und was Dein nächster Schritt ist."
+→ Konkreter: Zeitangabe ("2 Minuten") senkt die Hürde. Nutzenversprechen ("was Dein nächster Schritt ist").
+
+Test-Karten (beibehalten, optimiert)
+Karte
+Titel
+Beschreibung
+CTA
+Test 1
+"Wie glücklich bin ich?"
+"Finde heraus, wie es um Deine Lebenszufriedenheit steht."
+"Jetzt testen – kostenlos"
+Test 2
+"Was kann ich?"
+"Entdecke Deine Stärken und Entwicklungsbereiche."
+"Jetzt testen – kostenlos"
+
+FREEBEE-Badge: Beibehalten aus dem Mockup (grün/gold). Signalisiert: "kostenlos".
+
+✅ Anpassung Neukonzept: WICHTIG: Nach dem Test → E-Mail-Eingabe für das Ergebnis. Das ist der Lead-Capture-Moment. Im Mockup fehlt dieser Schritt – er muss in der Umsetzung ergänzt werden. Ablauf: Fragen beantworten → "Dein Ergebnis ist fertig!" → E-Mail eingeben → Ergebnis per E-Mail + auf Dankeseite → Follow-up E-Mail-Serie.
+
+🎨 Design-Hinweis: Karten-Layout wie im Mockup: 2 Spalten, weißer Hintergrund, Bild oben, Text darunter, roter CTA-Button. "FREEBEE"-Badge schräg über der Karte. Auf Mobile: 1 Spalte, gestapelt.
+
+Sektion 9: Footer
+
+9
+Footer / Abschlussbereich
+Hintergrund: Dunkler Hintergrund (#1A1A1A)
+
+📋 Aus dem Mockup: Drei-Spalten-Layout: (1) Links: "Life Upgreater" mit Kontaktdaten – Marco Fuchs (0173-19 49 242), Lisa Fuchs (0176-644 711 48), info@life-upgreater.com. (2) Mitte: "Online-Shop" – Kategorien: Equipment, Food, Gutscheine, Kurse, Schulungen, Seminare, Training. (3) Rechts: "Newsletter" – Anmeldeformular (Vorname, Nachname, E-Mail) + Datenschutz-Checkbox + roter "Anmelden"-Button. Ganz unten: Kooperationen | Downloads | AGB | Widerrufsbelehrung | Datenschutz | Impressum | Kontakt
+
+✅ Anpassung Neukonzept: Footer-Struktur anpassen an die neue Navigation. Shop-Kategorien durch die Landing Page Links ersetzen.
+
+Angepasster Footer
+
+Spalte 1: Kontakt
+Spalte 2: Angebote
+Spalte 3: Newsletter
+Life Upgreater®
+Seminare
+"Bleib auf dem Laufenden"
+Marco Fuchs – 0173 – 19 49 242
+Personal Training
+Vorname
+Lisa Fuchs – 0176 – 644 711 48
+Business Training
+E-Mail
+info@life-upgreater.com
+Über uns
+Datenschutz-Checkbox
+Adresse (Aachen)
+Blog / Impulse
+Roter "Anmelden"-Button
+
+Online-Shop
+
+
+Footer-Links (unten): Impressum | Datenschutz | AGB | Widerrufsbelehrung | Kooperationen | Presse
+
+✅ Anpassung Neukonzept: WhatsApp-Icon neben den Telefonnummern einfügen. Viele Nutzer in der Zielgruppe 35–54 bevorzugen WhatsApp für den Erstkontakt.
+🎨 Design-Hinweis: Dark Footer wie im Mockup. Weiße/graue Schrift. Newsletter-Formular mit rotem Button. Social Media Icons (Instagram, Facebook, LinkedIn) ergänzen.
+
+Zusammenfassung: Mockup vs. Neukonzept
+
+Diese Übersicht zeigt, welche Elemente aus dem Mockup übernommen werden, welche angepasst und welche neu hinzugefügt werden.
+
+Sektion
+Mockup-Status
+Anpassung
+Top-Bar (rot)
+✓ Vorhanden
+Text ggf. durch Seminar-Termine rotieren
+Navigation
+✓ Vorhanden
+Vereinfacht: 6 Punkte statt 7+ mit Dropdown
+Hero
+✓ Vorhanden
+Subline schärfer, 2 CTAs statt 1
+Vertrauensleiste
+✗ Fehlt
+NEU – 4 Trust-Elemente unter dem Hero
+Über uns Teaser
+✓ Vorhanden
+Text konkretisiert (statt Lorem Ipsum)
+Angebots-Karten
+✓ Vorhanden (3)
+Umstrukturiert: Seminare / PT / Business
+Seminar-Highlight
+✓ Vorhanden
+Nächster Termin + Dringlichkeit ergänzt
+Testimonials
+✓ Vorhanden
+Von 1 Zitat auf 3–4 Karussell erweitert
+Zitat-Sektion
+✓ Vorhanden
+Eigenes Zitat statt generisches empfohlen
+Selbsttest-Bereich
+✓ Vorhanden (2 Tests)
+E-Mail-Capture nach Test ergänzt
+Footer
+✓ Vorhanden
+Navigation angepasst, WhatsApp + Social Icons
+
+
+Gesamtbewertung des Mockups
+Das Mockup liefert eine sehr solide Design-Grundlage. Das dunkle Farbschema wirkt modern und professionell, die Struktur ist logisch aufgebaut und die roten CTA-Buttons sind auffällig platziert. Die Hauptanpassungen betreffen nicht das Design, sondern die strategische Ausrichtung der Inhalte auf Conversion:
+
+1. Fokus auf 3 Landing Pages: Statt "Personal Coaching / Kurs-Angebote / Business" wird auf "Seminare / Personal Training / Business Training" umgestellt – weil Seminare das skalierbarste Produkt sind.
+
+2. Vertrauensleiste: Direkt unter dem Hero einfügen – sofortige Glaubwürdigkeit.
+
+3. Selbsttest als Lead-Magnet: Der Testbereich im Mockup ist bereits vorhanden, braucht aber den E-Mail-Capture-Schritt für die Lead-Generierung.
+
+4. Konkrete Texte: Alle Lorem-Ipsum-Platzhalter durch conversion-optimierte Texte ersetzen (in diesem Dokument bereitgestellt).
+
+
+
+Life Upgreater® – Upgreat your Life
+Marco & Lisa Fuchs | www.life-upgreater.com | info@life-upgreater.com
