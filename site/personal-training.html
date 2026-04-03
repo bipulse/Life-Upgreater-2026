@@ -506,6 +506,10 @@
         border-bottom: 1px solid rgba(255,255,255,0.06);
         z-index: 200;
       }
+      .nav-sub.open { display: block !important; }
+      .nav-sub.open .nav-sub-inner { grid-template-columns: 1fr; gap: 0; }
+      .nav-sub.open .nav-sub-item { padding: 12px 14px; border-bottom: 1px solid rgba(255,255,255,0.04); }
+      .nav-sub.open .nav-sub-item p { display: none; }
       .intro-usps { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
       .coaches-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
       .steps-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
@@ -887,6 +891,8 @@
   /* Nav Toggle */
   document.getElementById('navToggle').addEventListener('click', () => {
     document.getElementById('navLinks').classList.toggle('open');
+    var sub = document.querySelector('.nav-sub');
+    if (sub) sub.classList.toggle('open');
   });
 
   /* Scroll Reveal */
