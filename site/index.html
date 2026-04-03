@@ -1662,8 +1662,12 @@
     next.addEventListener('click', () => goTo(current + 1));
     dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.slide)));
 
-    /* Auto-rotate alle 6 Sek */
-    setInterval(() => goTo(current + 1), 6000);
+    /* Auto-rotate alle 6 Sek, pausiert bei Hover */
+    let paused = false;
+    setInterval(() => { if (!paused) goTo(current + 1); }, 6000);
+    const aboutSection = document.getElementById('about');
+    aboutSection.addEventListener('mouseenter', () => { paused = true; });
+    aboutSection.addEventListener('mouseleave', () => { paused = false; });
 
     /* Touch/Swipe für Mobile */
     let startX = 0;
