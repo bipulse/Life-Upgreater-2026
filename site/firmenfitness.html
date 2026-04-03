@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firmenfitness – Life Upgreater®</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    @font-face { font-family: 'DIN Alternate'; src: url('fonts/din-alternate-bold.otf') format('opentype'); font-weight: 700; font-style: normal; font-display: swap; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg-dark: #1A1A1A; --bg-dark-warm: #2A2220; --bg-trust: #2A2220;
+      --red: #CC2936; --red-hover: #E03040; --white: #FFFFFF; --light-gray: #F5F5F5;
+      --gold: #C8A951; --text-light: #CCCCCC; --text-muted: #999999;
+      --font-display: 'DIN Alternate', 'Source Sans 3', sans-serif;
+      --font-body: 'Source Sans 3', sans-serif; --font-accent: 'Lora', Georgia, serif;
+      --max-w: 1200px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--white); background: var(--bg-dark); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; cursor: pointer; }
+    ul { list-style: none; }
+    .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+    .btn { display: inline-block; padding: 14px 28px; border-radius: 8px; font-family: var(--font-body); font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.25s; border: 2px solid transparent; }
+    .btn-red { background: var(--red); color: var(--white); border-color: var(--red); }
+    .btn-red:hover { background: var(--red-hover); border-color: var(--red-hover); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(204,41,54,0.3); }
+    .btn-ghost { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.5); }
+    .btn-ghost:hover { background: rgba(255,255,255,0.08); }
+    .label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); margin-bottom: 14px; }
+
+    /* NAV */
+    .nav { background: var(--bg-dark); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .nav-main { display: flex; align-items: center; justify-content: space-between; height: 64px; max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+    .nav-logo { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; white-space: nowrap; }
+    .nav-logo sup { color: var(--red); font-size: 0.7em; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--text-light); transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-links .active { color: var(--white); }
+    .nav-links .nav-cta { background: var(--red); color: #fff !important; padding: 9px 22px; border-radius: 6px; }
+    .nav-links .nav-cta:hover { background: var(--red-hover); }
+    .nav-sub { background: #222; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .nav-sub-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+    .nav-sub-item { display: block; padding: 10px 14px; border-radius: 6px; text-decoration: none; color: inherit; cursor: pointer; transition: background 0.2s, border-color 0.2s; border: 1px solid transparent; }
+    .nav-sub-item:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.1); }
+    .nav-sub-item h4 { font-family: var(--font-display); font-size: 0.9rem; font-weight: 700; margin-bottom: 2px; }
+    .nav-sub-item h4::after { content: ' \2192'; opacity: 0; transition: opacity 0.2s; }
+    .nav-sub-item:hover h4::after { opacity: 1; }
+    .nav-sub-item p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-hamburger span { width: 24px; height: 2px; background: #fff; border-radius: 2px; }
+
+    /* HERO */
+    .hero-sub-page { position: relative; min-height: 50vh; display: flex; align-items: center; background: var(--bg-dark); overflow: hidden; }
+    .hero-sub-page .hero-img { position: absolute; inset: 0; background: url('img/business-team.jpg') center center / cover no-repeat; }
+    .hero-sub-page .hero-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, rgba(26,26,26,0.95) 0%, rgba(26,26,26,0.82) 35%, rgba(26,26,26,0.4) 65%, rgba(26,26,26,0.25) 100%); }
+    .hero-sub-page .hero-body { position: relative; z-index: 2; max-width: var(--max-w); margin: 0 auto; padding: 0 32px; width: 100%; }
+    .hero-sub-page h1 { font-family: var(--font-display); font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 700; line-height: 1.1; max-width: 560px; margin-bottom: 14px; }
+    .hero-sub-page .hero-subtitle { font-size: 1.1rem; color: var(--text-light); max-width: 500px; line-height: 1.6; }
+
+    /* OVERVIEW */
+    .overview { background: var(--bg-dark-warm); padding: 80px 0 90px; }
+    .overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+    .overview-text h2 { font-family: var(--font-display); font-size: clamp(1.6rem, 3.5vw, 2.3rem); font-weight: 700; line-height: 1.15; margin-bottom: 18px; }
+    .overview-text p { font-size: 0.95rem; color: var(--text-light); line-height: 1.75; margin-bottom: 14px; }
+    .overview-sidebar { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 32px 28px; }
+    .overview-sidebar h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; }
+    .sidebar-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; }
+    .sidebar-item svg { width: 20px; height: 20px; stroke: var(--gold); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; margin-top: 2px; }
+    .sidebar-label { font-size: 0.78rem; color: var(--text-muted); }
+    .sidebar-value { font-size: 0.92rem; font-weight: 600; }
+    .sidebar-cta { margin-top: 24px; }
+    .sidebar-cta .btn { width: 100%; text-align: center; }
+
+    /* PROGRAMME */
+    .programme { background: var(--bg-dark); padding: 80px 0 90px; }
+    .programme-head { text-align: center; margin-bottom: 48px; }
+    .programme-head h2 { font-family: var(--font-display); font-size: clamp(1.6rem, 3.5vw, 2.3rem); font-weight: 700; }
+    .programme-timeline { max-width: 700px; margin: 0 auto; position: relative; }
+    .programme-timeline::before { content: ''; position: absolute; left: 24px; top: 0; bottom: 0; width: 2px; background: rgba(204,41,54,0.3); }
+    .prog-item { position: relative; padding-left: 64px; margin-bottom: 32px; }
+    .prog-dot { position: absolute; left: 15px; top: 4px; width: 20px; height: 20px; background: var(--red); border-radius: 50%; border: 3px solid var(--bg-dark); }
+    .prog-time { font-family: var(--font-display); font-size: 0.82rem; font-weight: 700; color: var(--gold); margin-bottom: 4px; }
+    .prog-item h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; }
+    .prog-item p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; }
+
+    /* FOR WHOM */
+    .for-whom { background: var(--bg-dark-warm); padding: 80px 0 90px; }
+    .for-whom-head { text-align: center; margin-bottom: 40px; }
+    .for-whom-head h2 { font-family: var(--font-display); font-size: clamp(1.6rem, 3.5vw, 2.3rem); font-weight: 700; }
+    .for-whom-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .for-whom-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 28px 24px; text-align: center; transition: transform 0.3s, border-color 0.3s; }
+    .for-whom-card:hover { transform: translateY(-4px); border-color: rgba(204,41,54,0.3); }
+    .for-whom-card svg { width: 36px; height: 36px; stroke: var(--gold); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; margin: 0 auto 14px; }
+    .for-whom-card h4 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .for-whom-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.65; }
+
+    /* TRAINERS */
+    .trainers { background: var(--bg-dark); padding: 80px 0 90px; }
+    .trainers-head { text-align: center; margin-bottom: 40px; }
+    .trainers-head h2 { font-family: var(--font-display); font-size: clamp(1.6rem, 3.5vw, 2.3rem); font-weight: 700; }
+    .trainers-row { display: flex; justify-content: center; gap: 48px; }
+    .trainer-mini { text-align: center; }
+    .trainer-mini img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 14px; border: 3px solid rgba(200,169,81,0.3); }
+    .trainer-mini h4 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; }
+    .trainer-mini p { font-size: 0.82rem; color: var(--text-muted); }
+    .trainer-mini .trainer-contact { display: flex; justify-content: center; gap: 12px; margin-top: 10px; }
+    .trainer-mini .trainer-contact a { font-size: 0.78rem; color: var(--text-muted); display: flex; align-items: center; gap: 4px; transition: color 0.2s; }
+    .trainer-mini .trainer-contact a:hover { color: var(--gold); }
+    .trainer-mini .trainer-contact svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* CTA */
+    .cta-section { background: var(--red); padding: 60px 0; text-align: center; position: relative; overflow: hidden; }
+    .cta-section::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%); }
+    .cta-inner { position: relative; z-index: 1; }
+    .cta-section h2 { font-family: var(--font-display); font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 700; margin-bottom: 12px; }
+    .cta-section p { font-size: 1rem; opacity: 0.9; max-width: 560px; margin: 0 auto 28px; line-height: 1.6; }
+    .cta-section .btn-white { display: inline-block; background: #fff; color: var(--red); padding: 14px 32px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; transition: transform 0.2s, box-shadow 0.2s; border: none; cursor: pointer; }
+    .cta-section .btn-white:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+
+    /* FOOTER */
+    .footer { background: var(--bg-dark); border-top: 1px solid rgba(255,255,255,0.06); padding: 56px 0 28px; }
+    .footer-grid { display: grid; grid-template-columns: 1.3fr 0.8fr 0.8fr 1.1fr; gap: 36px; margin-bottom: 40px; }
+    .footer h4 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; margin-bottom: 16px; }
+    .footer p, .footer a { font-size: 0.85rem; color: var(--text-muted); line-height: 1.8; }
+    .footer a:hover { color: #fff; }
+    .footer-links a { display: block; padding: 2px 0; }
+    .footer-contact-line { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; font-size: 0.85rem; }
+    .footer-contact-line .ico { width: 18px; text-align: center; display: inline-flex; align-items: center; }
+    .footer-contact-line .ico svg { width: 15px; height: 15px; stroke: var(--gold); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .footer-newsletter { display: flex; flex-direction: column; gap: 10px; }
+    .footer-newsletter input { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 11px 14px; color: #fff; font-family: var(--font-body); font-size: 0.88rem; }
+    .footer-newsletter input::placeholder { color: var(--text-muted); }
+    .footer-newsletter input:focus { outline: none; border-color: var(--red); }
+    .footer-newsletter .check-row { display: flex; align-items: flex-start; gap: 8px; font-size: 0.75rem; color: var(--text-muted); }
+    .footer-newsletter .check-row input { margin-top: 2px; accent-color: var(--red); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-legal { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-legal a { font-size: 0.78rem; color: var(--text-muted); }
+    .footer-legal a:hover { color: #fff; }
+
+    .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.vis { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; } .d3 { transition-delay: 0.3s; }
+
+    .mobile-sub-links { display: none; }
+
+    /* THEME SWITCHER */
+    .theme-switcher { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); z-index: 999; display: flex; flex-direction: column; gap: 8px; }
+    .theme-btn { width: 42px; height: 42px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.3); cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,0.3); position: relative; }
+    .theme-btn:hover { transform: scale(1.12); }
+    .theme-btn.active { border-color: var(--red); box-shadow: 0 0 0 3px rgba(204,41,54,0.3), 0 4px 16px rgba(0,0,0,0.3); }
+    .theme-btn svg { width: 20px; height: 20px; }
+    .theme-btn-dark { background: #1A1A1A; } .theme-btn-dark svg { stroke: #fff; fill: none; stroke-width: 2; }
+    .theme-btn-light { background: #F5F5F5; } .theme-btn-light svg { stroke: #333; fill: none; stroke-width: 2; }
+    .theme-label { position: absolute; right: 52px; white-space: nowrap; background: rgba(0,0,0,0.85); color: #fff; font-size: 0.75rem; font-weight: 600; padding: 5px 10px; border-radius: 4px; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+    .theme-btn:hover .theme-label { opacity: 1; }
+
+    /* LIGHT THEME */
+    body.light { --bg-dark: #FAFAFA; --bg-dark-warm: #F0EDEA; --bg-trust: #F0EDEA; --white: #1A1A1A; --text-light: #444444; --text-muted: #777777; --gold: #A38932; }
+    body.light { background: #FAFAFA; color: #1A1A1A; }
+    body.light .nav { background: #fff; border-bottom-color: rgba(0,0,0,0.08); }
+    body.light .nav-sub { background: #F5F5F5; border-bottom-color: rgba(0,0,0,0.06); }
+    body.light .nav-sub-item:hover { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.08); }
+    body.light .nav-links a { color: #555; } body.light .nav-links a:hover { color: #1A1A1A; }
+    body.light .nav-links .active { color: #1A1A1A; } body.light .nav-hamburger span { background: #1A1A1A; }
+    body.light .hero-sub-page { background: #FAFAFA; }
+    body.light .hero-sub-page h1, body.light .hero-sub-page .hero-subtitle, body.light .hero-sub-page .label { color: #fff !important; }
+    body.light .overview-sidebar { background: rgba(0,0,0,0.03); border-color: rgba(0,0,0,0.08); }
+    body.light .for-whom-card { background: rgba(0,0,0,0.03); border-color: rgba(0,0,0,0.08); }
+    body.light .prog-dot { border-color: var(--bg-dark); }
+    body.light .trainer-mini img { border-color: rgba(163,137,50,0.3); }
+    body.light .btn-red { color: #fff !important; }
+    body.light .nav-links .nav-cta { color: #fff !important; }
+    body.light .theme-btn { border-color: rgba(0,0,0,0.15); }
+    body.light .theme-label { background: rgba(0,0,0,0.75); }
+    body.light .footer { background: #1A1A1A; color: #fff; }
+    body.light .footer h4, body.light .footer p, body.light .footer a { color: #ccc; }
+    body.light .footer a:hover { color: #fff; }
+
+    @media (max-width: 960px) {
+      .nav-links, .nav-sub { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-dark); padding: 20px 32px; gap: 16px; border-bottom: 1px solid rgba(255,255,255,0.06); z-index: 200; }
+      .mobile-sub-links { display: flex; flex-direction: column; gap: 0; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 12px; margin-top: 4px; width: 100%; }
+      .mobile-sub-links a { font-size: 0.82rem; color: var(--text-muted) !important; padding: 8px 0; }
+      .mobile-sub-links a:hover { color: #fff !important; }
+      .overview-grid { grid-template-columns: 1fr; }
+      .for-whom-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+      .trainers-row { flex-direction: column; align-items: center; gap: 32px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .theme-label { display: none; }
+    }
+    @media (max-width: 600px) {
+      .wrap { padding: 0 20px; }
+      .hero-sub-page { min-height: 40vh; }
+      .hero-sub-page h1 { font-size: 1.8rem; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .footer-legal { justify-content: center; }
+      .theme-btn { width: 38px; height: 38px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-main">
+    <a href="index.html" class="nav-logo">Life Upgreater<sup>&reg;</sup></a>
+    <div class="nav-links" id="navLinks">
+      <a href="ueber-uns.html">Über uns</a>
+      <a href="index.html#kostenlos">Kostenlose Angebote</a>
+      <a href="index.html#angebote" class="active">Unsere Angebote</a>
+      <a href="index.html#selftest">Selbsttest</a>
+      <a href="#" class="nav-cta">Kontakt</a>
+    </div>
+    <button class="nav-hamburger" id="navToggle" aria-label="Menü"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-sub">
+    <div class="nav-sub-inner">
+      <a href="index.html#kostenlos" class="nav-sub-item"><h4>Kostenlose Angebote</h4><p>Sportkurse &amp; Gruppen-Mentaltraining</p></a>
+      <a href="personal-training.html" class="nav-sub-item"><h4>Personal Training</h4><p>Exklusives 1:1 Training mit Marco &amp; Lisa</p></a>
+      <a href="seminare.html" class="nav-sub-item"><h4>Seminare</h4><p>Business-Seminare für Familien &amp; Paare</p></a>
+      <a href="business.html" class="nav-sub-item"><h4>Business Upgreater</h4><p>Firmenfitness &amp; Teambuilding</p></a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero-sub-page">
+  <div class="hero-img"></div>
+  <div class="hero-body">
+    <p class="label fade-up">Business Upgreater</p>
+    <h1 class="fade-up d1">Firmenfitness</h1>
+    <p class="hero-subtitle fade-up d2">Regelmäßige Sportkurse für Euer Team – direkt bei Euch oder in Aachen.</p>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="overview">
+  <div class="wrap">
+    <div class="overview-grid">
+      <div class="overview-text fade-up">
+        <p class="label">Über das Angebot</p>
+        <h2>Fitness direkt am Arbeitsplatz – flexibel &amp; effektiv</h2>
+        <p>Unsere Firmenfitness-Kurse bringen Bewegung in den Arbeitsalltag Eures Teams. Ob in der Mittagspause, vor Arbeitsbeginn oder nach Feierabend – wir passen uns Eurem Rhythmus an.</p>
+        <p>Das Programm umfasst bewährte Formate wie <strong>Yogaletics<sup>&reg;</sup></strong>, <strong>Functional Training</strong>, <strong>Rückenfit</strong> und <strong>Mobility</strong> – alles darauf ausgelegt, die typischen Beschwerden von Büroarbeit gezielt zu bekämpfen und die Leistungsfähigkeit nachhaltig zu steigern.</p>
+        <p>Wir kommen direkt zu Euch ins Unternehmen oder Ihr trainiert an unserem Standort in Aachen. Die Kurse sind für alle Fitnesslevel geeignet – vom Einsteiger bis zum Sportbegeisterten.</p>
+        <p>Regelmäßige Bewegung senkt Krankheitstage, steigert die Konzentration und schafft einen starken Teamzusammenhalt abseits des Schreibtischs.</p>
+      </div>
+
+      <div class="overview-sidebar fade-up d1">
+        <h3>Auf einen Blick</h3>
+        <div class="sidebar-item">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          <div><div class="sidebar-label">Frequenz</div><div class="sidebar-value">Wöchentlich (1–3x)</div></div>
+        </div>
+        <div class="sidebar-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <div><div class="sidebar-label">Dauer</div><div class="sidebar-value">45–60 Minuten pro Einheit</div></div>
+        </div>
+        <div class="sidebar-item">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div><div class="sidebar-label">Ort</div><div class="sidebar-value">Bei Euch im Unternehmen oder in Aachen</div></div>
+        </div>
+        <div class="sidebar-item">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <div><div class="sidebar-label">Teilnehmer</div><div class="sidebar-value">5–25 pro Kurs</div></div>
+        </div>
+        <div class="sidebar-item">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <div><div class="sidebar-label">Investition</div><div class="sidebar-value">Ab 199 € pro Monat (je nach Frequenz)</div></div>
+        </div>
+        <div class="sidebar-cta">
+          <a href="mailto:info@life-upgreater.com?subject=Anfrage%20Firmenfitness%20–%20Probetraining" class="btn btn-red">Kostenloses Probetraining vereinbaren</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMME -->
+<section class="programme">
+  <div class="wrap">
+    <div class="programme-head fade-up">
+      <p class="label">Beispiel-Woche</p>
+      <h2>So sieht eine typische Woche aus</h2>
+    </div>
+    <div class="programme-timeline">
+      <div class="prog-item fade-up">
+        <div class="prog-dot"></div>
+        <div class="prog-time">Montag 12:00 Uhr</div>
+        <h3>Yogaletics<sup>&reg;</sup></h3>
+        <p>In der Mittagspause: Eine kraftvolle Kombination aus Yoga und Athletics, die Körper und Geist aktiviert. Perfekt, um den Nachmittag mit neuer Energie zu starten.</p>
+      </div>
+      <div class="prog-item fade-up d1">
+        <div class="prog-dot"></div>
+        <div class="prog-time">Mittwoch 17:30 Uhr</div>
+        <h3>Functional Training</h3>
+        <p>Nach Feierabend: Ganzkörpertraining mit funktionellen Übungen, das Kraft, Ausdauer und Beweglichkeit fördert. Ideal zum Abschalten und Energie tanken.</p>
+      </div>
+      <div class="prog-item fade-up d2">
+        <div class="prog-dot"></div>
+        <div class="prog-time">Freitag 08:00 Uhr</div>
+        <h3>Rückenfit &amp; Mobility</h3>
+        <p>Vor Arbeitsbeginn: Gezielte Übungen gegen Rückenschmerzen und Verspannungen. Mobilisation, Dehnung und Kräftigung für einen beschwerdefreien Arbeitstag.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHOM -->
+<section class="for-whom">
+  <div class="wrap">
+    <div class="for-whom-head fade-up">
+      <p class="label">Für wen?</p>
+      <h2>Firmenfitness ist ideal für...</h2>
+    </div>
+    <div class="for-whom-grid">
+      <div class="for-whom-card fade-up">
+        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        <h4>Teams mit Büroarbeit</h4>
+        <p>Langes Sitzen, Rückenschmerzen und Bewegungsmangel – unsere Kurse sind die perfekte Antwort auf die typischen Beschwerden im Büroalltag.</p>
+      </div>
+      <div class="for-whom-card fade-up d1">
+        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        <h4>Unternehmen mit BGM-Budget</h4>
+        <p>Ihr habt ein Budget für Betriebliches Gesundheitsmanagement und sucht einen zuverlässigen Partner, der regelmäßig hochwertige Kurse liefert.</p>
+      </div>
+      <div class="for-whom-card fade-up d2">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <h4>Führungskräfte als Vorbild</h4>
+        <p>Ihr wollt als Führungskraft mit gutem Beispiel vorangehen und Eurem Team zeigen, dass Gesundheit Priorität hat.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAINERS -->
+<section class="trainers">
+  <div class="wrap">
+    <div class="trainers-head fade-up">
+      <p class="label">Eure Trainer</p>
+      <h2>Marco &amp; Lisa Fuchs</h2>
+    </div>
+    <div class="trainers-row fade-up d1">
+      <div class="trainer-mini">
+        <img src="img/hero-marco.jpg" alt="Marco Fuchs">
+        <h4>Marco Fuchs</h4>
+        <p>Gründer &amp; Trainer</p>
+        <div class="trainer-contact">
+          <a href="tel:+491731949242"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Anrufen</a>
+          <a href="https://wa.me/491731949242" target="_blank"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>WhatsApp</a>
+        </div>
+      </div>
+      <div class="trainer-mini">
+        <img src="img/personal-lisa.jpg" alt="Lisa Fuchs">
+        <h4>Lisa Fuchs</h4>
+        <p>Co-Gründerin &amp; Trainerin</p>
+        <div class="trainer-contact">
+          <a href="tel:+491766447148"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Anrufen</a>
+          <a href="https://wa.me/491766447148" target="_blank"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="wrap">
+    <div class="cta-inner fade-up">
+      <h2>Kostenloses Probetraining vereinbaren</h2>
+      <p>Testet unsere Firmenfitness-Kurse unverbindlich und überzeugt Euch selbst. Wir kommen zu Euch!</p>
+      <a href="mailto:info@life-upgreater.com?subject=Anfrage%20Firmenfitness%20–%20Probetraining" class="btn-white">Probetraining anfragen</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>Life Upgreater<sup>&reg;</sup></h4>
+        <p style="color:var(--text-light); margin-bottom:14px; font-size:0.82rem;">...um glücklich &amp; gesund zu sein.</p>
+        <div class="footer-contact-line">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          <a href="tel:+491731949242">Marco Fuchs – 0173 19 49 242</a>
+        </div>
+        <div class="footer-contact-line">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          <a href="tel:+491766447148">Lisa Fuchs – 0176 644 711 48</a>
+        </div>
+        <div class="footer-contact-line">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+          <a href="mailto:info@life-upgreater.com">info@life-upgreater.com</a>
+        </div>
+        <div class="footer-contact-line">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>
+          <a href="https://wa.me/491731949242" target="_blank">WhatsApp – Marco</a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Angebote</h4>
+        <a href="index.html#kostenlos">Kostenlose Angebote</a>
+        <a href="personal-training.html">Personal Training</a>
+        <a href="seminare.html">Seminare</a>
+        <a href="business.html">Business Upgreater</a>
+        <a href="ueber-uns.html">Über uns</a>
+      </div>
+      <div class="footer-links">
+        <h4>Business</h4>
+        <a href="firmenfitness.html">Firmenfitness</a>
+        <a href="gesundheitstage.html">Gesundheitstage</a>
+        <a href="beratung.html">Führungskräfte-Beratung</a>
+        <a href="team-upgreat.html">Team Upgreat</a>
+      </div>
+      <div>
+        <h4>Newsletter</h4>
+        <form class="footer-newsletter" onsubmit="event.preventDefault()">
+          <input type="email" placeholder="E-Mail-Adresse" required>
+          <div class="check-row">
+            <input type="checkbox" id="priv" required>
+            <label for="priv">Ich stimme der Datenschutzerklärung zu.</label>
+          </div>
+          <button type="submit" class="btn btn-red" style="width:100%;text-align:center;">Anmelden</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p style="font-size:0.78rem; color:var(--text-muted);">&copy; 2026 Life Upgreater<sup>&reg;</sup> – Marco &amp; Lisa Fuchs</p>
+      <div class="footer-legal">
+        <a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">AGB</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Theme Switcher -->
+<div class="theme-switcher" id="themeSwitcher">
+  <button class="theme-btn theme-btn-dark active" data-theme="dark" aria-label="Dunkles Design">
+    <span class="theme-label">Dunkel (Original)</span>
+    <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <button class="theme-btn theme-btn-light" data-theme="light" aria-label="Helles Design">
+    <span class="theme-label">Hell &amp; freundlich</span>
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="1" x2="12" y2="3" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="23" stroke-linecap="round"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke-linecap="round"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke-linecap="round"/><line x1="1" y1="12" x2="3" y2="12" stroke-linecap="round"/><line x1="21" y1="12" x2="23" y2="12" stroke-linecap="round"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke-linecap="round"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke-linecap="round"/></svg>
+  </button>
+</div>
+
+<script>
+  // Nav toggle + mobile sub-links
+  (function() {
+    var navLinks = document.getElementById('navLinks');
+    var subItems = document.querySelectorAll('.nav-sub-item');
+    if (subItems.length && !navLinks.querySelector('.mobile-sub-links')) {
+      var wrapper = document.createElement('div');
+      wrapper.className = 'mobile-sub-links';
+      subItems.forEach(function(item) {
+        var a = document.createElement('a');
+        a.href = item.getAttribute('href');
+        a.textContent = item.querySelector('h4').textContent;
+        wrapper.appendChild(a);
+      });
+      navLinks.appendChild(wrapper);
+    }
+    document.getElementById('navToggle').addEventListener('click', function() {
+      navLinks.classList.toggle('open');
+    });
+  })();
+
+  // Scroll reveal
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(function(el) { obs.observe(el); });
+
+  // Theme Switcher
+  (function() {
+    var sw = document.getElementById('themeSwitcher');
+    if (!sw) return;
+    var btns = sw.querySelectorAll('.theme-btn');
+    function applyTheme(theme) {
+      if (theme === 'light') { document.body.classList.add('light'); }
+      else { document.body.classList.remove('light'); }
+      for (var j = 0; j < btns.length; j++) {
+        btns[j].classList.toggle('active', btns[j].getAttribute('data-theme') === theme);
+      }
+      try { localStorage.setItem('lu_theme', theme); } catch(e) {}
+    }
+    try { var saved = localStorage.getItem('lu_theme'); if (saved) applyTheme(saved); } catch(e) {}
+    for (var i = 0; i < btns.length; i++) {
+      (function(btn) {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault(); e.stopPropagation();
+          applyTheme(btn.getAttribute('data-theme'));
+        });
+      })(btns[i]);
+    }
+  })();
+</script>
+
+</body>
+</html>
