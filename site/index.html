@@ -857,18 +857,16 @@
         border-bottom: 1px solid rgba(255,255,255,0.06);
         z-index: 200;
       }
-      .nav-sub.open {
-        display: block !important;
+      .mobile-sub-links {
+        display: flex; flex-direction: column; gap: 0;
+        border-top: 1px solid rgba(255,255,255,0.08);
+        padding-top: 12px; margin-top: 4px; width: 100%;
       }
-      .nav-sub.open .nav-sub-inner {
-        grid-template-columns: 1fr;
-        gap: 0;
+      .mobile-sub-links a {
+        font-size: 0.82rem; color: var(--text-muted) !important;
+        padding: 8px 0;
       }
-      .nav-sub.open .nav-sub-item {
-        padding: 12px 14px;
-        border-bottom: 1px solid rgba(255,255,255,0.04);
-      }
-      .nav-sub.open .nav-sub-item p { display: none; }
+      .mobile-sub-links a:hover { color: #fff !important; }
       .hero-handwriting { display: none; }
       .about-slide { grid-template-columns: 1fr; }
       .about-slide-photo { order: -1; }
@@ -1644,12 +1642,25 @@
 </footer>
 
 <script>
-  /* Nav Toggle */
-  document.getElementById('navToggle').addEventListener('click', () => {
-    document.getElementById('navLinks').classList.toggle('open');
-    var sub = document.querySelector('.nav-sub');
-    if (sub) sub.classList.toggle('open');
-  });
+  /* Nav Toggle + inject sub-nav into mobile menu */
+  (function() {
+    var navLinks = document.getElementById('navLinks');
+    var subItems = document.querySelectorAll('.nav-sub-item');
+    if (subItems.length && !navLinks.querySelector('.mobile-sub-links')) {
+      var wrapper = document.createElement('div');
+      wrapper.className = 'mobile-sub-links';
+      subItems.forEach(function(item) {
+        var a = document.createElement('a');
+        a.href = item.getAttribute('href');
+        a.textContent = item.querySelector('h4').textContent;
+        wrapper.appendChild(a);
+      });
+      navLinks.appendChild(wrapper);
+    }
+    document.getElementById('navToggle').addEventListener('click', function() {
+      navLinks.classList.toggle('open');
+    });
+  })();
 
   /* Scroll Reveal */
   const obs = new IntersectionObserver(entries => {
