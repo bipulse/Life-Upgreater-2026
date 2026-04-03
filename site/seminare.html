@@ -434,6 +434,58 @@
     .d2 { transition-delay: 0.2s; }
     .d3 { transition-delay: 0.3s; }
 
+    /* ═══════════════════════════════════════
+       GALLERY / COLLAGE
+    ═══════════════════════════════════════ */
+    .gallery {
+      background: var(--bg-dark);
+      padding: 80px 0 90px;
+    }
+    .gallery-head {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .gallery-head h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3.5vw, 2.3rem);
+      font-weight: 700;
+    }
+    .gallery-collage {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto auto;
+      gap: 12px;
+    }
+    .gallery-item {
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+    }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .gallery-item:hover img { transform: scale(1.06); }
+    /* Featured large item spans 2 cols & 2 rows */
+    .gallery-item.large {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+    .gallery-item.large img { min-height: 100%; }
+    /* Overlay caption */
+    .gallery-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 16px;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+      font-size: 0.82rem;
+      color: #fff;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .gallery-item:hover .gallery-caption { opacity: 1; }
+
     /* ── Responsive ── */
     @media (max-width: 960px) {
       .nav-links, .nav-sub { display: none; }
@@ -454,6 +506,9 @@
       .mobile-sub-links a:hover { color: #fff !important; }
       .featured-grid { grid-template-columns: 1fr; }
       .featured-photo { order: -1; }
+      .gallery-collage { grid-template-columns: repeat(2, 1fr); }
+      .gallery-item.large { grid-column: span 2; grid-row: span 1; }
+      .gallery-caption { opacity: 1; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 600px) {
@@ -490,6 +545,7 @@
     body.light .nav-links .active { color: #1A1A1A; }
     body.light .nav-hamburger span { background: #1A1A1A; }
     body.light .sub-hero { background: #FAFAFA; }
+    body.light .sub-hero h1, body.light .sub-hero .hero-subtitle, body.light .sub-hero .label { color: #fff !important; }
     body.light .intro { background: #F0EDEA; }
     body.light .intro-tag { background: rgba(204,41,54,0.08); }
     body.light .featured { background: #FAFAFA; }
@@ -500,6 +556,7 @@
     body.light .cta-section { background: var(--red); }
     body.light .topbar { background: var(--red); }
     body.light .btn-red { color: #fff !important; }
+    body.light .gallery { background: #FAFAFA; }
     body.light .nav-links .nav-cta { color: #fff !important; }
     body.light .footer { background: #1A1A1A; color: #fff; }
     body.light .footer h4, body.light .footer p, body.light .footer a { color: #ccc; }
@@ -697,7 +754,52 @@
   </div>
 </section>
 
-<!-- ═══ 6: FOOTER ═══ -->
+<!-- ═══ 6: GALERIE – Eindrücke vergangener Seminare ═══ -->
+<section class="gallery">
+  <div class="wrap">
+    <div class="gallery-head fade-up">
+      <p class="label">Impressionen</p>
+      <h2>Eindrücke aus unseren Seminaren</h2>
+    </div>
+
+    <div class="gallery-collage">
+      <div class="gallery-item large fade-up">
+        <img src="img/seminare-gruppe.jpg" alt="Seminar-Gruppe beim gemeinsamen Training">
+        <div class="gallery-caption">Gemeinsames Training beim HappyMe-Seminar</div>
+      </div>
+      <div class="gallery-item fade-up d1">
+        <img src="img/seminar-marco.jpg" alt="Marco Fuchs auf der Bühne">
+        <div class="gallery-caption">Marco beim Impulsvortrag</div>
+      </div>
+      <div class="gallery-item fade-up d2">
+        <img src="img/selftest-audience.jpg" alt="Teilnehmer beim Seminar">
+        <div class="gallery-caption">Teilnehmer in Aktion</div>
+      </div>
+      <div class="gallery-item fade-up d1">
+        <img src="img/portrait-marco.png" alt="Marco Fuchs – Seminarleiter">
+        <div class="gallery-caption">Marco – Blickwinkel Training<sup>®</sup></div>
+      </div>
+      <div class="gallery-item fade-up d2">
+        <img src="img/portrait-lisa.png" alt="Lisa Fuchs – Seminarleiterin">
+        <div class="gallery-caption">Lisa – Achtsamkeit &amp; Familie</div>
+      </div>
+      <div class="gallery-item fade-up d3">
+        <img src="img/about-marco-lisa.jpg" alt="Marco und Lisa zusammen">
+        <div class="gallery-caption">Marco &amp; Lisa – gemeinsam für Dein Upgreat</div>
+      </div>
+      <div class="gallery-item fade-up">
+        <img src="img/hero-marco.jpg" alt="Marco beim Training">
+        <div class="gallery-caption">Energie und Motivation auf der Bühne</div>
+      </div>
+      <div class="gallery-item fade-up d1">
+        <img src="img/personal-lisa.jpg" alt="Lisa beim Coaching">
+        <div class="gallery-caption">Lisa beim Gruppen-Coaching</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 7: FOOTER ═══ -->
 <footer class="footer">
   <div class="wrap">
     <div class="footer-grid">
