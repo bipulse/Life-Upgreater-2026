@@ -9,7 +9,7 @@
   /* Mockup Farbschema */
   --bg-dark: #1A1A1A;
   --bg-warm-dark: #2A2220;
-  --bg-trust: #1B2A4A;
+
   --bg-light: #F5F5F5;
   --bg-white: #FFFFFF;
   --accent: #CC2936;
@@ -259,48 +259,6 @@ ul { list-style: none; }
   color: var(--text-light);
   opacity: 0.3;
   display: block;
-}
-
-/* ===== TRUST BAR ===== */
-.trust-bar {
-  background: var(--bg-trust);
-  padding: 28px 0;
-}
-
-.trust-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 48px;
-}
-
-.trust-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-}
-
-.trust-icon {
-  font-size: 1.4rem;
-  margin-bottom: 4px;
-}
-
-.trust-number {
-  font-size: 1.2rem;
-  font-weight: 800;
-  color: var(--gold);
-}
-
-.trust-label {
-  font-size: 0.82rem;
-  color: var(--text-light);
-}
-
-.trust-divider {
-  width: 1px;
-  height: 40px;
-  background: rgba(255,255,255,0.15);
 }
 
 /* ===== ÜBER UNS ===== */
@@ -979,17 +937,6 @@ ul { list-style: none; }
   }
   .hero-ctas .btn {
     text-align: center;
-  }
-
-  .trust-container {
-    flex-wrap: wrap;
-    gap: 24px;
-  }
-  .trust-divider {
-    display: none;
-  }
-  .trust-item {
-    flex: 0 0 calc(50% - 12px);
   }
 
   .test-selection {
