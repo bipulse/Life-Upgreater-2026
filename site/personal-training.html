@@ -522,6 +522,108 @@
       .footer-bottom { flex-direction: column; text-align: center; }
       .footer-legal { justify-content: center; }
     }
+
+    /* ═══════════════════════════════════════
+       LIGHT THEME
+    ═══════════════════════════════════════ */
+    body.light {
+      --bg-dark: #FAFAFA;
+      --bg-dark-warm: #F0EDEA;
+      --bg-trust: #F0EDEA;
+      --white: #1A1A1A;
+      --text-light: #444444;
+      --text-muted: #777777;
+      --gold: #A38932;
+    }
+    body.light { background: #FAFAFA; color: #1A1A1A; }
+    body.light .nav { background: #fff; border-bottom-color: rgba(0,0,0,0.08); }
+    body.light .nav-sub { background: #F5F5F5; border-bottom-color: rgba(0,0,0,0.06); }
+    body.light .nav-sub-item:hover { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.08); }
+    body.light .nav-links a { color: #555; }
+    body.light .nav-links a:hover { color: #1A1A1A; }
+    body.light .nav-links .active { color: #1A1A1A; }
+    body.light .nav-hamburger span { background: #1A1A1A; }
+    body.light .hero-sub-page { background: #FAFAFA; }
+    body.light .hero-sub-page .hero-img::after {
+      background: linear-gradient(to right, rgba(250,250,250,0.95) 0%, rgba(250,250,250,0.82) 35%, rgba(250,250,250,0.3) 65%, transparent 100%) !important;
+    }
+    body.light .intro { background: #F0EDEA; }
+    body.light .usp-item { background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    body.light .usp-item h4 { color: #1A1A1A; }
+    body.light .coaches { background: #FAFAFA; }
+    body.light .coach-card { background: #fff; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    body.light .coach-card h3 { color: #1A1A1A; }
+    body.light .coach-role { color: #555; }
+    body.light .coach-tag { background: rgba(0,0,0,0.05); color: #555; }
+    body.light .steps { background: #F0EDEA; }
+    body.light .step { background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    body.light .step h4 { color: #1A1A1A; }
+    body.light .step-number { background: var(--red); color: #fff; }
+    body.light .cta-section { background: var(--red); }
+    body.light .topbar { background: var(--red); }
+    body.light .footer { background: #1A1A1A; color: #fff; }
+    body.light .footer h4, body.light .footer p, body.light .footer a { color: #ccc; }
+    body.light .footer a:hover { color: #fff; }
+    body.light .footer-bottom { border-color: rgba(255,255,255,0.1); }
+
+    /* ═══════════════════════════════════════
+       THEME SWITCHER
+    ═══════════════════════════════════════ */
+    .theme-switcher {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .theme-btn {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.3);
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      position: relative;
+    }
+    .theme-btn:hover {
+      transform: scale(1.12);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+    }
+    .theme-btn.active {
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px rgba(204,41,54,0.3), 0 4px 16px rgba(0,0,0,0.3);
+    }
+    .theme-btn svg { width: 20px; height: 20px; }
+    .theme-btn-dark { background: #1A1A1A; }
+    .theme-btn-dark svg { stroke: #fff; fill: none; stroke-width: 2; }
+    .theme-btn-light { background: #F5F5F5; }
+    .theme-btn-light svg { stroke: #333; fill: none; stroke-width: 2; }
+    body.light .theme-btn { border-color: rgba(0,0,0,0.15); }
+    .theme-label {
+      position: absolute;
+      right: 52px;
+      white-space: nowrap;
+      background: rgba(0,0,0,0.85);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 4px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    .theme-btn:hover .theme-label { opacity: 1; }
+    body.light .theme-label { background: rgba(0,0,0,0.75); }
+
+    @media (max-width: 600px) {
+      .theme-btn { width: 38px; height: 38px; }
+      .theme-switcher { right: 16px; }
+    }
   </style>
 </head>
 <body>
@@ -769,6 +871,18 @@
   </div>
 </footer>
 
+<!-- Theme Switcher -->
+<div class="theme-switcher" id="themeSwitcher">
+  <button class="theme-btn theme-btn-dark active" data-theme="dark" aria-label="Dunkles Design">
+    <span class="theme-label">Dunkel (Original)</span>
+    <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <button class="theme-btn theme-btn-light" data-theme="light" aria-label="Helles Design">
+    <span class="theme-label">Hell &amp; freundlich</span>
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="1" x2="12" y2="3" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="23" stroke-linecap="round"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke-linecap="round"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke-linecap="round"/><line x1="1" y1="12" x2="3" y2="12" stroke-linecap="round"/><line x1="21" y1="12" x2="23" y2="12" stroke-linecap="round"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke-linecap="round"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke-linecap="round"/></svg>
+  </button>
+</div>
+
 <script>
   /* Nav Toggle */
   document.getElementById('navToggle').addEventListener('click', () => {
@@ -780,6 +894,26 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
   }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
   document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+  /* Theme Switcher */
+  (function() {
+    var sw = document.getElementById('themeSwitcher');
+    if (!sw) return;
+    var btns = sw.querySelectorAll('.theme-btn');
+    for (var i = 0; i < btns.length; i++) {
+      (function(btn) {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          var theme = btn.getAttribute('data-theme');
+          if (theme === 'light') { document.body.classList.add('light'); }
+          else { document.body.classList.remove('light'); }
+          for (var j = 0; j < btns.length; j++) { btns[j].classList.remove('active'); }
+          btn.classList.add('active');
+        });
+      })(btns[i]);
+    }
+  })();
 </script>
 
 </body>
