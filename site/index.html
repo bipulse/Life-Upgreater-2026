@@ -1110,10 +1110,36 @@
       stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
     }
 
+    @media (max-width: 960px) {
+      .theme-switcher {
+        right: auto; left: 50%; top: auto; bottom: 80px;
+        transform: translateX(-50%);
+        flex-direction: row;
+      }
+      .theme-label { display: none; }
+      .tour-tooltip {
+        position: fixed !important;
+        bottom: 0 !important;
+        top: auto !important;
+        left: 0 !important;
+        right: 0;
+        max-width: 100%;
+        width: 100%;
+        border-radius: 16px 16px 0 0;
+        padding: 24px 20px;
+        box-shadow: 0 -8px 32px rgba(0,0,0,0.3);
+      }
+      .tour-highlight {
+        box-shadow: 0 0 0 4000px rgba(0,0,0,0.55);
+      }
+      .tour-start-btn {
+        bottom: 24px;
+        right: 50%;
+        transform: translateX(50%);
+      }
+    }
     @media (max-width: 600px) {
-      .theme-switcher { right: 10px; }
-      .theme-btn { width: 36px; height: 36px; }
-      .tour-tooltip { max-width: 300px; padding: 18px 20px; }
+      .theme-btn { width: 40px; height: 40px; }
       .tour-start-btn { padding: 10px 16px; font-size: 0.8rem; }
     }
   </style>
@@ -1666,80 +1692,87 @@
 
   /* ═══ INTERACTIVE TOUR ═══ */
   (function() {
-    const steps = [
+    var isMobile = window.innerWidth <= 960;
+
+    var allSteps = [
       {
         target: '.nav',
         title: 'Navigation',
         text: 'Die Hauptnavigation mit direkten Links zu allen Bereichen. Der rote "Kontakt"-Button ist der wichtigste Call-to-Action.',
-        pos: 'bottom'
+        desktopOnly: false
       },
       {
         target: '.nav-sub',
         title: 'Angebots-Übersicht',
         text: 'Die Sub-Navigation zeigt auf einen Blick alle vier Angebotsbereiche – von kostenlos bis Premium. Jedes Element verlinkt direkt zur jeweiligen Seite.',
-        pos: 'bottom'
+        desktopOnly: true
       },
       {
         target: '.hero',
         title: 'Hero-Bereich',
         text: 'Der erste Eindruck: Starkes Bild, klare Headline und zwei CTAs. "Finde Dein Angebot" führt zum Angebots-Bereich, "Kostenlos starten" zu den kostenlosen Einstiegsangeboten.',
-        pos: 'bottom'
+        desktopOnly: false
       },
       {
         target: '.trust',
         title: 'Vertrauensleiste',
         text: 'Social Proof auf einen Blick: Erfahrung seit 2017, über 500 Teilnehmer, 4.9 Google-Bewertung und Standort. Schafft sofort Vertrauen.',
-        pos: 'bottom'
+        desktopOnly: false
       },
       {
         target: '#about',
         title: 'Über uns – Karussell',
         text: 'Marco und Lisa stellen sich im Wechsel vor. Jede Folie hat einen CTA zur detaillierten Über-uns-Seite. Auto-Rotation alle 6 Sekunden.',
-        pos: 'top'
+        desktopOnly: false
       },
       {
         target: '#kostenlos',
         title: 'Kostenlose Angebote (Funnel-Einstieg)',
         text: 'Der strategische Einstieg in den Funnel: Kostenlose Sportkurse und Gruppen-Mentaltraining. Niedrige Hürde, um Vertrauen aufzubauen.',
-        pos: 'top'
+        desktopOnly: false
       },
       {
         target: '#angebote',
         title: 'Premium-Angebote',
         text: 'Personal Training, Seminare und Business Upgreater – die kostenpflichtigen Angebote. Jede Karte verlinkt auf eine eigene Unterseite mit Details.',
-        pos: 'top'
+        desktopOnly: false
       },
       {
         target: '#selftest',
         title: 'Selbsttest',
         text: 'Interaktives Element: Besucher können sich selbst einschätzen. Schafft Engagement und hilft bei der Selbstreflexion – ein weiterer Conversion-Trigger.',
-        pos: 'top'
+        desktopOnly: false
       },
       {
         target: '.footer',
         title: 'Footer',
         text: 'Kontaktdaten, Angebots-Links, Newsletter-Anmeldung und rechtliche Links. Der Newsletter ist ein wichtiger Kanal für langfristige Kundenbindung.',
-        pos: 'top'
+        desktopOnly: false
       }
     ];
 
-    let current = 0;
-    const overlay = document.getElementById('tourOverlay');
-    const highlight = document.getElementById('tourHighlight');
-    const tooltip = document.getElementById('tourTooltip');
-    const startBtn = document.getElementById('tourStartBtn');
+    var steps = isMobile ? allSteps.filter(function(s) { return !s.desktopOnly; }) : allSteps;
+    var current = 0;
+    var overlay = document.getElementById('tourOverlay');
+    var highlight = document.getElementById('tourHighlight');
+    var tooltip = document.getElementById('tourTooltip');
+    var startBtn = document.getElementById('tourStartBtn');
 
     function showStep(i) {
       current = i;
-      const step = steps[i];
-      const el = document.querySelector(step.target);
-      if (!el) return endTour();
+      var step = steps[i];
+      var el = document.querySelector(step.target);
+      if (!el) { if (i < steps.length - 1) return showStep(i + 1); else return endTour(); }
+
+      // Hide tooltip during scroll
+      tooltip.style.display = 'none';
+      highlight.style.display = 'none';
 
       el.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-      setTimeout(() => {
-        const rect = el.getBoundingClientRect();
-        const pad = 8;
+      setTimeout(function() {
+        var rect = el.getBoundingClientRect();
+        var pad = 6;
 
         highlight.style.top = (rect.top + window.scrollY - pad) + 'px';
         highlight.style.left = (rect.left - pad) + 'px';
@@ -1747,8 +1780,8 @@
         highlight.style.height = (rect.height + pad * 2) + 'px';
         highlight.style.display = 'block';
 
-        let pips = '';
-        for (let j = 0; j < steps.length; j++) {
+        var pips = '';
+        for (var j = 0; j < steps.length; j++) {
           pips += '<div class="tour-pip' + (j <= i ? ' done' : '') + '"></div>';
         }
 
@@ -1757,24 +1790,29 @@
           '<h3>' + step.title + '</h3>' +
           '<p>' + step.text + '</p>' +
           '<div class="tour-actions">' +
-            '<button class="tour-btn tour-btn-skip" onclick="window._tourEnd()">Tour beenden</button>' +
+            '<button class="tour-btn tour-btn-skip" onclick="window._tourEnd()">Beenden</button>' +
             '<button class="tour-btn tour-btn-next" onclick="window._tourNext()">' +
-              (i < steps.length - 1 ? 'Weiter' : 'Tour abschließen') +
+              (i < steps.length - 1 ? 'Weiter →' : 'Fertig ✓') +
             '</button>' +
             '<div class="tour-progress">' + pips + '</div>' +
           '</div>';
 
-        if (step.pos === 'bottom') {
-          tooltip.style.top = (rect.bottom + window.scrollY + 16) + 'px';
+        // Mobile: fixed bottom sheet. Desktop: positioned near element.
+        if (isMobile) {
+          tooltip.style.top = 'auto';
+          tooltip.style.left = '0';
         } else {
-          tooltip.style.top = (rect.top + window.scrollY - tooltip.offsetHeight - 16) + 'px';
+          var ttTop = rect.bottom + window.scrollY + 16;
+          if (rect.bottom > window.innerHeight * 0.6) {
+            ttTop = rect.top + window.scrollY - 200;
+          }
+          tooltip.style.top = ttTop + 'px';
+          var tooltipLeft = rect.left + rect.width / 2 - 190;
+          tooltipLeft = Math.max(16, Math.min(tooltipLeft, window.innerWidth - 400));
+          tooltip.style.left = tooltipLeft + 'px';
         }
-
-        let tooltipLeft = rect.left + rect.width / 2 - 190;
-        tooltipLeft = Math.max(16, Math.min(tooltipLeft, window.innerWidth - 400));
-        tooltip.style.left = tooltipLeft + 'px';
         tooltip.style.display = 'block';
-      }, 500);
+      }, 600);
     }
 
     function endTour() {
@@ -1785,6 +1823,8 @@
     }
 
     function startTour() {
+      isMobile = window.innerWidth <= 960;
+      steps = isMobile ? allSteps.filter(function(s) { return !s.desktopOnly; }) : allSteps;
       startBtn.style.display = 'none';
       overlay.classList.add('active');
       showStep(0);
