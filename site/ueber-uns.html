@@ -311,6 +311,29 @@
       margin: 24px 0;
       line-height: 1.6;
     }
+    .person-qualifications {
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+    .person-qualifications h4 {
+      font-family: var(--font-display);
+      font-size: 0.85rem; font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .person-qualifications ul {
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .person-qualifications li {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.82rem; color: var(--text-light);
+    }
+    .person-qualifications li svg {
+      width: 16px; height: 16px; flex-shrink: 0;
+      fill: var(--gold); stroke: none;
+    }
     .person-tags {
       display: flex; flex-wrap: wrap; gap: 8px;
       margin-top: 20px;
@@ -321,6 +344,21 @@
       color: var(--gold);
       font-size: 0.78rem; font-weight: 600;
       padding: 5px 12px; border-radius: 4px;
+    }
+    .person-contact {
+      display: flex; gap: 16px;
+      margin-top: 16px;
+    }
+    .person-contact a {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.82rem; color: var(--text-muted);
+      transition: color 0.2s;
+    }
+    .person-contact a:hover { color: var(--gold); }
+    .person-contact a svg {
+      width: 16px; height: 16px;
+      stroke: currentColor; fill: none;
+      stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
     }
 
     /* ═══════════════════════════════════════
@@ -556,6 +594,10 @@
     body.light .person:nth-child(even) { background: #F0EDEA; }
     body.light .person-photo img { box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
     body.light .person-tag { background: rgba(0,0,0,0.05); color: #555; }
+    body.light .person-qualifications h4 { color: var(--gold); }
+    body.light .person-qualifications li { color: #444; }
+    body.light .person-contact a { color: #777; }
+    body.light .person-contact a:hover { color: var(--gold); }
     body.light .timeline-section { background: #FAFAFA; }
     body.light .timeline-item { background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
     body.light .timeline-dot { background: var(--red); }
@@ -655,7 +697,7 @@
       </a>
       <a href="personal-training.html" class="nav-sub-item">
         <h4>Personal Training</h4>
-        <p>Körperlich &amp; Mental – Exklusives 1:1 Coaching mit Marco &amp; Lisa</p>
+        <p>Körperlich &amp; Mental – Exklusives 1:1 Training mit Marco &amp; Lisa</p>
       </a>
       <a href="seminare.html" class="nav-sub-item">
         <h4>Seminare</h4>
@@ -686,7 +728,7 @@
       <p class="label">Unsere Geschichte</p>
       <h2>Aus eigener Erfahrung geboren</h2>
     </div>
-    <p class="intro-text fade-up d1">Life Upgreater<sup>&reg;</sup> ist mehr als ein Unternehmen – es ist eine Herzensangelegenheit. Was 2017 als persönliche Reise begann, ist heute ein ganzheitliches Konzept, das körperliches Training mit mentalem Coaching verbindet. Marco und Lisa Fuchs haben aus ihrer eigenen Transformation ein System entwickelt, das nachweislich wirkt.</p>
+    <p class="intro-text fade-up d1">Life Upgreater<sup>&reg;</sup> ist mehr als ein Unternehmen – es ist eine Herzensangelegenheit. Was 2017 als persönliche Reise begann, ist heute ein ganzheitliches Konzept, das körperliches Training mit mentaler Beratung verbindet. Marco und Lisa Fuchs haben aus ihrer eigenen Transformation ein System entwickelt, das nachweislich wirkt.</p>
     <p class="intro-text fade-up d1">In der Region Aachen begleiten sie Menschen, Familien und Unternehmen auf dem Weg zu mehr Gesundheit, Klarheit und Lebensfreude. Von kostenlosen Sportkursen bis hin zu exklusivem Personal Training – bei Life Upgreater<sup>&reg;</sup> findet jeder den passenden Einstieg.</p>
 
     <div class="values-grid">
@@ -703,7 +745,7 @@
       <div class="value-item fade-up d2">
         <span class="value-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
         <h4>Individualität</h4>
-        <p>Kein Mensch ist gleich. Deshalb passen wir jedes Training, jedes Coaching und jedes Seminar individuell an Deine Bedürfnisse an.</p>
+        <p>Kein Mensch ist gleich. Deshalb passen wir jedes Training, jede Beratung und jedes Seminar individuell an Deine Bedürfnisse an.</p>
       </div>
     </div>
   </div>
@@ -720,15 +762,29 @@
         <p class="label">Gründer &amp; Trainer</p>
         <h2>Marco Fuchs</h2>
         <p class="person-role">Körper, Geist &amp; Motivation</p>
-        <p>Marco ist das Herz von Life Upgreater<sup>&reg;</sup>. Als zertifizierter Trainer und Coach verbindet er körperliches Training mit mentaler Stärke. Seine Energie auf der Bühne und im 1:1 ist ansteckend – er glaubt fest daran, dass jeder Mensch Großes in sich trägt.</p>
+        <p>Marco ist das Herz von Life Upgreater<sup>&reg;</sup>. Als zertifizierter Trainer verbindet er körperliches Training mit mentaler Stärke. Seine Energie auf der Bühne und im 1:1 ist ansteckend – er glaubt fest daran, dass jeder Mensch Großes in sich trägt.</p>
         <p>Mit dem von ihm entwickelten Blickwinkel Training<sup>&reg;</sup> hat er eine Methode geschaffen, die Menschen hilft, eingefahrene Denkmuster zu durchbrechen und neue Perspektiven zu gewinnen. Von der Firmenfitness bis zum Impulsseminar – Marco schafft Räume, in denen echte Veränderung passiert.</p>
         <blockquote>„Dein größtes Potenzial liegt dort, wo Du noch nicht hingeschaut hast."</blockquote>
+        <div class="person-qualifications">
+          <h4>Qualifikationen</h4>
+          <ul>
+            <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--gold)"/></svg>Zertifizierter Personal Trainer (A-Lizenz)</li>
+            <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--gold)"/></svg>Yogaletics<sup>&reg;</sup> Instructor</li>
+            <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--gold)"/></svg>Blickwinkel Training<sup>&reg;</sup> Entwickler</li>
+            <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--gold)"/></svg>Functional Training Specialist</li>
+            <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--gold)"/></svg>Betriebliches Gesundheitsmanagement (BGM)</li>
+          </ul>
+        </div>
         <div class="person-tags">
           <span class="person-tag">Blickwinkel Training<sup>&reg;</sup></span>
           <span class="person-tag">Yogaletics<sup>&reg;</sup></span>
           <span class="person-tag">Firmenfitness</span>
           <span class="person-tag">Functional Training</span>
           <span class="person-tag">Motivation</span>
+        </div>
+        <div class="person-contact">
+          <a href="tel:+491731949242"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Anrufen</a>
+          <a href="mailto:info@life-upgreater.com"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>E-Mail</a>
         </div>
       </div>
     </div>
@@ -747,14 +803,28 @@
         <h2>Lisa Fuchs</h2>
         <p class="person-role">Achtsamkeit, Familie &amp; mentale Stärke</p>
         <p>Lisa bringt Empathie und Struktur zusammen. Als Expertin für Mamaletics<sup>&reg;</sup> und Familienseminare hilft sie Eltern, Paaren und Familien, ihre Verbindung zu stärken und mehr Leichtigkeit im Alltag zu finden.</p>
-        <p>Ihr empathischer Ansatz schafft einen sicheren Raum, in dem echte Veränderung möglich wird. Ob im Gruppen-Mentaltraining oder im exklusiven 1:1 Coaching – Lisa begleitet Menschen mit Herz und Verstand auf ihrem Weg zu mehr Klarheit und innerem Frieden.</p>
+        <p>Ihr empathischer Ansatz schafft einen sicheren Raum, in dem echte Veränderung möglich wird. Ob im Gruppen-Mentaltraining oder in der exklusiven 1:1 Beratung – Lisa begleitet Menschen mit Herz und Verstand auf ihrem Weg zu mehr Klarheit und innerem Frieden.</p>
         <blockquote>„Wahres Glück entsteht, wenn Kopf und Körper zusammenarbeiten."</blockquote>
+        <div class="person-qualifications">
+          <h4>Qualifikationen</h4>
+          <ul>
+            <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--gold)"/></svg>Zertifizierte Mentaltrainerin</li>
+            <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--gold)"/></svg>Blickwinkel Training<sup>&reg;</sup> Trainerin</li>
+            <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--gold)"/></svg>Mamaletics<sup>&reg;</sup> Entwicklerin</li>
+            <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--gold)"/></svg>Achtsamkeits- und Stressbewältigung</li>
+            <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--gold)"/></svg>Familien- und Paarberatung</li>
+          </ul>
+        </div>
         <div class="person-tags">
           <span class="person-tag">Mamaletics<sup>&reg;</sup></span>
           <span class="person-tag">Blickwinkel Training<sup>&reg;</sup></span>
-          <span class="person-tag">Coaching</span>
+          <span class="person-tag">Beratung</span>
           <span class="person-tag">Achtsamkeit</span>
           <span class="person-tag">Mindset</span>
+        </div>
+        <div class="person-contact">
+          <a href="tel:+491766447148"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Anrufen</a>
+          <a href="mailto:info@life-upgreater.com"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>E-Mail</a>
         </div>
       </div>
     </div>
@@ -780,7 +850,7 @@
         <div class="timeline-dot"></div>
         <div class="timeline-year">2019</div>
         <h3>Blickwinkel Training<sup>&reg;</sup></h3>
-        <p>Die Entwicklung des einzigartigen Blickwinkel Trainings<sup>&reg;</sup> – die Verbindung von mentalem Coaching und körperlichem Training.</p>
+        <p>Die Entwicklung des einzigartigen Blickwinkel Trainings<sup>&reg;</sup> – die Verbindung von mentaler Beratung und körperlichem Training.</p>
       </div>
       <div class="timeline-item fade-up d2">
         <div class="timeline-dot"></div>
