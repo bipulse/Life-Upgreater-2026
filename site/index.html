@@ -1726,19 +1726,25 @@
   var sw = document.getElementById('themeSwitcher');
   if (!sw) return;
   var btns = sw.querySelectorAll('.theme-btn');
+
+  function applyTheme(theme) {
+    if (theme === 'light') { document.body.classList.add('light'); }
+    else { document.body.classList.remove('light'); }
+    for (var j = 0; j < btns.length; j++) {
+      btns[j].classList.toggle('active', btns[j].getAttribute('data-theme') === theme);
+    }
+    try { localStorage.setItem('lu_theme', theme); } catch(e) {}
+  }
+
+  // Restore saved theme
+  try { var saved = localStorage.getItem('lu_theme'); if (saved) applyTheme(saved); } catch(e) {}
+
   for (var i = 0; i < btns.length; i++) {
     (function(btn) {
       btn.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
-        var theme = btn.getAttribute('data-theme');
-        if (theme === 'light') {
-          document.body.classList.add('light');
-        } else {
-          document.body.classList.remove('light');
-        }
-        for (var j = 0; j < btns.length; j++) { btns[j].classList.remove('active'); }
-        btn.classList.add('active');
+        applyTheme(btn.getAttribute('data-theme'));
       });
     })(btns[i]);
   }
