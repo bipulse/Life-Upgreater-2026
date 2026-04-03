@@ -892,6 +892,230 @@
       .testi-avatar { width: 56px; height: 56px; }
       .quote-text { font-size: 1.05rem; }
     }
+
+    /* ═══════════════════════════════════════
+       LIGHT THEME
+    ═══════════════════════════════════════ */
+    body.light {
+      --bg-dark: #FAFAFA;
+      --bg-dark-warm: #F0EDEA;
+      --bg-trust: #F0EDEA;
+      --white: #1A1A1A;
+      --text-light: #444444;
+      --text-muted: #777777;
+      --gold: #A38932;
+    }
+    body.light { background: #FAFAFA; color: #1A1A1A; }
+    body.light .nav { background: #fff; border-bottom-color: rgba(0,0,0,0.08); }
+    body.light .nav-sub { background: #F5F5F5; border-bottom-color: rgba(0,0,0,0.06); }
+    body.light .nav-sub-item:hover { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.08); }
+    body.light .nav-links a { color: #555; }
+    body.light .nav-links a:hover { color: #1A1A1A; }
+    body.light .nav-links .active { color: #1A1A1A; }
+    body.light .nav-hamburger span { background: #1A1A1A; }
+    body.light .hero-img::after {
+      background: linear-gradient(to right, rgba(250,250,250,0.95) 0%, rgba(250,250,250,0.82) 35%, rgba(250,250,250,0.3) 65%, transparent 100%) !important;
+    }
+    body.light .hero { background: #FAFAFA; }
+    body.light .scroll-mouse { border-color: rgba(0,0,0,0.3); }
+    body.light .trust { border-color: rgba(0,0,0,0.08); background: linear-gradient(135deg, rgba(200,169,81,0.06) 0%, #F0EDEA 50%, rgba(204,41,54,0.04) 100%); }
+    body.light .about-slide { background: rgba(0,0,0,0.02); border-color: rgba(0,0,0,0.06); }
+    body.light .about-arrow { border-color: rgba(0,0,0,0.2); color: #333; }
+    body.light .about-arrow:hover { background: var(--red); border-color: var(--red); color: #fff; }
+    body.light .about-dot { background: rgba(0,0,0,0.15); }
+    body.light .about-dot.active { background: var(--red); }
+    body.light .card { background: #fff; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    body.light .card-body h3 { color: #1A1A1A; }
+    body.light .card-body .card-text { color: #555; }
+    body.light .offers { background: #FAFAFA !important; color: #1A1A1A !important; }
+    body.light .offers-head h2, body.light .offers-head .label { color: #1A1A1A; }
+    body.light .seminars { background: #F0EDEA; }
+    body.light .testimonials { background: #FAFAFA; }
+    body.light .testi-card { background: #fff; border-color: rgba(0,0,0,0.08); }
+    body.light .test-teaser { background: #F0EDEA; }
+    body.light .quote-section { background: #FAFAFA; }
+    body.light .selftest { background: #F0EDEA; }
+    body.light .test-card { background: #fff; border-color: rgba(0,0,0,0.06); }
+    body.light .footer { background: #1A1A1A; color: #fff; }
+    body.light .footer h4, body.light .footer p, body.light .footer a { color: #ccc; }
+    body.light .footer a:hover { color: #fff; }
+    body.light .footer-bottom { border-color: rgba(255,255,255,0.1); }
+    body.light .date-banner { background: #F0EDEA; }
+    body.light .hero-handwriting { color: var(--red); opacity: 0.2; }
+    body.light .topbar { background: var(--red); }
+
+    /* ═══════════════════════════════════════
+       THEME SWITCHER
+    ═══════════════════════════════════════ */
+    .theme-switcher {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .theme-btn {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.3);
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      position: relative;
+    }
+    .theme-btn:hover {
+      transform: scale(1.12);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+    }
+    .theme-btn.active {
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px rgba(204,41,54,0.3), 0 4px 16px rgba(0,0,0,0.3);
+    }
+    .theme-btn svg { width: 20px; height: 20px; }
+    .theme-btn-dark { background: #1A1A1A; }
+    .theme-btn-dark svg { stroke: #fff; fill: none; stroke-width: 2; }
+    .theme-btn-light { background: #F5F5F5; }
+    .theme-btn-light svg { stroke: #333; fill: none; stroke-width: 2; }
+    body.light .theme-btn { border-color: rgba(0,0,0,0.15); }
+    .theme-label {
+      position: absolute;
+      right: 52px;
+      white-space: nowrap;
+      background: rgba(0,0,0,0.85);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 4px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    .theme-btn:hover .theme-label { opacity: 1; }
+    body.light .theme-label { background: rgba(0,0,0,0.75); }
+
+    /* ═══════════════════════════════════════
+       INTERACTIVE TOUR
+    ═══════════════════════════════════════ */
+    .tour-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 9998;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+    .tour-overlay.active { opacity: 1; pointer-events: all; }
+    .tour-highlight {
+      position: absolute;
+      border: 2px solid var(--red);
+      border-radius: 10px;
+      box-shadow: 0 0 0 4000px rgba(0,0,0,0.65);
+      z-index: 9999;
+      pointer-events: none;
+      transition: all 0.5s ease;
+    }
+    .tour-tooltip {
+      position: absolute;
+      z-index: 10000;
+      background: #fff;
+      color: #1A1A1A;
+      border-radius: 12px;
+      padding: 24px 28px;
+      max-width: 380px;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+      animation: tourPop 0.3s ease;
+    }
+    @keyframes tourPop {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .tour-tooltip h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem; font-weight: 700;
+      margin-bottom: 8px; color: #1A1A1A;
+    }
+    .tour-tooltip p {
+      font-size: 0.88rem; color: #555;
+      line-height: 1.6; margin-bottom: 18px;
+    }
+    .tour-step-indicator {
+      font-size: 0.72rem; color: var(--red);
+      font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .tour-actions {
+      display: flex; gap: 10px; align-items: center;
+    }
+    .tour-btn {
+      padding: 9px 20px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+    .tour-btn-next {
+      background: var(--red);
+      color: #fff;
+    }
+    .tour-btn-next:hover { background: #E03040; }
+    .tour-btn-skip {
+      background: none;
+      color: #999;
+      padding: 9px 12px;
+    }
+    .tour-btn-skip:hover { color: #333; }
+    .tour-progress {
+      display: flex; gap: 5px; margin-left: auto;
+    }
+    .tour-pip {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #ddd;
+    }
+    .tour-pip.done { background: var(--red); }
+
+    /* Tour start button (floating) */
+    .tour-start-btn {
+      position: fixed;
+      right: 20px;
+      bottom: 24px;
+      z-index: 998;
+      background: var(--red);
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 28px;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 6px 24px rgba(204,41,54,0.35);
+      display: flex; align-items: center; gap: 8px;
+      transition: all 0.3s;
+    }
+    .tour-start-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(204,41,54,0.45);
+    }
+    .tour-start-btn svg {
+      width: 18px; height: 18px; stroke: #fff; fill: none;
+      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    @media (max-width: 600px) {
+      .theme-switcher { right: 10px; }
+      .theme-btn { width: 36px; height: 36px; }
+      .tour-tooltip { max-width: 300px; padding: 18px 20px; }
+      .tour-start-btn { padding: 10px 16px; font-size: 0.8rem; }
+    }
   </style>
 </head>
 <body>
@@ -1426,7 +1650,179 @@
       showTesti(cur);
     }, 5000);
   })();
+
+  /* ═══ THEME SWITCHER ═══ */
+  (function() {
+    const sw = document.getElementById('themeSwitcher');
+    sw.querySelectorAll('.theme-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const theme = btn.dataset.theme;
+        document.body.classList.toggle('light', theme === 'light');
+        sw.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  })();
+
+  /* ═══ INTERACTIVE TOUR ═══ */
+  (function() {
+    const steps = [
+      {
+        target: '.nav',
+        title: 'Navigation',
+        text: 'Die Hauptnavigation mit direkten Links zu allen Bereichen. Der rote "Kontakt"-Button ist der wichtigste Call-to-Action.',
+        pos: 'bottom'
+      },
+      {
+        target: '.nav-sub',
+        title: 'Angebots-Übersicht',
+        text: 'Die Sub-Navigation zeigt auf einen Blick alle vier Angebotsbereiche – von kostenlos bis Premium. Jedes Element verlinkt direkt zur jeweiligen Seite.',
+        pos: 'bottom'
+      },
+      {
+        target: '.hero',
+        title: 'Hero-Bereich',
+        text: 'Der erste Eindruck: Starkes Bild, klare Headline und zwei CTAs. "Finde Dein Angebot" führt zum Angebots-Bereich, "Kostenlos starten" zu den kostenlosen Einstiegsangeboten.',
+        pos: 'bottom'
+      },
+      {
+        target: '.trust',
+        title: 'Vertrauensleiste',
+        text: 'Social Proof auf einen Blick: Erfahrung seit 2017, über 500 Teilnehmer, 4.9 Google-Bewertung und Standort. Schafft sofort Vertrauen.',
+        pos: 'bottom'
+      },
+      {
+        target: '#about',
+        title: 'Über uns – Karussell',
+        text: 'Marco und Lisa stellen sich im Wechsel vor. Jede Folie hat einen CTA zur detaillierten Über-uns-Seite. Auto-Rotation alle 6 Sekunden.',
+        pos: 'top'
+      },
+      {
+        target: '#kostenlos',
+        title: 'Kostenlose Angebote (Funnel-Einstieg)',
+        text: 'Der strategische Einstieg in den Funnel: Kostenlose Sportkurse und Gruppen-Mentaltraining. Niedrige Hürde, um Vertrauen aufzubauen.',
+        pos: 'top'
+      },
+      {
+        target: '#angebote',
+        title: 'Premium-Angebote',
+        text: 'Personal Training, Seminare und Business Upgreater – die kostenpflichtigen Angebote. Jede Karte verlinkt auf eine eigene Unterseite mit Details.',
+        pos: 'top'
+      },
+      {
+        target: '#selftest',
+        title: 'Selbsttest',
+        text: 'Interaktives Element: Besucher können sich selbst einschätzen. Schafft Engagement und hilft bei der Selbstreflexion – ein weiterer Conversion-Trigger.',
+        pos: 'top'
+      },
+      {
+        target: '.footer',
+        title: 'Footer',
+        text: 'Kontaktdaten, Angebots-Links, Newsletter-Anmeldung und rechtliche Links. Der Newsletter ist ein wichtiger Kanal für langfristige Kundenbindung.',
+        pos: 'top'
+      }
+    ];
+
+    let current = 0;
+    const overlay = document.getElementById('tourOverlay');
+    const highlight = document.getElementById('tourHighlight');
+    const tooltip = document.getElementById('tourTooltip');
+    const startBtn = document.getElementById('tourStartBtn');
+
+    function showStep(i) {
+      current = i;
+      const step = steps[i];
+      const el = document.querySelector(step.target);
+      if (!el) return endTour();
+
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      setTimeout(() => {
+        const rect = el.getBoundingClientRect();
+        const pad = 8;
+
+        highlight.style.top = (rect.top + window.scrollY - pad) + 'px';
+        highlight.style.left = (rect.left - pad) + 'px';
+        highlight.style.width = (rect.width + pad * 2) + 'px';
+        highlight.style.height = (rect.height + pad * 2) + 'px';
+        highlight.style.display = 'block';
+
+        let pips = '';
+        for (let j = 0; j < steps.length; j++) {
+          pips += '<div class="tour-pip' + (j <= i ? ' done' : '') + '"></div>';
+        }
+
+        tooltip.innerHTML =
+          '<div class="tour-step-indicator">Schritt ' + (i + 1) + ' von ' + steps.length + '</div>' +
+          '<h3>' + step.title + '</h3>' +
+          '<p>' + step.text + '</p>' +
+          '<div class="tour-actions">' +
+            '<button class="tour-btn tour-btn-skip" onclick="window._tourEnd()">Tour beenden</button>' +
+            '<button class="tour-btn tour-btn-next" onclick="window._tourNext()">' +
+              (i < steps.length - 1 ? 'Weiter' : 'Tour abschließen') +
+            '</button>' +
+            '<div class="tour-progress">' + pips + '</div>' +
+          '</div>';
+
+        if (step.pos === 'bottom') {
+          tooltip.style.top = (rect.bottom + window.scrollY + 16) + 'px';
+        } else {
+          tooltip.style.top = (rect.top + window.scrollY - tooltip.offsetHeight - 16) + 'px';
+        }
+
+        let tooltipLeft = rect.left + rect.width / 2 - 190;
+        tooltipLeft = Math.max(16, Math.min(tooltipLeft, window.innerWidth - 400));
+        tooltip.style.left = tooltipLeft + 'px';
+        tooltip.style.display = 'block';
+      }, 500);
+    }
+
+    function endTour() {
+      overlay.classList.remove('active');
+      highlight.style.display = 'none';
+      tooltip.style.display = 'none';
+      startBtn.style.display = 'flex';
+    }
+
+    function startTour() {
+      startBtn.style.display = 'none';
+      overlay.classList.add('active');
+      showStep(0);
+    }
+
+    window._tourNext = function() {
+      if (current < steps.length - 1) showStep(current + 1);
+      else endTour();
+    };
+    window._tourEnd = endTour;
+
+    startBtn.addEventListener('click', startTour);
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) endTour();
+    });
+  })();
 </script>
+
+<!-- Theme Switcher -->
+<div class="theme-switcher" id="themeSwitcher">
+  <button class="theme-btn theme-btn-dark active" data-theme="dark" aria-label="Dunkles Design">
+    <span class="theme-label">Dunkel (Original)</span>
+    <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <button class="theme-btn theme-btn-light" data-theme="light" aria-label="Helles Design">
+    <span class="theme-label">Hell &amp; freundlich</span>
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="1" x2="12" y2="3" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="23" stroke-linecap="round"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke-linecap="round"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke-linecap="round"/><line x1="1" y1="12" x2="3" y2="12" stroke-linecap="round"/><line x1="21" y1="12" x2="23" y2="12" stroke-linecap="round"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke-linecap="round"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke-linecap="round"/></svg>
+  </button>
+</div>
+
+<!-- Tour -->
+<div class="tour-overlay" id="tourOverlay"></div>
+<div class="tour-highlight" id="tourHighlight" style="display:none"></div>
+<div class="tour-tooltip" id="tourTooltip" style="display:none"></div>
+<button class="tour-start-btn" id="tourStartBtn">
+  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+  Tour starten
+</button>
 
 </body>
 </html>
