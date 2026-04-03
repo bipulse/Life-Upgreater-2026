@@ -33,6 +33,13 @@
     .label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); margin-bottom: 14px; }
 
     /* NAV */
+    /* Announcement Bar */
+    .topbar { display: block; width: 100%; background: var(--red); text-align: center; padding: 11px 16px; font-size: 0.88rem; font-weight: 500; color: #fff; cursor: pointer; transition: background 0.3s; line-height: 1.4; }
+    .topbar:hover { background: var(--red-hover); }
+    .topbar strong { font-weight: 700; }
+    .topbar .pulse { display: inline-block; width: 7px; height: 7px; background: #fff; border-radius: 50%; margin-right: 6px; animation: pulse 1.5s ease infinite; vertical-align: middle; }
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.4); } }
+
     .nav { background: var(--bg-dark); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.06); }
     .nav-main { display: flex; align-items: center; justify-content: space-between; height: 64px; max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
     .nav-logo { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; white-space: nowrap; }
@@ -163,6 +170,13 @@
     /* LIGHT THEME */
     body.light { --bg-dark: #FAFAFA; --bg-dark-warm: #F0EDEA; --bg-trust: #F0EDEA; --white: #1A1A1A; --text-light: #444444; --text-muted: #777777; --gold: #A38932; }
     body.light { background: #FAFAFA; color: #1A1A1A; }
+    /* Announcement Bar */
+    .topbar { display: block; width: 100%; background: var(--red); text-align: center; padding: 11px 16px; font-size: 0.88rem; font-weight: 500; color: #fff; cursor: pointer; transition: background 0.3s; line-height: 1.4; }
+    .topbar:hover { background: var(--red-hover); }
+    .topbar strong { font-weight: 700; }
+    .topbar .pulse { display: inline-block; width: 7px; height: 7px; background: #fff; border-radius: 50%; margin-right: 6px; animation: pulse 1.5s ease infinite; vertical-align: middle; }
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.4); } }
+
     body.light .nav { background: #fff; border-bottom-color: rgba(0,0,0,0.08); }
     body.light .nav-sub { background: #F5F5F5; border-bottom-color: rgba(0,0,0,0.06); }
     body.light .nav-sub-item:hover { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.08); }
@@ -209,6 +223,11 @@
 <body>
 
 <!-- NAV -->
+<div class="topbar" onclick="location.href='happyme-happyfamily.html'">
+  <span class="pulse"></span>
+  <strong>Nächstes Seminar:</strong> HappyMe-HappyFamily am 26. April 2026 – Jetzt Platz sichern!
+</div>
+
 <nav class="nav">
   <div class="nav-main">
     <a href="index.html" class="nav-logo">Life Upgreater<sup>&reg;</sup></a>
