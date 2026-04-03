@@ -200,7 +200,7 @@
     ═══════════════════════════════════════ */
     .hero {
       position: relative;
-      min-height: 88vh;
+      height: calc(100vh - 64px - 58px - 36px);
       display: flex; align-items: center;
       background: var(--bg-dark);
       overflow: hidden;
@@ -249,13 +249,12 @@
 
     /* Scroll-Hint Animation */
     .scroll-hint {
-      display: block;
-      text-align: center;
-      margin: -36px auto 0;
+      display: flex;
+      justify-content: center;
+      margin-top: -56px;
       position: relative;
       z-index: 10;
       animation: scrollFade 2.5s ease-in-out infinite;
-      width: fit-content;
     }
     .scroll-mouse {
       width: 26px; height: 42px;
