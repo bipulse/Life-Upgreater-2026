@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Personal Training – Life Upgreater®</title>
+  <title>Über uns – Life Upgreater®</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -160,7 +160,7 @@
     }
 
     /* ═══════════════════════════════════════
-       HERO (subpage – smaller, with bg image)
+       HERO (subpage)
     ═══════════════════════════════════════ */
     .hero-sub-page {
       position: relative;
@@ -171,7 +171,7 @@
     }
     .hero-sub-page .hero-img {
       position: absolute; inset: 0;
-      background: url('img/personal-lisa.jpg') center center / cover no-repeat;
+      background: url('img/about-marco-lisa.jpg') center center / cover no-repeat;
     }
     .hero-sub-page .hero-img::after {
       content: '';
@@ -202,7 +202,7 @@
     }
 
     /* ═══════════════════════════════════════
-       INTRO SECTION
+       INTRO / STORY
     ═══════════════════════════════════════ */
     .intro {
       background: var(--bg-dark-warm);
@@ -219,103 +219,103 @@
       line-height: 1.75; max-width: 760px;
       margin-bottom: 18px;
     }
-    .intro-usps {
+    .values-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
       margin-top: 40px;
     }
-    .usp-item {
+    .value-item {
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: 10px;
       padding: 28px 24px;
       transition: transform 0.3s, border-color 0.3s;
     }
-    .usp-item:hover {
+    .value-item:hover {
       transform: translateY(-4px);
       border-color: rgba(204,41,54,0.3);
     }
-    .usp-icon {
+    .value-icon {
       margin-bottom: 12px;
       display: block;
     }
-    .usp-icon svg {
+    .value-icon svg {
       width: 32px; height: 32px; stroke: var(--gold); fill: none;
       stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
       display: inline-block;
     }
-    .usp-item h4 {
+    .value-item h4 {
       font-family: var(--font-display);
       font-size: 1rem; font-weight: 700;
       margin-bottom: 8px;
     }
-    .usp-item p {
+    .value-item p {
       font-size: 0.85rem; color: var(--text-muted);
       line-height: 1.65;
     }
 
     /* ═══════════════════════════════════════
-       COACHES (Two Columns)
+       PERSON PROFILES
     ═══════════════════════════════════════ */
-    .coaches {
-      background: var(--bg-dark);
+    .person {
       padding: 80px 0 90px;
     }
-    .coaches-head {
-      text-align: center;
-      margin-bottom: 48px;
+    .person:nth-child(even) {
+      background: var(--bg-dark-warm);
     }
-    .coaches-head h2 {
+    .person:nth-child(odd) {
+      background: var(--bg-dark);
+    }
+    .person-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .person-grid.reverse {
+      direction: rtl;
+    }
+    .person-grid.reverse > * {
+      direction: ltr;
+    }
+    .person-photo {
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+    }
+    .person-photo img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .person-text h2 {
       font-family: var(--font-display);
       font-size: clamp(1.6rem, 3.5vw, 2.3rem);
       font-weight: 700; line-height: 1.15;
+      margin-bottom: 6px;
     }
-    .coaches-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
+    .person-text .person-role {
+      font-size: 0.9rem; color: var(--red);
+      font-weight: 600; margin-bottom: 20px;
     }
-    .coach-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 12px;
-      overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
+    .person-text p {
+      font-size: 0.92rem; color: var(--text-light);
+      line-height: 1.75; margin-bottom: 14px;
     }
-    .coach-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+    .person-text blockquote {
+      font-family: var(--font-accent);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--gold);
+      border-left: 3px solid var(--gold);
+      padding-left: 18px;
+      margin: 24px 0;
+      line-height: 1.6;
     }
-    .coach-img {
-      aspect-ratio: 4/3; overflow: hidden;
-    }
-    .coach-img img {
-      width: 100%; height: 100%; object-fit: cover;
-      transition: transform 0.5s;
-    }
-    .coach-card:hover .coach-img img { transform: scale(1.04); }
-    .coach-body {
-      padding: 28px 24px 32px;
-    }
-    .coach-body h3 {
-      font-family: var(--font-display);
-      font-size: 1.35rem; font-weight: 700;
-      margin-bottom: 4px;
-    }
-    .coach-body .coach-role {
-      font-size: 0.85rem; color: var(--red);
-      font-weight: 600; margin-bottom: 14px;
-    }
-    .coach-body p {
-      font-size: 0.9rem; color: var(--text-light);
-      line-height: 1.75; margin-bottom: 12px;
-    }
-    .coach-tags {
+    .person-tags {
       display: flex; flex-wrap: wrap; gap: 8px;
-      margin-top: 16px;
+      margin-top: 20px;
     }
-    .coach-tag {
+    .person-tag {
       background: rgba(200,169,81,0.12);
       border: 1px solid rgba(200,169,81,0.25);
       color: var(--gold);
@@ -324,63 +324,61 @@
     }
 
     /* ═══════════════════════════════════════
-       HOW IT WORKS (3 Steps)
+       TIMELINE
     ═══════════════════════════════════════ */
-    .steps {
+    .timeline-section {
       background: var(--bg-dark-warm);
       padding: 80px 0 90px;
     }
-    .steps-head {
+    .timeline-head {
       text-align: center;
       margin-bottom: 48px;
     }
-    .steps-head h2 {
+    .timeline-head h2 {
       font-family: var(--font-display);
       font-size: clamp(1.6rem, 3.5vw, 2.3rem);
-      font-weight: 700; line-height: 1.15;
+      font-weight: 700;
     }
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
+    .timeline {
       position: relative;
-    }
-    .step {
-      text-align: center;
-      position: relative;
-    }
-    .step-number {
-      width: 56px; height: 56px;
-      background: var(--red);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-display);
-      font-size: 1.3rem; font-weight: 700;
-      margin: 0 auto 20px;
-      position: relative;
-      z-index: 1;
-    }
-    .step h3 {
-      font-family: var(--font-display);
-      font-size: 1.1rem; font-weight: 700;
-      margin-bottom: 10px;
-    }
-    .step p {
-      font-size: 0.88rem; color: var(--text-muted);
-      line-height: 1.7;
-      max-width: 300px;
+      max-width: 680px;
       margin: 0 auto;
     }
-    /* Connector line between steps */
-    .steps-grid::before {
+    .timeline::before {
       content: '';
       position: absolute;
-      top: 28px;
-      left: calc(16.67% + 28px);
-      right: calc(16.67% + 28px);
-      height: 2px;
+      left: 24px;
+      top: 0; bottom: 0;
+      width: 2px;
       background: rgba(204,41,54,0.3);
-      z-index: 0;
+    }
+    .timeline-item {
+      position: relative;
+      padding-left: 64px;
+      margin-bottom: 36px;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: 15px; top: 4px;
+      width: 20px; height: 20px;
+      background: var(--red);
+      border-radius: 50%;
+      border: 3px solid var(--bg-dark-warm);
+    }
+    .timeline-year {
+      font-family: var(--font-display);
+      font-size: 0.85rem; font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .timeline-item h3 {
+      font-family: var(--font-display);
+      font-size: 1.05rem; font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .timeline-item p {
+      font-size: 0.88rem; color: var(--text-muted);
+      line-height: 1.65;
     }
 
     /* ═══════════════════════════════════════
@@ -506,10 +504,9 @@
         border-bottom: 1px solid rgba(255,255,255,0.06);
         z-index: 200;
       }
-      .intro-usps { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
-      .coaches-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
-      .steps-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
-      .steps-grid::before { display: none; }
+      .values-grid { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
+      .person-grid, .person-grid.reverse { grid-template-columns: 1fr; direction: ltr; }
+      .person-photo { max-width: 400px; margin: 0 auto; aspect-ratio: 1/1; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 600px) {
@@ -517,7 +514,7 @@
       .hero-sub-page { min-height: 40vh; }
       .hero-sub-page h1 { font-size: 1.8rem; }
       .hero-sub-page .hero-subtitle { font-size: 0.95rem; }
-      .intro h2, .coaches-head h2, .steps-head h2 { font-size: 1.4rem; }
+      .intro h2, .person-text h2, .timeline-head h2 { font-size: 1.4rem; }
       .footer-grid { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; text-align: center; }
       .footer-legal { justify-content: center; }
@@ -531,9 +528,9 @@
   <div class="nav-main">
     <a href="index.html" class="nav-logo">Life Upgreater<sup>&reg;</sup></a>
     <div class="nav-links" id="navLinks">
-      <a href="ueber-uns.html">Über uns</a>
+      <a href="ueber-uns.html" class="active">Über uns</a>
       <a href="index.html#kostenlos">Kostenlose Angebote</a>
-      <a href="index.html#angebote" class="active">Unsere Angebote</a>
+      <a href="index.html#angebote">Unsere Angebote</a>
       <a href="index.html#selftest">Selbsttest</a>
       <a href="#" class="nav-cta">Kontakt</a>
     </div>
@@ -568,132 +565,149 @@
 <section class="hero-sub-page">
   <div class="hero-img"></div>
   <div class="hero-body">
-    <p class="label fade-up">Personal Training</p>
-    <h1 class="fade-up d1">Personal Training</h1>
-    <p class="hero-subtitle fade-up d2">Körperlich &amp; Mental – Dein exklusives 1:1 Coaching mit Marco &amp; Lisa</p>
+    <p class="label fade-up">Über uns</p>
+    <h1 class="fade-up d1">Die Menschen hinter<br>Life Upgreater<sup>&reg;</sup></h1>
+    <p class="hero-subtitle fade-up d2">Zwei Persönlichkeiten, eine Vision: Menschen dabei zu unterstützen, ihr volles Potenzial zu entfalten.</p>
   </div>
 </section>
 
-<!-- ═══ 2: INTRO ═══ -->
+<!-- ═══ 2: UNSERE STORY ═══ -->
 <section class="intro">
   <div class="wrap">
     <div class="fade-up">
-      <p class="label">Was ist Personal Training bei Life Upgreater?</p>
-      <h2>Dein maßgeschneidertes 1:1 Coaching</h2>
+      <p class="label">Unsere Geschichte</p>
+      <h2>Aus eigener Erfahrung geboren</h2>
     </div>
-    <p class="intro-text fade-up d1">Personal Training bei Life Upgreater<sup>&reg;</sup> ist mehr als klassisches Fitness-Coaching. Wir verbinden körperliches Training mit mentalem Coaching – basierend auf dem einzigartigen Blickwinkel Training<sup>&reg;</sup>. In exklusiven 1:1 Sessions arbeiten Marco und Lisa gezielt an Deinen individuellen Zielen – ob Du körperlich fitter werden, mental stärker werden oder beides kombinieren möchtest.</p>
-    <p class="intro-text fade-up d1">Jede Session wird individuell auf Dich abgestimmt. Kein Schema F, keine Gruppenübungen – sondern volle Aufmerksamkeit für Dich und Deine Entwicklung. Das macht den Unterschied.</p>
+    <p class="intro-text fade-up d1">Life Upgreater<sup>&reg;</sup> ist mehr als ein Unternehmen – es ist eine Herzensangelegenheit. Was 2017 als persönliche Reise begann, ist heute ein ganzheitliches Konzept, das körperliches Training mit mentalem Coaching verbindet. Marco und Lisa Fuchs haben aus ihrer eigenen Transformation ein System entwickelt, das nachweislich wirkt.</p>
+    <p class="intro-text fade-up d1">In der Region Aachen begleiten sie Menschen, Familien und Unternehmen auf dem Weg zu mehr Gesundheit, Klarheit und Lebensfreude. Von kostenlosen Sportkursen bis hin zu exklusivem Personal Training – bei Life Upgreater<sup>&reg;</sup> findet jeder den passenden Einstieg.</p>
 
-    <div class="intro-usps">
-      <div class="usp-item fade-up">
-        <span class="usp-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
-        <h4>100% individuell</h4>
-        <p>Jedes Training wird auf Deine Ziele, Dein Level und Deine Bedürfnisse zugeschnitten – keine Standardpläne.</p>
+    <div class="values-grid">
+      <div class="value-item fade-up">
+        <span class="value-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+        <h4>Authentizität</h4>
+        <p>Wir leben, was wir lehren. Jede Methode haben wir selbst erfahren und für wirksam befunden, bevor wir sie weitergeben.</p>
       </div>
-      <div class="usp-item fade-up d1">
-        <span class="usp-icon"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/><line x1="9" y1="21" x2="15" y2="21"/><line x1="10" y1="24" x2="14" y2="24"/></svg></span>
-        <h4>Körper &amp; Geist vereint</h4>
-        <p>Die einzigartige Kombination aus physischem Training und Blickwinkel Training<sup>&reg;</sup> für nachhaltige Veränderung.</p>
+      <div class="value-item fade-up d1">
+        <span class="value-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+        <h4>Ganzheitlichkeit</h4>
+        <p>Körper und Geist gehören zusammen. Nur wer beides trainiert, kann sein volles Potenzial entfalten und nachhaltig wachsen.</p>
       </div>
-      <div class="usp-item fade-up d2">
-        <span class="usp-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
-        <h4>Zwei Experten, ein Ziel</h4>
-        <p>Marco für den Körper, Lisa für den Geist – oder beide zusammen für Dein ganzheitliches Upgreat.</p>
+      <div class="value-item fade-up d2">
+        <span class="value-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+        <h4>Individualität</h4>
+        <p>Kein Mensch ist gleich. Deshalb passen wir jedes Training, jedes Coaching und jedes Seminar individuell an Deine Bedürfnisse an.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ 3: COACHES ═══ -->
-<section class="coaches">
+<!-- ═══ 3: MARCO ═══ -->
+<section class="person" id="marco">
   <div class="wrap">
-    <div class="coaches-head fade-up">
-      <p class="label">Deine Coaches</p>
-      <h2>Zwei Experten – ein Team für Dein Upgreat</h2>
-    </div>
-
-    <div class="coaches-grid">
-      <!-- Marco -->
-      <div class="coach-card fade-up">
-        <div class="coach-img">
-          <img src="img/seminar-marco.jpg" alt="Marco Fuchs – Körperliches Training">
-        </div>
-        <div class="coach-body">
-          <h3>Marco Fuchs</h3>
-          <p class="coach-role">Körperliches Training, Sport &amp; Fitness</p>
-          <p>Als zertifizierter Trainer bringt Marco Dich körperlich an Dein nächstes Level. Ob Kraft, Ausdauer, Beweglichkeit oder Yogaletics<sup>&reg;</sup> – Marco entwickelt einen Trainingsplan, der genau zu Dir passt und Dich Schritt für Schritt stärker macht.</p>
-          <p>Seine Energie und Motivation sind ansteckend. Er glaubt fest daran, dass jeder Mensch mehr in sich trägt, als er denkt.</p>
-          <div class="coach-tags">
-            <span class="coach-tag">Fitness</span>
-            <span class="coach-tag">Kraft</span>
-            <span class="coach-tag">Yogaletics<sup>&reg;</sup></span>
-            <span class="coach-tag">Ausdauer</span>
-          </div>
-        </div>
+    <div class="person-grid fade-up">
+      <div class="person-photo">
+        <img src="img/portrait-marco.png" alt="Marco Fuchs – Gründer Life Upgreater">
       </div>
-
-      <!-- Lisa -->
-      <div class="coach-card fade-up d1">
-        <div class="coach-img">
-          <img src="img/personal-lisa.jpg" alt="Lisa Fuchs – Mentales Training">
-        </div>
-        <div class="coach-body">
-          <h3>Lisa Fuchs</h3>
-          <p class="coach-role">Mentales Training, Coaching &amp; Blickwinkel Training<sup>&reg;</sup></p>
-          <p>Lisa ist Deine Expertin für mentale Stärke. Mit dem Blickwinkel Training<sup>&reg;</sup> hilft sie Dir, eingefahrene Denkmuster zu erkennen, neue Perspektiven zu entwickeln und innere Blockaden zu lösen – für mehr Klarheit, Gelassenheit und Lebensfreude.</p>
-          <p>Ihr empathischer Ansatz schafft einen sicheren Raum, in dem echte Veränderung möglich wird.</p>
-          <div class="coach-tags">
-            <span class="coach-tag">Blickwinkel Training<sup>&reg;</sup></span>
-            <span class="coach-tag">Coaching</span>
-            <span class="coach-tag">Achtsamkeit</span>
-            <span class="coach-tag">Mindset</span>
-          </div>
+      <div class="person-text">
+        <p class="label">Gründer &amp; Trainer</p>
+        <h2>Marco Fuchs</h2>
+        <p class="person-role">Körper, Geist &amp; Motivation</p>
+        <p>Marco ist das Herz von Life Upgreater<sup>&reg;</sup>. Als zertifizierter Trainer und Coach verbindet er körperliches Training mit mentaler Stärke. Seine Energie auf der Bühne und im 1:1 ist ansteckend – er glaubt fest daran, dass jeder Mensch Großes in sich trägt.</p>
+        <p>Mit dem von ihm entwickelten Blickwinkel Training<sup>&reg;</sup> hat er eine Methode geschaffen, die Menschen hilft, eingefahrene Denkmuster zu durchbrechen und neue Perspektiven zu gewinnen. Von der Firmenfitness bis zum Impulsseminar – Marco schafft Räume, in denen echte Veränderung passiert.</p>
+        <blockquote>„Dein größtes Potenzial liegt dort, wo Du noch nicht hingeschaut hast."</blockquote>
+        <div class="person-tags">
+          <span class="person-tag">Blickwinkel Training<sup>&reg;</sup></span>
+          <span class="person-tag">Yogaletics<sup>&reg;</sup></span>
+          <span class="person-tag">Firmenfitness</span>
+          <span class="person-tag">Functional Training</span>
+          <span class="person-tag">Motivation</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ 4: HOW IT WORKS ═══ -->
-<section class="steps">
+<!-- ═══ 4: LISA ═══ -->
+<section class="person" id="lisa">
   <div class="wrap">
-    <div class="steps-head fade-up">
-      <p class="label">So funktioniert's</p>
-      <h2>In 3 Schritten zu Deinem Personal Training</h2>
-    </div>
-
-    <div class="steps-grid">
-      <div class="step fade-up">
-        <div class="step-number">1</div>
-        <h3>Kostenloses Erstgespräch</h3>
-        <p>In einem unverbindlichen Gespräch lernen wir Dich kennen, verstehen Deine Ziele und finden heraus, welches Training am besten zu Dir passt.</p>
+    <div class="person-grid reverse fade-up">
+      <div class="person-photo">
+        <img src="img/portrait-lisa.png" alt="Lisa Fuchs – Co-Gründerin Life Upgreater">
       </div>
-      <div class="step fade-up d1">
-        <div class="step-number">2</div>
-        <h3>Individueller Trainingsplan</h3>
-        <p>Basierend auf Deinen Zielen erstellen wir einen maßgeschneiderten Plan – ob körperlich, mental oder beides. Kein Training von der Stange.</p>
-      </div>
-      <div class="step fade-up d2">
-        <div class="step-number">3</div>
-        <h3>Regelmäßiges Training &amp; Begleitung</h3>
-        <p>In regelmäßigen 1:1 Sessions arbeiten wir gemeinsam an Deiner Entwicklung. Mit kontinuierlicher Begleitung und Anpassung für nachhaltige Ergebnisse.</p>
+      <div class="person-text">
+        <p class="label">Co-Gründerin &amp; Trainerin</p>
+        <h2>Lisa Fuchs</h2>
+        <p class="person-role">Achtsamkeit, Familie &amp; mentale Stärke</p>
+        <p>Lisa bringt Empathie und Struktur zusammen. Als Expertin für Mamaletics<sup>&reg;</sup> und Familienseminare hilft sie Eltern, Paaren und Familien, ihre Verbindung zu stärken und mehr Leichtigkeit im Alltag zu finden.</p>
+        <p>Ihr empathischer Ansatz schafft einen sicheren Raum, in dem echte Veränderung möglich wird. Ob im Gruppen-Mentaltraining oder im exklusiven 1:1 Coaching – Lisa begleitet Menschen mit Herz und Verstand auf ihrem Weg zu mehr Klarheit und innerem Frieden.</p>
+        <blockquote>„Wahres Glück entsteht, wenn Kopf und Körper zusammenarbeiten."</blockquote>
+        <div class="person-tags">
+          <span class="person-tag">Mamaletics<sup>&reg;</sup></span>
+          <span class="person-tag">Blickwinkel Training<sup>&reg;</sup></span>
+          <span class="person-tag">Coaching</span>
+          <span class="person-tag">Achtsamkeit</span>
+          <span class="person-tag">Mindset</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ 5: CTA ═══ -->
+<!-- ═══ 5: TIMELINE ═══ -->
+<section class="timeline-section">
+  <div class="wrap">
+    <div class="timeline-head fade-up">
+      <p class="label">Unser Weg</p>
+      <h2>Die Life Upgreater<sup>&reg;</sup> Geschichte</h2>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2017</div>
+        <h3>Der Anfang</h3>
+        <p>Marco startet mit ersten Sportkursen und Fitness-Angeboten in Aachen. Die Idee: Training, das nicht nur den Körper stärkt.</p>
+      </div>
+      <div class="timeline-item fade-up d1">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2019</div>
+        <h3>Blickwinkel Training<sup>&reg;</sup></h3>
+        <p>Die Entwicklung des einzigartigen Blickwinkel Trainings<sup>&reg;</sup> – die Verbindung von mentalem Coaching und körperlichem Training.</p>
+      </div>
+      <div class="timeline-item fade-up d2">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2020</div>
+        <h3>Lisa kommt dazu</h3>
+        <p>Lisa bringt ihre Expertise in Achtsamkeit und Familienarbeit ein. Gemeinsam wird Life Upgreater<sup>&reg;</sup> zu einem ganzheitlichen Konzept.</p>
+      </div>
+      <div class="timeline-item fade-up d3">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2022</div>
+        <h3>Seminare &amp; Unternehmen</h3>
+        <p>Start der Impulsseminare für Familien und Paare. Erste Firmenfitness-Kooperationen mit Unternehmen in der Region.</p>
+      </div>
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">Heute</div>
+        <h3>500+ begleitete Menschen</h3>
+        <p>Ein wachsendes Angebot von kostenlosen Kursen über Personal Training bis hin zu Business Upgreater – in Aachen und online.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 6: CTA ═══ -->
 <section class="cta-section">
   <div class="wrap">
     <div class="cta-inner fade-up">
-      <h2>Starte Dein Personal Training</h2>
-      <p>Bereit für Dein persönliches Upgreat? Vereinbare jetzt Dein kostenloses Erstgespräch mit Marco &amp; Lisa.</p>
-      <a href="#" class="btn-white">Kostenloses Erstgespräch vereinbaren</a>
+      <h2>Lerne uns persönlich kennen</h2>
+      <p>Ob bei einem kostenlosen Sportkurs, einem Erstgespräch oder einem Seminar – wir freuen uns auf Dich.</p>
+      <a href="index.html#kostenlos" class="btn-white">Kostenlos starten</a>
     </div>
   </div>
 </section>
 
-<!-- ═══ 6: FOOTER ═══ -->
+<!-- ═══ 7: FOOTER ═══ -->
 <footer class="footer">
   <div class="wrap">
     <div class="footer-grid">
@@ -756,29 +770,26 @@
     </div>
 
     <div class="footer-bottom">
+      <p style="font-size:0.78rem; color:var(--text-muted);">&copy; 2026 Life Upgreater<sup>&reg;</sup> – Marco &amp; Lisa Fuchs</p>
       <div class="footer-legal">
-        <a href="#">Kooperationen</a>
-        <a href="#">Downloads</a>
-        <a href="#">AGB</a>
-        <a href="#">Widerrufsbelehrung</a>
-        <a href="#">Datenschutz</a>
         <a href="#">Impressum</a>
-        <a href="#">Kontakt</a>
+        <a href="#">Datenschutz</a>
+        <a href="#">AGB</a>
       </div>
     </div>
   </div>
 </footer>
 
 <script>
-  /* Nav Toggle */
+  // Mobile nav toggle
   document.getElementById('navToggle').addEventListener('click', () => {
     document.getElementById('navLinks').classList.toggle('open');
   });
 
-  /* Scroll Reveal */
+  // Scroll reveal
   const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
-  }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); } });
+  }, { threshold: 0.15 });
   document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 </script>
 
