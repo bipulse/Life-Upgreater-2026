@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kasse – Life Upgreater® Shop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    @font-face { font-family: 'DIN Alternate'; src: url('fonts/din-alternate-bold.otf') format('opentype'); font-weight: 700; font-style: normal; font-display: swap; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg-dark: #1A1A1A; --bg-dark-warm: #2A2220; --bg-trust: #2A2220;
+      --red: #CC2936; --red-hover: #E03040; --white: #FFFFFF; --light-gray: #F5F5F5;
+      --gold: #C8A951; --text-light: #CCCCCC; --text-muted: #999999;
+      --font-display: 'DIN Alternate', 'Source Sans 3', sans-serif;
+      --font-body: 'Source Sans 3', sans-serif; --font-accent: 'Lora', Georgia, serif;
+      --max-w: 1200px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--white); background: var(--bg-dark); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; cursor: pointer; }
+    ul { list-style: none; }
+    .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+    .btn { display: inline-block; padding: 14px 28px; border-radius: 8px; font-family: var(--font-body); font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.25s; border: 2px solid transparent; }
+    .btn-red { background: var(--red); color: var(--white); border-color: var(--red); }
+    .btn-red:hover { background: var(--red-hover); border-color: var(--red-hover); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(204,41,54,0.3); }
+    .label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); margin-bottom: 14px; }
+
+    /* Announcement Bar */
+    .topbar { display: block; width: 100%; background: var(--red); text-align: center; padding: 11px 16px; font-size: 0.88rem; font-weight: 500; color: #fff; cursor: pointer; transition: background 0.3s; line-height: 1.4; }
+    .topbar:hover { background: var(--red-hover); }
+    .topbar strong { font-weight: 700; }
+    .topbar .pulse { display: inline-block; width: 7px; height: 7px; background: #fff; border-radius: 50%; margin-right: 6px; animation: pulse 1.5s ease infinite; vertical-align: middle; }
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.4); } }
+
+    /* NAV (simplified - no sub-nav) */
+    .nav { background: var(--bg-dark); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .nav-main { display: flex; align-items: center; justify-content: space-between; height: 64px; max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+    .nav-logo { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; white-space: nowrap; }
+    .nav-logo sup { color: var(--red); font-size: 0.7em; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--text-light); transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-links .active { color: var(--white); }
+    .nav-links .nav-cta { background: var(--red); color: #fff !important; padding: 9px 22px; border-radius: 6px; }
+    .nav-links .nav-cta:hover { background: var(--red-hover); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-hamburger span { width: 24px; height: 2px; background: #fff; border-radius: 2px; }
+    .mobile-sub-links { display: none; }
+
+    /* CHECKOUT HEADER */
+    .checkout-header { background: var(--bg-dark-warm); padding: 40px 0 36px; }
+    .checkout-header h1 { font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.4rem); font-weight: 700; margin-bottom: 20px; text-align: center; }
+    .steps { display: flex; justify-content: center; gap: 0; max-width: 480px; margin: 0 auto; }
+    .step { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted); font-weight: 500; }
+    .step.active { color: var(--white); }
+    .step-num { width: 28px; height: 28px; border-radius: 50%; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 700; }
+    .step.active .step-num { background: var(--red); color: #fff; }
+    .step-arrow { margin: 0 16px; color: var(--text-muted); font-size: 0.8rem; opacity: 0.4; }
+
+    /* CHECKOUT LAYOUT */
+    .checkout-section { padding: 48px 0 80px; }
+    .checkout-layout { display: grid; grid-template-columns: 1fr 380px; gap: 48px; align-items: start; }
+
+    /* FORM STYLES */
+    .form-section { margin-bottom: 36px; }
+    .form-section h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .form-row.full { grid-template-columns: 1fr; }
+    .form-group { display: flex; flex-direction: column; }
+    .form-group label { font-size: 0.82rem; font-weight: 600; color: var(--text-light); margin-bottom: 6px; }
+    .form-group input, .form-group select {
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-group input::placeholder { color: var(--text-muted); }
+    .form-group input:focus, .form-group select:focus {
+      outline: none;
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px rgba(204,41,54,0.15);
+    }
+    .form-group select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; }
+    .form-group select option { background: #2A2220; color: #fff; }
+
+    /* CHECKBOX */
+    .checkbox-row { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; cursor: pointer; }
+    .checkbox-row input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--red); cursor: pointer; }
+    .checkbox-row label { font-size: 0.88rem; color: var(--text-light); cursor: pointer; }
+    .checkbox-row label a { color: var(--red); text-decoration: underline; }
+
+    /* PAYMENT OPTIONS */
+    .payment-options { display: flex; flex-direction: column; gap: 12px; }
+    .payment-card { display: flex; align-items: center; gap: 14px; padding: 16px 18px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; cursor: pointer; transition: all 0.2s; }
+    .payment-card:hover { border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.06); }
+    .payment-card.selected { border-color: var(--red); background: rgba(204,41,54,0.06); }
+    .payment-card input[type="radio"] { width: 18px; height: 18px; accent-color: var(--red); cursor: pointer; flex-shrink: 0; }
+    .payment-icon { width: 36px; height: 36px; background: rgba(255,255,255,0.08); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .payment-icon svg { width: 20px; height: 20px; stroke: var(--gold); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .payment-info { flex: 1; }
+    .payment-info strong { font-size: 0.9rem; font-weight: 600; display: block; margin-bottom: 1px; }
+    .payment-info span { font-size: 0.78rem; color: var(--text-muted); }
+
+    /* ORDER SUMMARY SIDEBAR */
+    .order-summary { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 28px; position: sticky; top: 90px; }
+    .order-summary h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; }
+    .order-product { display: flex; gap: 14px; align-items: center; padding-bottom: 20px; margin-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .order-product-img { width: 64px; height: 64px; border-radius: 8px; overflow: hidden; background: #222; flex-shrink: 0; }
+    .order-product-img img { width: 100%; height: 100%; object-fit: cover; }
+    .order-product-info { flex: 1; }
+    .order-product-info h4 { font-family: var(--font-display); font-size: 0.88rem; font-weight: 700; margin-bottom: 2px; }
+    .order-product-info h4 sup { color: var(--red); font-size: 0.6em; }
+    .order-product-info span { font-size: 0.78rem; color: var(--text-muted); }
+    .order-product-price { font-family: var(--font-display); font-size: 1rem; font-weight: 700; white-space: nowrap; }
+    .summary-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; font-size: 0.9rem; color: var(--text-light); }
+    .summary-row .free { color: #28a745; font-weight: 600; }
+    .summary-row.total { border-top: 2px solid rgba(255,255,255,0.1); margin-top: 8px; padding-top: 14px; }
+    .summary-row.total span:last-child { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--red); }
+    .buy-btn { display: block; width: 100%; padding: 16px; background: var(--red); color: #fff; border: none; border-radius: 8px; font-family: var(--font-body); font-size: 1.05rem; font-weight: 700; cursor: pointer; transition: all 0.25s; margin-top: 20px; margin-bottom: 20px; }
+    .buy-btn:hover { background: var(--red-hover); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(204,41,54,0.3); }
+
+    /* TRUST BADGES */
+    .trust-badges { display: flex; flex-direction: column; gap: 10px; }
+    .trust-badge { display: flex; align-items: center; gap: 10px; font-size: 0.82rem; color: var(--text-muted); }
+    .trust-badge svg { width: 18px; height: 18px; stroke: var(--gold); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+    /* FOOTER (simplified) */
+    .footer { background: var(--bg-dark); border-top: 1px solid rgba(255,255,255,0.06); padding: 28px 0; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-size: 0.78rem; color: var(--text-muted); }
+    .footer-legal { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-legal a { font-size: 0.78rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .footer-legal a:hover { color: #fff; }
+
+    .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.vis { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; } .d3 { transition-delay: 0.3s; }
+
+    /* THEME SWITCHER */
+    .theme-switcher { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); z-index: 999; display: flex; flex-direction: column; gap: 8px; }
+    .theme-btn { width: 42px; height: 42px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.3); cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,0.3); position: relative; }
+    .theme-btn:hover { transform: scale(1.12); }
+    .theme-btn.active { border-color: var(--red); box-shadow: 0 0 0 3px rgba(204,41,54,0.3), 0 4px 16px rgba(0,0,0,0.3); }
+    .theme-btn svg { width: 20px; height: 20px; }
+    .theme-btn-dark { background: #1A1A1A; } .theme-btn-dark svg { stroke: #fff; fill: none; stroke-width: 2; }
+    .theme-btn-light { background: #F5F5F5; } .theme-btn-light svg { stroke: #333; fill: none; stroke-width: 2; }
+    .theme-label { position: absolute; right: 52px; white-space: nowrap; background: rgba(0,0,0,0.85); color: #fff; font-size: 0.75rem; font-weight: 600; padding: 5px 10px; border-radius: 4px; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+    .theme-btn:hover .theme-label { opacity: 1; }
+
+    /* LIGHT THEME */
+    body.light { --bg-dark: #FAFAFA; --bg-dark-warm: #F0EDEA; --bg-trust: #F0EDEA; --white: #1A1A1A; --text-light: #444444; --text-muted: #777777; --gold: #A38932; }
+    body.light { background: #FAFAFA; color: #1A1A1A; }
+    body.light .nav { background: #fff; border-bottom-color: rgba(0,0,0,0.08); }
+    body.light .nav-links a { color: #555; } body.light .nav-links a:hover { color: #1A1A1A; }
+    body.light .nav-links .active { color: #1A1A1A; } body.light .nav-hamburger span { background: #1A1A1A; }
+    body.light .checkout-header { background: #F0EDEA; }
+    body.light .step-num { background: rgba(0,0,0,0.06); }
+    body.light .form-section h3 { border-bottom-color: rgba(0,0,0,0.08); }
+    body.light .form-group input, body.light .form-group select { background: #fff; border-color: rgba(0,0,0,0.15); color: #1A1A1A; }
+    body.light .form-group input::placeholder { color: #aaa; }
+    body.light .form-group select option { background: #fff; color: #1A1A1A; }
+    body.light .payment-card { background: #fff; border-color: rgba(0,0,0,0.1); }
+    body.light .payment-card:hover { border-color: rgba(0,0,0,0.2); background: #fafafa; }
+    body.light .payment-card.selected { border-color: var(--red); background: rgba(204,41,54,0.04); }
+    body.light .payment-icon { background: rgba(0,0,0,0.04); }
+    body.light .order-summary { background: #fff; border-color: rgba(0,0,0,0.08); box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
+    body.light .order-product { border-bottom-color: rgba(0,0,0,0.06); }
+    body.light .order-product-img { background: #f0f0f0; }
+    body.light .summary-row.total { border-top-color: rgba(0,0,0,0.1); }
+    body.light .btn-red { color: #fff !important; }
+    body.light .nav-links .nav-cta { color: #fff !important; }
+    body.light .theme-btn { border-color: rgba(0,0,0,0.15); }
+    body.light .theme-label { background: rgba(0,0,0,0.75); }
+    body.light .footer { background: #1A1A1A; color: #fff; }
+    body.light .footer-bottom p { color: #ccc; }
+    body.light .footer-legal a { color: #ccc; }
+    body.light .footer-legal a:hover { color: #fff; }
+
+    @media (max-width: 960px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-dark); padding: 20px 32px; gap: 16px; border-bottom: 1px solid rgba(255,255,255,0.06); z-index: 200; }
+      .checkout-layout { grid-template-columns: 1fr; }
+      .order-summary { position: static; }
+      .theme-label { display: none; }
+    }
+    @media (max-width: 600px) {
+      .wrap { padding: 0 20px; }
+      .form-row { grid-template-columns: 1fr; }
+      .steps { flex-wrap: wrap; justify-content: center; gap: 4px; }
+      .step-arrow { margin: 0 8px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .footer-legal { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Announcement Bar -->
+<div class="topbar" onclick="location.href='happyme-happyfamily.html'">
+  <span class="pulse"></span>
+  <strong>Nächstes Seminar:</strong> HappyMe-HappyFamily am 26. April 2026 – Jetzt Platz sichern!
+</div>
+
+<!-- NAV (simplified) -->
+<nav class="nav">
+  <div class="nav-main">
+    <a href="index.html" class="nav-logo">Life Upgreater<sup>&reg;</sup></a>
+    <div class="nav-links" id="navLinks">
+      <a href="ueber-uns.html">Über uns</a>
+      <a href="index.html#kostenlos">Kostenlose Angebote</a>
+      <a href="index.html#angebote">Unsere Angebote</a>
+      <a href="shop.html" class="active">Shop</a>
+      <a href="#" class="nav-cta">Kontakt</a>
+    </div>
+    <button class="nav-hamburger" id="navToggle" aria-label="Menü"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- CHECKOUT HEADER -->
+<section class="checkout-header">
+  <div class="wrap">
+    <h1 class="fade-up">Kasse</h1>
+    <div class="steps fade-up d1">
+      <div class="step active"><span class="step-num">1</span> Daten</div>
+      <span class="step-arrow">→</span>
+      <div class="step"><span class="step-num">2</span> Zahlung</div>
+      <span class="step-arrow">→</span>
+      <div class="step"><span class="step-num">3</span> Bestätigung</div>
+    </div>
+  </div>
+</section>
+
+<!-- CHECKOUT CONTENT -->
+<section class="checkout-section">
+  <div class="wrap">
+    <div class="checkout-layout">
+      <!-- LEFT: Form -->
+      <div>
+        <form id="checkoutForm" onsubmit="return false;">
+          <!-- Kontaktdaten -->
+          <div class="form-section fade-up">
+            <h3>Kontaktdaten</h3>
+            <div class="form-row full">
+              <div class="form-group">
+                <label for="email">E-Mail-Adresse</label>
+                <input type="email" id="email" placeholder="deine@email.de" required>
+              </div>
+            </div>
+          </div>
+
+          <!-- Rechnungsadresse -->
+          <div class="form-section fade-up d1">
+            <h3>Rechnungsadresse</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">Vorname</label>
+                <input type="text" id="firstName" placeholder="Max" required>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Nachname</label>
+                <input type="text" id="lastName" placeholder="Mustermann" required>
+              </div>
+            </div>
+            <div class="form-row full">
+              <div class="form-group">
+                <label for="street">Straße + Nr.</label>
+                <input type="text" id="street" placeholder="Musterstraße 42" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="zip">PLZ</label>
+                <input type="text" id="zip" placeholder="52066" required>
+              </div>
+              <div class="form-group">
+                <label for="city">Stadt</label>
+                <input type="text" id="city" placeholder="Aachen" required>
+              </div>
+            </div>
+            <div class="form-row full">
+              <div class="form-group">
+                <label for="country">Land</label>
+                <select id="country">
+                  <option value="DE" selected>Deutschland</option>
+                  <option value="AT">Österreich</option>
+                  <option value="CH">Schweiz</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Versandadresse -->
+          <div class="form-section fade-up d2">
+            <h3>Versandadresse</h3>
+            <div class="checkbox-row">
+              <input type="checkbox" id="sameAddress" checked>
+              <label for="sameAddress">Gleich wie Rechnungsadresse</label>
+            </div>
+          </div>
+
+          <!-- Zahlungsart -->
+          <div class="form-section fade-up d3">
+            <h3>Zahlungsart</h3>
+            <div class="payment-options">
+              <label class="payment-card selected">
+                <input type="radio" name="payment" value="paypal" checked>
+                <div class="payment-icon">
+                  <svg viewBox="0 0 24 24"><path d="M7 11l5-7"/><path d="M12 4c3.5 0 6 2 6 5.5S15.5 15 12 15H9l-2 5"/><path d="M14 6c2.5 0 4.5 1.5 4.5 4S16.5 14 14 14"/></svg>
+                </div>
+                <div class="payment-info">
+                  <strong>PayPal</strong>
+                  <span>Schnell und sicher bezahlen</span>
+                </div>
+              </label>
+              <label class="payment-card">
+                <input type="radio" name="payment" value="kreditkarte">
+                <div class="payment-icon">
+                  <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                </div>
+                <div class="payment-info">
+                  <strong>Kreditkarte</strong>
+                  <span>Visa, Mastercard, AMEX</span>
+                </div>
+              </label>
+              <label class="payment-card">
+                <input type="radio" name="payment" value="ueberweisung">
+                <div class="payment-icon">
+                  <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <div class="payment-info">
+                  <strong>Überweisung</strong>
+                  <span>Banküberweisung (Vorkasse)</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- AGB Checkbox -->
+          <div class="form-section fade-up">
+            <div class="checkbox-row">
+              <input type="checkbox" id="agb" required>
+              <label for="agb">Ich akzeptiere die <a href="#">AGB</a> und <a href="#">Datenschutzerklärung</a></label>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- RIGHT: Order Summary -->
+      <div class="order-summary fade-up d1">
+        <h3>Deine Bestellung</h3>
+        <div class="order-product">
+          <div class="order-product-img">
+            <img src="img/hero-marco.jpg" alt="10er Karte Yogaletics">
+          </div>
+          <div class="order-product-info">
+            <h4>10er Karte Yogaletics<sup>&reg;</sup></h4>
+            <span>1x | Training</span>
+          </div>
+          <div class="order-product-price">89,00 €</div>
+        </div>
+        <div class="summary-row">
+          <span>Zwischensumme</span>
+          <span>89,00 €</span>
+        </div>
+        <div class="summary-row">
+          <span>Versand</span>
+          <span class="free">Kostenlos</span>
+        </div>
+        <div class="summary-row total">
+          <span>Gesamt</span>
+          <span>89,00 €</span>
+        </div>
+        <button class="buy-btn" id="buyBtn">Jetzt kaufen</button>
+        <div class="trust-badges">
+          <div class="trust-badge">
+            <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Sichere Bezahlung (SSL-verschlüsselt)
+          </div>
+          <div class="trust-badge">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            14 Tage Rückgaberecht
+          </div>
+          <div class="trust-badge">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Datenschutz nach DSGVO
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER (simplified) -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <p>&copy; 2026 Life Upgreater<sup>&reg;</sup> – Marco &amp; Lisa Fuchs</p>
+      <div class="footer-legal">
+        <a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">AGB</a><a href="#">Widerrufsbelehrung</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Theme Switcher -->
+<div class="theme-switcher" id="themeSwitcher">
+  <button class="theme-btn theme-btn-dark active" data-theme="dark"><span class="theme-label">Dunkel</span><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <button class="theme-btn theme-btn-light" data-theme="light"><span class="theme-label">Hell</span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="1" x2="12" y2="3" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="23" stroke-linecap="round"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke-linecap="round"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke-linecap="round"/><line x1="1" y1="12" x2="3" y2="12" stroke-linecap="round"/><line x1="21" y1="12" x2="23" y2="12" stroke-linecap="round"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke-linecap="round"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke-linecap="round"/></svg></button>
+</div>
+
+<script>
+  // Nav toggle
+  (function() {
+    document.getElementById('navToggle').addEventListener('click', function() {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+  })();
+
+  // Scroll reveal
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(function(el) { obs.observe(el); });
+
+  // Payment card selection
+  (function() {
+    var cards = document.querySelectorAll('.payment-card');
+    cards.forEach(function(card) {
+      card.addEventListener('click', function() {
+        cards.forEach(function(c) { c.classList.remove('selected'); });
+        card.classList.add('selected');
+      });
+    });
+  })();
+
+  // Buy button
+  document.getElementById('buyBtn').addEventListener('click', function() {
+    var agb = document.getElementById('agb');
+    if (!agb.checked) {
+      agb.focus();
+      agb.parentElement.style.color = 'var(--red)';
+      setTimeout(function() { agb.parentElement.style.color = ''; }, 2000);
+      return;
+    }
+    alert('Vielen Dank für Deine Bestellung! Du erhältst eine Bestätigungsmail.');
+  });
+
+  // Theme Switcher
+  (function() {
+    var sw = document.getElementById('themeSwitcher');
+    if (!sw) return;
+    var btns = sw.querySelectorAll('.theme-btn');
+    function applyTheme(theme) {
+      if (theme === 'light') { document.body.classList.add('light'); }
+      else { document.body.classList.remove('light'); }
+      for (var j = 0; j < btns.length; j++) {
+        btns[j].classList.toggle('active', btns[j].getAttribute('data-theme') === theme);
+      }
+      try { localStorage.setItem('lu_theme', theme); } catch(e) {}
+    }
+    try { var saved = localStorage.getItem('lu_theme'); if (saved) applyTheme(saved); } catch(e) {}
+    for (var i = 0; i < btns.length; i++) {
+      (function(btn) {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault(); e.stopPropagation();
+          applyTheme(btn.getAttribute('data-theme'));
+        });
+      })(btns[i]);
+    }
+  })();
+</script>
+
+</body>
+</html>

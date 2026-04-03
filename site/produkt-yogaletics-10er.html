@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10er Karte Yogaletics® – Life Upgreater® Shop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    @font-face { font-family: 'DIN Alternate'; src: url('fonts/din-alternate-bold.otf') format('opentype'); font-weight: 700; font-style: normal; font-display: swap; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg-dark: #1A1A1A; --bg-dark-warm: #2A2220; --bg-trust: #2A2220;
+      --red: #CC2936; --red-hover: #E03040; --white: #FFFFFF; --light-gray: #F5F5F5;
+      --gold: #C8A951; --text-light: #CCCCCC; --text-muted: #999999;
+      --font-display: 'DIN Alternate', 'Source Sans 3', sans-serif;
+      --font-body: 'Source Sans 3', sans-serif; --font-accent: 'Lora', Georgia, serif;
+      --max-w: 1200px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--white); background: var(--bg-dark); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; cursor: pointer; }
+    ul { list-style: none; }
+    .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+    .btn { display: inline-block; padding: 14px 28px; border-radius: 8px; font-family: var(--font-body); font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.25s; border: 2px solid transparent; }
+    .btn-red { background: var(--red); color: var(--white); border-color: var(--red); }
+    .btn-red:hover { background: var(--red-hover); border-color: var(--red-hover); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(204,41,54,0.3); }
+    .btn-ghost { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.5); }
+    .btn-ghost:hover { background: rgba(255,255,255,0.08); }
+    .label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); margin-bottom: 14px; }
+
+    /* Announcement Bar */
+    .topbar { display: block; width: 100%; background: var(--red); text-align: center; padding: 11px 16px; font-size: 0.88rem; font-weight: 500; color: #fff; cursor: pointer; transition: background 0.3s; line-height: 1.4; }
+    .topbar:hover { background: var(--red-hover); }
+    .topbar strong { font-weight: 700; }
+    .topbar .pulse { display: inline-block; width: 7px; height: 7px; background: #fff; border-radius: 50%; margin-right: 6px; animation: pulse 1.5s ease infinite; vertical-align: middle; }
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.4); } }
+
+    /* NAV */
+    .nav { background: var(--bg-dark); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .nav-main { display: flex; align-items: center; justify-content: space-between; height: 64px; max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+    .nav-logo { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; white-space: nowrap; }
+    .nav-logo sup { color: var(--red); font-size: 0.7em; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--text-light); transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-links .active { color: var(--white); }
+    .nav-links .nav-cta { background: var(--red); color: #fff !important; padding: 9px 22px; border-radius: 6px; }
+    .nav-links .nav-cta:hover { background: var(--red-hover); }
+    .nav-sub { background: #222; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .nav-sub-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+    .nav-sub-item { display: block; padding: 10px 14px; border-radius: 6px; text-decoration: none; color: inherit; cursor: pointer; transition: background 0.2s, border-color 0.2s; border: 1px solid transparent; }
+    .nav-sub-item:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.1); }
+    .nav-sub-item h4 { font-family: var(--font-display); font-size: 0.9rem; font-weight: 700; margin-bottom: 2px; }
+    .nav-sub-item h4::after { content: ' →'; opacity: 0; transition: opacity 0.2s; }
+    .nav-sub-item:hover h4::after { opacity: 1; }
+    .nav-sub-item p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-hamburger span { width: 24px; height: 2px; background: #fff; border-radius: 2px; }
+
+    /* BREADCRUMB */
+    .breadcrumb { padding: 20px 0; font-size: 0.82rem; color: var(--text-muted); }
+    .breadcrumb a { color: var(--text-muted); transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--white); }
+    .breadcrumb span { margin: 0 8px; opacity: 0.5; }
+
+    /* PRODUCT DETAIL */
+    .product-detail { padding: 20px 0 60px; }
+    .product-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .product-image-wrap { position: relative; border-radius: 12px; overflow: hidden; background: #222; }
+    .product-image-wrap img { width: 100%; aspect-ratio: 1/1; object-fit: cover; }
+    .product-detail-badge { position: absolute; top: 16px; left: 16px; background: var(--red); color: #fff; font-size: 0.78rem; font-weight: 700; padding: 6px 14px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .product-info .label { margin-bottom: 8px; }
+    .product-info h1 { font-family: var(--font-display); font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; margin-bottom: 12px; line-height: 1.2; }
+    .product-info h1 sup { color: var(--red); font-size: 0.6em; }
+    .product-info .price { font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: var(--red); margin-bottom: 20px; }
+    .product-info .desc { font-size: 0.95rem; color: var(--text-light); line-height: 1.7; margin-bottom: 24px; }
+    .detail-list { margin-bottom: 28px; }
+    .detail-list li { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 0.9rem; color: var(--text-light); }
+    .detail-list li:last-child { border-bottom: none; }
+    .detail-list li svg { width: 20px; height: 20px; stroke: var(--gold); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+    .qty-selector { display: flex; align-items: center; gap: 0; margin-bottom: 20px; }
+    .qty-btn { width: 44px; height: 44px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); color: var(--white); font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+    .qty-btn:first-child { border-radius: 8px 0 0 8px; }
+    .qty-btn:last-child { border-radius: 0 8px 8px 0; }
+    .qty-btn:hover { background: rgba(255,255,255,0.12); }
+    .qty-input { width: 56px; height: 44px; text-align: center; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); border-left: none; border-right: none; color: var(--white); font-family: var(--font-body); font-size: 1rem; font-weight: 600; }
+    .qty-input:focus { outline: none; }
+    .add-to-cart-btn { display: block; width: 100%; padding: 16px 28px; background: var(--red); color: #fff; border: none; border-radius: 8px; font-family: var(--font-body); font-size: 1.05rem; font-weight: 700; cursor: pointer; transition: all 0.25s; margin-bottom: 14px; }
+    .add-to-cart-btn:hover { background: var(--red-hover); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(204,41,54,0.3); }
+    .shipping-note { font-size: 0.82rem; color: var(--text-muted); display: flex; align-items: center; gap: 8px; }
+    .shipping-note svg { width: 16px; height: 16px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
+
+    /* TABS */
+    .tabs-section { padding: 0 0 60px; }
+    .tab-buttons { display: flex; gap: 0; border-bottom: 2px solid rgba(255,255,255,0.08); margin-bottom: 32px; }
+    .tab-btn { padding: 14px 24px; font-size: 0.9rem; font-weight: 600; color: var(--text-muted); background: none; border: none; cursor: pointer; transition: all 0.2s; border-bottom: 2px solid transparent; margin-bottom: -2px; }
+    .tab-btn:hover { color: var(--white); }
+    .tab-btn.active { color: var(--white); border-bottom-color: var(--red); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .tab-panel p { font-size: 0.92rem; color: var(--text-light); line-height: 1.8; margin-bottom: 16px; }
+    .details-table { width: 100%; border-collapse: collapse; }
+    .details-table tr { border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .details-table td { padding: 12px 0; font-size: 0.9rem; }
+    .details-table td:first-child { color: var(--text-muted); width: 160px; font-weight: 500; }
+    .details-table td:last-child { color: var(--text-light); }
+
+    /* REVIEWS */
+    .review-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 24px; margin-bottom: 16px; }
+    .review-stars { color: var(--gold); font-size: 1rem; margin-bottom: 8px; letter-spacing: 2px; }
+    .review-text { font-size: 0.9rem; color: var(--text-light); line-height: 1.7; margin-bottom: 10px; }
+    .review-author { font-size: 0.82rem; color: var(--text-muted); font-weight: 600; }
+
+    /* RELATED PRODUCTS */
+    .related-section { padding: 40px 0 80px; }
+    .related-section h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; margin-bottom: 28px; }
+    .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .product-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; cursor: pointer; }
+    .product-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.3); border-color: rgba(204,41,54,0.3); }
+    .product-img { aspect-ratio: 1/1; overflow: hidden; background: #222; position: relative; }
+    .product-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+    .product-card:hover .product-img img { transform: scale(1.06); }
+    .product-badge { position: absolute; top: 12px; left: 12px; background: var(--red); color: #fff; font-size: 0.7rem; font-weight: 700; padding: 4px 10px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .product-badge.new { background: #28a745; }
+    .product-body { padding: 18px 16px 20px; }
+    .product-cat { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+    .product-name { font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; line-height: 1.3; }
+    .product-price { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--red); }
+    .product-price .old-price { text-decoration: line-through; color: var(--text-muted); font-size: 0.85rem; margin-right: 6px; font-weight: 400; }
+    .product-btn { display: block; width: 100%; padding: 10px; background: var(--red); color: #fff; border: none; border-radius: 0 0 12px 12px; font-family: var(--font-body); font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: background 0.2s; margin-top: -1px; }
+    .product-btn:hover { background: var(--red-hover); }
+
+    /* FOOTER */
+    .footer { background: var(--bg-dark); border-top: 1px solid rgba(255,255,255,0.06); padding: 56px 0 28px; }
+    .footer-grid { display: grid; grid-template-columns: 1.3fr 0.8fr 0.8fr 1.1fr; gap: 36px; margin-bottom: 40px; }
+    .footer h4 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; margin-bottom: 16px; }
+    .footer p, .footer a { font-size: 0.85rem; color: var(--text-muted); line-height: 1.8; }
+    .footer a:hover { color: #fff; }
+    .footer-links a { display: block; padding: 2px 0; }
+    .footer-contact-line { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; font-size: 0.85rem; }
+    .footer-contact-line .ico { width: 18px; text-align: center; display: inline-flex; align-items: center; }
+    .footer-contact-line .ico svg { width: 15px; height: 15px; stroke: var(--gold); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-legal { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-legal a { font-size: 0.78rem; color: var(--text-muted); }
+    .footer-legal a:hover { color: #fff; }
+
+    .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.vis { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; } .d3 { transition-delay: 0.3s; }
+    .mobile-sub-links { display: none; }
+
+    /* THEME SWITCHER */
+    .theme-switcher { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); z-index: 999; display: flex; flex-direction: column; gap: 8px; }
+    .theme-btn { width: 42px; height: 42px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.3); cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,0.3); position: relative; }
+    .theme-btn:hover { transform: scale(1.12); }
+    .theme-btn.active { border-color: var(--red); box-shadow: 0 0 0 3px rgba(204,41,54,0.3), 0 4px 16px rgba(0,0,0,0.3); }
+    .theme-btn svg { width: 20px; height: 20px; }
+    .theme-btn-dark { background: #1A1A1A; } .theme-btn-dark svg { stroke: #fff; fill: none; stroke-width: 2; }
+    .theme-btn-light { background: #F5F5F5; } .theme-btn-light svg { stroke: #333; fill: none; stroke-width: 2; }
+    .theme-label { position: absolute; right: 52px; white-space: nowrap; background: rgba(0,0,0,0.85); color: #fff; font-size: 0.75rem; font-weight: 600; padding: 5px 10px; border-radius: 4px; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+    .theme-btn:hover .theme-label { opacity: 1; }
+
+    /* LIGHT THEME */
+    body.light { --bg-dark: #FAFAFA; --bg-dark-warm: #F0EDEA; --bg-trust: #F0EDEA; --white: #1A1A1A; --text-light: #444444; --text-muted: #777777; --gold: #A38932; }
+    body.light { background: #FAFAFA; color: #1A1A1A; }
+    body.light .nav { background: #fff; border-bottom-color: rgba(0,0,0,0.08); }
+    body.light .nav-sub { background: #F5F5F5; border-bottom-color: rgba(0,0,0,0.06); }
+    body.light .nav-sub-item:hover { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.08); }
+    body.light .nav-links a { color: #555; } body.light .nav-links a:hover { color: #1A1A1A; }
+    body.light .nav-links .active { color: #1A1A1A; } body.light .nav-hamburger span { background: #1A1A1A; }
+    body.light .product-image-wrap { background: #f0f0f0; }
+    body.light .qty-btn { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.12); color: #1A1A1A; }
+    body.light .qty-btn:hover { background: rgba(0,0,0,0.08); }
+    body.light .qty-input { background: rgba(0,0,0,0.02); border-color: rgba(0,0,0,0.12); color: #1A1A1A; }
+    body.light .tab-buttons { border-bottom-color: rgba(0,0,0,0.08); }
+    body.light .detail-list li { border-bottom-color: rgba(0,0,0,0.06); }
+    body.light .details-table tr { border-bottom-color: rgba(0,0,0,0.06); }
+    body.light .review-card { background: #fff; border-color: rgba(0,0,0,0.08); box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    body.light .product-card { background: #fff; border-color: rgba(0,0,0,0.08); box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    body.light .product-card:hover { box-shadow: 0 12px 36px rgba(0,0,0,0.12); }
+    body.light .product-img { background: #f0f0f0; }
+    body.light .product-name { color: #1A1A1A; }
+    body.light .btn-red { color: #fff !important; }
+    body.light .nav-links .nav-cta { color: #fff !important; }
+    body.light .theme-btn { border-color: rgba(0,0,0,0.15); }
+    body.light .theme-label { background: rgba(0,0,0,0.75); }
+    body.light .footer { background: #1A1A1A; color: #fff; }
+    body.light .footer h4, body.light .footer p, body.light .footer a { color: #ccc; }
+    body.light .footer a:hover { color: #fff; }
+
+    @media (max-width: 960px) {
+      .nav-links, .nav-sub { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-dark); padding: 20px 32px; gap: 16px; border-bottom: 1px solid rgba(255,255,255,0.06); z-index: 200; }
+      .mobile-sub-links { display: flex; flex-direction: column; gap: 0; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 12px; margin-top: 4px; width: 100%; }
+      .mobile-sub-links a { font-size: 0.82rem; color: var(--text-muted) !important; padding: 8px 0; }
+      .product-detail-grid { grid-template-columns: 1fr; gap: 32px; }
+      .product-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .theme-label { display: none; }
+    }
+    @media (max-width: 600px) {
+      .wrap { padding: 0 20px; }
+      .product-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .product-body { padding: 12px 12px 14px; }
+      .product-name { font-size: 0.85rem; }
+      .tab-buttons { overflow-x: auto; }
+      .tab-btn { padding: 12px 16px; font-size: 0.82rem; white-space: nowrap; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .footer-legal { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Announcement Bar -->
+<div class="topbar" onclick="location.href='happyme-happyfamily.html'">
+  <span class="pulse"></span>
+  <strong>Nächstes Seminar:</strong> HappyMe-HappyFamily am 26. April 2026 – Jetzt Platz sichern!
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-main">
+    <a href="index.html" class="nav-logo">Life Upgreater<sup>&reg;</sup></a>
+    <div class="nav-links" id="navLinks">
+      <a href="ueber-uns.html">Über uns</a>
+      <a href="index.html#kostenlos">Kostenlose Angebote</a>
+      <a href="index.html#angebote">Unsere Angebote</a>
+      <a href="shop.html" class="active">Shop</a>
+      <a href="#" class="nav-cta">Kontakt</a>
+    </div>
+    <button class="nav-hamburger" id="navToggle" aria-label="Menü"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-sub">
+    <div class="nav-sub-inner">
+      <a href="index.html#kostenlos" class="nav-sub-item"><h4>Kostenlose Angebote</h4><p>Sportkurse &amp; Gruppen-Mentaltraining</p></a>
+      <a href="personal-training.html" class="nav-sub-item"><h4>Personal Training</h4><p>Exklusives 1:1 Training mit Marco &amp; Lisa</p></a>
+      <a href="seminare.html" class="nav-sub-item"><h4>Seminare</h4><p>Impulsseminare für Familien &amp; Paare</p></a>
+      <a href="business.html" class="nav-sub-item"><h4>Business Upgreater</h4><p>Firmenfitness &amp; Teambuilding</p></a>
+    </div>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="wrap">
+  <div class="breadcrumb fade-up">
+    <a href="shop.html">Shop</a><span>›</span><a href="shop.html" onclick="setTimeout(function(){filterProducts('training')},100)">Training</a><span>›</span>10er Karte Yogaletics<sup>&reg;</sup>
+  </div>
+</div>
+
+<!-- PRODUCT DETAIL -->
+<section class="product-detail">
+  <div class="wrap">
+    <div class="product-detail-grid">
+      <!-- LEFT: Image -->
+      <div class="product-image-wrap fade-up">
+        <img src="img/hero-marco.jpg" alt="10er Karte Yogaletics">
+        <div class="product-detail-badge">Bestseller</div>
+      </div>
+      <!-- RIGHT: Info -->
+      <div class="product-info fade-up d1">
+        <p class="label">Training</p>
+        <h1>10er Karte Yogaletics<sup>&reg;</sup></h1>
+        <div class="price">89,00 €</div>
+        <p class="desc">10 Einheiten Yogaletics® – Marcos einzigartige Kombination aus Yoga und funktionellem Training. Perfekt für Einsteiger und Fortgeschrittene. Gültig 6 Monate ab Kaufdatum.</p>
+        <ul class="detail-list">
+          <li>
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            10 Einheiten à 60 Minuten
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Gültig 6 Monate
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Standort: Aachen (verschiedene Locations)
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Level: Alle Levels willkommen
+          </li>
+        </ul>
+        <div class="qty-selector">
+          <button class="qty-btn" id="qtyMinus">−</button>
+          <input type="number" class="qty-input" id="qtyInput" value="1" min="1" max="10">
+          <button class="qty-btn" id="qtyPlus">+</button>
+        </div>
+        <button class="add-to-cart-btn" id="addToCart">In den Warenkorb</button>
+        <div class="shipping-note">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          Versandkostenfrei ab 40 €
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TABS -->
+<section class="tabs-section">
+  <div class="wrap">
+    <div class="tab-buttons fade-up">
+      <button class="tab-btn active" data-tab="beschreibung">Beschreibung</button>
+      <button class="tab-btn" data-tab="details">Details</button>
+      <button class="tab-btn" data-tab="bewertungen">Bewertungen</button>
+    </div>
+
+    <div class="tab-panel active fade-up" id="tab-beschreibung">
+      <p>Yogaletics® ist Marcos einzigartige Trainingsmethode, die das Beste aus Yoga und funktionellem Athletiktraining vereint. In 60-minütigen Einheiten arbeitest Du an Kraft, Flexibilität, Balance und mentaler Stärke – alles in einem ganzheitlichen Konzept.</p>
+      <p>Mit der 10er Karte hast Du maximale Flexibilität: Wähle Deine Termine frei aus dem aktuellen Kursplan und trainiere in Deinem eigenen Rhythmus. Ob morgens vor der Arbeit oder am Wochenende – Du entscheidest, wann Du Dein Training in den Alltag integrierst.</p>
+      <p>Jede Einheit wird von Marco persönlich geleitet. Er achtet auf korrekte Ausführung, gibt individuelle Tipps und sorgt dafür, dass Du Dich bei jedem Training weiterentwickelst. Die kleine Gruppengröße garantiert persönliche Betreuung.</p>
+    </div>
+
+    <div class="tab-panel" id="tab-details">
+      <table class="details-table">
+        <tr><td>Dauer</td><td>60 Minuten pro Einheit</td></tr>
+        <tr><td>Gültigkeit</td><td>6 Monate ab Kaufdatum</td></tr>
+        <tr><td>Standort</td><td>Aachen (verschiedene Locations)</td></tr>
+        <tr><td>Trainer</td><td>Marco Fuchs – Yogaletics® Begründer</td></tr>
+        <tr><td>Level</td><td>Alle Levels – Anfänger bis Fortgeschrittene</td></tr>
+        <tr><td>Teilnehmer</td><td>Kleine Gruppen (max. 12 Personen)</td></tr>
+        <tr><td>Mitzubringen</td><td>Sportbekleidung, Handtuch, Trinkflasche</td></tr>
+      </table>
+    </div>
+
+    <div class="tab-panel" id="tab-bewertungen">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Yogaletics hat mein Training komplett verändert! Die Kombination aus Yoga und funktionellem Training ist genau das, was ich gesucht habe. Marco ist ein großartiger Trainer, der auf jeden individuell eingeht.</p>
+        <div class="review-author">Sabine K. – Aachen</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Als Einsteiger hatte ich erst Bedenken, aber Marco hat mich sofort abgeholt. Nach 10 Einheiten fühle ich mich fitter, beweglicher und ausgeglichener. Die 10er Karte ist preislich top!</p>
+        <div class="review-author">Thomas M. – Würselen</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★☆</div>
+        <p class="review-text">Tolle Atmosphäre, super Übungen und ein Trainer, der wirklich Ahnung hat. Einziger Wunsch: noch mehr Abendtermine. Ansonsten absolute Empfehlung!</p>
+        <div class="review-author">Julia R. – Aachen</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RELATED PRODUCTS -->
+<section class="related-section">
+  <div class="wrap">
+    <h2 class="fade-up">Das könnte Dir auch gefallen</h2>
+    <div class="product-grid fade-up d1">
+      <a href="shop.html" class="product-card">
+        <div class="product-img"><img src="img/seminar-marco.jpg" alt="10er Karte Functional Training"></div>
+        <div class="product-body"><div class="product-cat">Training</div><div class="product-name">10er Karte Functional Training</div><div class="product-price">89,00 €</div></div>
+        <button class="product-btn">In den Warenkorb</button>
+      </a>
+      <a href="shop.html" class="product-card">
+        <div class="product-img"><img src="img/selftest-audience.jpg" alt="5er Karte Rückenfit"></div>
+        <div class="product-body"><div class="product-cat">Training</div><div class="product-name">5er Karte Rückenfit</div><div class="product-price">49,00 €</div></div>
+        <button class="product-btn">In den Warenkorb</button>
+      </a>
+      <a href="shop.html" class="product-card">
+        <div class="product-img"><img src="img/personal-lisa.jpg" alt="Personal Training Einzelstunde"><div class="product-badge new">Neu</div></div>
+        <div class="product-body"><div class="product-cat">Training</div><div class="product-name">Personal Training – Einzelstunde</div><div class="product-price">119,00 €</div></div>
+        <button class="product-btn">In den Warenkorb</button>
+      </a>
+      <a href="shop.html" class="product-card">
+        <div class="product-img"><img src="img/selftest-audience.jpg" alt="Mobility Kurs"></div>
+        <div class="product-body"><div class="product-cat">Training</div><div class="product-name">10er Karte Mobility &amp; Stretching</div><div class="product-price">79,00 €</div></div>
+        <button class="product-btn">In den Warenkorb</button>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>Life Upgreater<sup>&reg;</sup></h4>
+        <p style="color:var(--text-light); margin-bottom:14px; font-size:0.82rem;">...um glücklich &amp; gesund zu sein.</p>
+        <div class="footer-contact-line">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          <a href="tel:+491731949242">Marco – 0173 19 49 242</a>
+        </div>
+        <div class="footer-contact-line">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+          <a href="mailto:info@life-upgreater.com">info@life-upgreater.com</a>
+        </div>
+        <div class="footer-contact-line">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>
+          <a href="https://wa.me/491731949242" target="_blank">WhatsApp – Marco</a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Angebote</h4>
+        <a href="index.html#kostenlos">Kostenlose Angebote</a>
+        <a href="personal-training.html">Personal Training</a>
+        <a href="seminare.html">Seminare</a>
+        <a href="business.html">Business Upgreater</a>
+      </div>
+      <div class="footer-links">
+        <h4>Shop</h4>
+        <a href="shop.html">Alle Produkte</a>
+        <a href="ueber-uns.html">Über uns</a>
+      </div>
+      <div>
+        <h4>Sicher einkaufen</h4>
+        <p style="font-size:0.82rem; color:var(--text-muted); line-height:1.7;">Sichere Bezahlung per PayPal, Kreditkarte oder Überweisung. Versandkostenfrei ab 40 €. 14 Tage Rückgaberecht.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p style="font-size:0.78rem; color:var(--text-muted);">&copy; 2026 Life Upgreater<sup>&reg;</sup> – Marco &amp; Lisa Fuchs</p>
+      <div class="footer-legal">
+        <a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">AGB</a><a href="#">Widerrufsbelehrung</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Theme Switcher -->
+<div class="theme-switcher" id="themeSwitcher">
+  <button class="theme-btn theme-btn-dark active" data-theme="dark"><span class="theme-label">Dunkel</span><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <button class="theme-btn theme-btn-light" data-theme="light"><span class="theme-label">Hell</span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="1" x2="12" y2="3" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="23" stroke-linecap="round"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke-linecap="round"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke-linecap="round"/><line x1="1" y1="12" x2="3" y2="12" stroke-linecap="round"/><line x1="21" y1="12" x2="23" y2="12" stroke-linecap="round"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke-linecap="round"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke-linecap="round"/></svg></button>
+</div>
+
+<script>
+  // Nav toggle + mobile sub-links
+  (function() {
+    var navLinks = document.getElementById('navLinks');
+    var subItems = document.querySelectorAll('.nav-sub-item');
+    if (subItems.length && !navLinks.querySelector('.mobile-sub-links')) {
+      var wrapper = document.createElement('div');
+      wrapper.className = 'mobile-sub-links';
+      subItems.forEach(function(item) {
+        var a = document.createElement('a');
+        a.href = item.getAttribute('href');
+        a.textContent = item.querySelector('h4').textContent;
+        wrapper.appendChild(a);
+      });
+      navLinks.appendChild(wrapper);
+    }
+    document.getElementById('navToggle').addEventListener('click', function() {
+      navLinks.classList.toggle('open');
+    });
+  })();
+
+  // Scroll reveal
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(function(el) { obs.observe(el); });
+
+  // Quantity selector
+  (function() {
+    var input = document.getElementById('qtyInput');
+    document.getElementById('qtyMinus').addEventListener('click', function() {
+      var v = parseInt(input.value) || 1;
+      if (v > 1) input.value = v - 1;
+    });
+    document.getElementById('qtyPlus').addEventListener('click', function() {
+      var v = parseInt(input.value) || 1;
+      if (v < 10) input.value = v + 1;
+    });
+  })();
+
+  // Add to cart
+  document.getElementById('addToCart').addEventListener('click', function() {
+    location.href = 'warenkorb.html';
+  });
+
+  // Tabs
+  (function() {
+    var btns = document.querySelectorAll('.tab-btn');
+    btns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        btns.forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+        document.getElementById('tab-' + btn.getAttribute('data-tab')).classList.add('active');
+      });
+    });
+  })();
+
+  // Theme Switcher
+  (function() {
+    var sw = document.getElementById('themeSwitcher');
+    if (!sw) return;
+    var btns = sw.querySelectorAll('.theme-btn');
+    function applyTheme(theme) {
+      if (theme === 'light') { document.body.classList.add('light'); }
+      else { document.body.classList.remove('light'); }
+      for (var j = 0; j < btns.length; j++) {
+        btns[j].classList.toggle('active', btns[j].getAttribute('data-theme') === theme);
+      }
+      try { localStorage.setItem('lu_theme', theme); } catch(e) {}
+    }
+    try { var saved = localStorage.getItem('lu_theme'); if (saved) applyTheme(saved); } catch(e) {}
+    for (var i = 0; i < btns.length; i++) {
+      (function(btn) {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault(); e.stopPropagation();
+          applyTheme(btn.getAttribute('data-theme'));
+        });
+      })(btns[i]);
+    }
+  })();
+</script>
+
+</body>
+</html>

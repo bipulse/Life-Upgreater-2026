@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Warenkorb – Life Upgreater® Shop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    @font-face { font-family: 'DIN Alternate'; src: url('fonts/din-alternate-bold.otf') format('opentype'); font-weight: 700; font-style: normal; font-display: swap; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg-dark: #1A1A1A; --bg-dark-warm: #2A2220; --bg-trust: #2A2220;
+      --red: #CC2936; --red-hover: #E03040; --white: #FFFFFF; --light-gray: #F5F5F5;
+      --gold: #C8A951; --text-light: #CCCCCC; --text-muted: #999999;
+      --font-display: 'DIN Alternate', 'Source Sans 3', sans-serif;
+      --font-body: 'Source Sans 3', sans-serif; --font-accent: 'Lora', Georgia, serif;
+      --max-w: 1200px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--white); background: var(--bg-dark); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; cursor: pointer; }
+    ul { list-style: none; }
+    .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+    .btn { display: inline-block; padding: 14px 28px; border-radius: 8px; font-family: var(--font-body); font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.25s; border: 2px solid transparent; }
+    .btn-red { background: var(--red); color: var(--white); border-color: var(--red); }
+    .btn-red:hover { background: var(--red-hover); border-color: var(--red-hover); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(204,41,54,0.3); }
+    .btn-ghost { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.5); }
+    .btn-ghost:hover { background: rgba(255,255,255,0.08); }
+    .label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); margin-bottom: 14px; }
+
+    /* Announcement Bar */
+    .topbar { display: block; width: 100%; background: var(--red); text-align: center; padding: 11px 16px; font-size: 0.88rem; font-weight: 500; color: #fff; cursor: pointer; transition: background 0.3s; line-height: 1.4; }
+    .topbar:hover { background: var(--red-hover); }
+    .topbar strong { font-weight: 700; }
+    .topbar .pulse { display: inline-block; width: 7px; height: 7px; background: #fff; border-radius: 50%; margin-right: 6px; animation: pulse 1.5s ease infinite; vertical-align: middle; }
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.4); } }
+
+    /* NAV */
+    .nav { background: var(--bg-dark); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .nav-main { display: flex; align-items: center; justify-content: space-between; height: 64px; max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+    .nav-logo { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; white-space: nowrap; }
+    .nav-logo sup { color: var(--red); font-size: 0.7em; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--text-light); transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-links .active { color: var(--white); }
+    .nav-links .nav-cta { background: var(--red); color: #fff !important; padding: 9px 22px; border-radius: 6px; }
+    .nav-links .nav-cta:hover { background: var(--red-hover); }
+    .nav-sub { background: #222; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .nav-sub-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+    .nav-sub-item { display: block; padding: 10px 14px; border-radius: 6px; text-decoration: none; color: inherit; cursor: pointer; transition: background 0.2s, border-color 0.2s; border: 1px solid transparent; }
+    .nav-sub-item:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.1); }
+    .nav-sub-item h4 { font-family: var(--font-display); font-size: 0.9rem; font-weight: 700; margin-bottom: 2px; }
+    .nav-sub-item h4::after { content: ' →'; opacity: 0; transition: opacity 0.2s; }
+    .nav-sub-item:hover h4::after { opacity: 1; }
+    .nav-sub-item p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-hamburger span { width: 24px; height: 2px; background: #fff; border-radius: 2px; }
+
+    /* CART PAGE */
+    .cart-header { background: var(--bg-dark-warm); padding: 48px 0 40px; text-align: center; }
+    .cart-header h1 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700; margin-bottom: 6px; }
+    .cart-header .item-count { font-size: 0.92rem; color: var(--text-muted); }
+
+    .cart-section { padding: 48px 0 40px; }
+    .cart-layout { display: grid; grid-template-columns: 1fr 360px; gap: 40px; align-items: start; }
+
+    /* CART ITEMS */
+    .cart-item { display: grid; grid-template-columns: 80px 1fr auto auto auto; gap: 20px; align-items: center; padding: 24px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .cart-item-img { width: 80px; height: 80px; border-radius: 8px; overflow: hidden; background: #222; }
+    .cart-item-img img { width: 100%; height: 100%; object-fit: cover; }
+    .cart-item-info h3 { font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
+    .cart-item-info h3 sup { color: var(--red); font-size: 0.6em; }
+    .cart-item-info .cart-item-cat { font-size: 0.78rem; color: var(--text-muted); }
+    .cart-item-price { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--text-light); white-space: nowrap; }
+    .cart-qty { display: flex; align-items: center; gap: 0; }
+    .cart-qty-btn { width: 36px; height: 36px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); color: var(--white); font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+    .cart-qty-btn:first-child { border-radius: 6px 0 0 6px; }
+    .cart-qty-btn:last-child { border-radius: 0 6px 6px 0; }
+    .cart-qty-btn:hover { background: rgba(255,255,255,0.12); }
+    .cart-qty-input { width: 44px; height: 36px; text-align: center; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); border-left: none; border-right: none; color: var(--white); font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; }
+    .cart-qty-input:focus { outline: none; }
+    .cart-item-total { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--red); white-space: nowrap; min-width: 80px; text-align: right; }
+    .cart-remove { background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 8px; transition: color 0.2s; font-size: 1.2rem; line-height: 1; }
+    .cart-remove:hover { color: var(--red); }
+
+    /* CART EMPTY */
+    .cart-empty { text-align: center; padding: 60px 0; display: none; }
+    .cart-empty h2 { font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 12px; }
+    .cart-empty p { color: var(--text-muted); margin-bottom: 24px; }
+
+    /* CART SUMMARY */
+    .cart-summary { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 28px; position: sticky; top: 90px; }
+    .cart-summary h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; }
+    .summary-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; font-size: 0.92rem; color: var(--text-light); }
+    .summary-row.total { border-top: 2px solid rgba(255,255,255,0.1); margin-top: 8px; padding-top: 16px; }
+    .summary-row.total span:last-child { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--red); }
+    .summary-row .free { color: #28a745; font-weight: 600; }
+    .checkout-btn { display: block; width: 100%; padding: 16px; background: var(--red); color: #fff; border: none; border-radius: 8px; font-family: var(--font-body); font-size: 1.05rem; font-weight: 700; cursor: pointer; transition: all 0.25s; margin-top: 20px; margin-bottom: 12px; }
+    .checkout-btn:hover { background: var(--red-hover); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(204,41,54,0.3); }
+    .continue-shopping { display: block; text-align: center; font-size: 0.88rem; color: var(--text-muted); transition: color 0.2s; }
+    .continue-shopping:hover { color: var(--white); }
+
+    /* RECOMMENDATIONS */
+    .recommendations { padding: 20px 0 80px; }
+    .recommendations h2 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; margin-bottom: 24px; }
+    .rec-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .product-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; cursor: pointer; }
+    .product-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.3); border-color: rgba(204,41,54,0.3); }
+    .product-img { aspect-ratio: 1/1; overflow: hidden; background: #222; position: relative; }
+    .product-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+    .product-card:hover .product-img img { transform: scale(1.06); }
+    .product-badge { position: absolute; top: 12px; left: 12px; background: var(--red); color: #fff; font-size: 0.7rem; font-weight: 700; padding: 4px 10px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .product-badge.sale { background: var(--gold); color: #1A1A1A; }
+    .product-badge.new { background: #28a745; }
+    .product-body { padding: 18px 16px 20px; }
+    .product-cat { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+    .product-name { font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; line-height: 1.3; }
+    .product-price { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--red); }
+    .product-btn { display: block; width: 100%; padding: 10px; background: var(--red); color: #fff; border: none; border-radius: 0 0 12px 12px; font-family: var(--font-body); font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: background 0.2s; margin-top: -1px; }
+    .product-btn:hover { background: var(--red-hover); }
+
+    /* FOOTER */
+    .footer { background: var(--bg-dark); border-top: 1px solid rgba(255,255,255,0.06); padding: 56px 0 28px; }
+    .footer-grid { display: grid; grid-template-columns: 1.3fr 0.8fr 0.8fr 1.1fr; gap: 36px; margin-bottom: 40px; }
+    .footer h4 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; margin-bottom: 16px; }
+    .footer p, .footer a { font-size: 0.85rem; color: var(--text-muted); line-height: 1.8; }
+    .footer a:hover { color: #fff; }
+    .footer-links a { display: block; padding: 2px 0; }
+    .footer-contact-line { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; font-size: 0.85rem; }
+    .footer-contact-line .ico { width: 18px; text-align: center; display: inline-flex; align-items: center; }
+    .footer-contact-line .ico svg { width: 15px; height: 15px; stroke: var(--gold); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-legal { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-legal a { font-size: 0.78rem; color: var(--text-muted); }
+    .footer-legal a:hover { color: #fff; }
+
+    .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.vis { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; } .d3 { transition-delay: 0.3s; }
+    .mobile-sub-links { display: none; }
+
+    /* THEME SWITCHER */
+    .theme-switcher { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); z-index: 999; display: flex; flex-direction: column; gap: 8px; }
+    .theme-btn { width: 42px; height: 42px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.3); cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,0.3); position: relative; }
+    .theme-btn:hover { transform: scale(1.12); }
+    .theme-btn.active { border-color: var(--red); box-shadow: 0 0 0 3px rgba(204,41,54,0.3), 0 4px 16px rgba(0,0,0,0.3); }
+    .theme-btn svg { width: 20px; height: 20px; }
+    .theme-btn-dark { background: #1A1A1A; } .theme-btn-dark svg { stroke: #fff; fill: none; stroke-width: 2; }
+    .theme-btn-light { background: #F5F5F5; } .theme-btn-light svg { stroke: #333; fill: none; stroke-width: 2; }
+    .theme-label { position: absolute; right: 52px; white-space: nowrap; background: rgba(0,0,0,0.85); color: #fff; font-size: 0.75rem; font-weight: 600; padding: 5px 10px; border-radius: 4px; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+    .theme-btn:hover .theme-label { opacity: 1; }
+
+    /* LIGHT THEME */
+    body.light { --bg-dark: #FAFAFA; --bg-dark-warm: #F0EDEA; --bg-trust: #F0EDEA; --white: #1A1A1A; --text-light: #444444; --text-muted: #777777; --gold: #A38932; }
+    body.light { background: #FAFAFA; color: #1A1A1A; }
+    body.light .nav { background: #fff; border-bottom-color: rgba(0,0,0,0.08); }
+    body.light .nav-sub { background: #F5F5F5; border-bottom-color: rgba(0,0,0,0.06); }
+    body.light .nav-sub-item:hover { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.08); }
+    body.light .nav-links a { color: #555; } body.light .nav-links a:hover { color: #1A1A1A; }
+    body.light .nav-links .active { color: #1A1A1A; } body.light .nav-hamburger span { background: #1A1A1A; }
+    body.light .cart-header { background: #F0EDEA; }
+    body.light .cart-item { border-bottom-color: rgba(0,0,0,0.06); }
+    body.light .cart-item-img { background: #f0f0f0; }
+    body.light .cart-qty-btn { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.12); color: #1A1A1A; }
+    body.light .cart-qty-btn:hover { background: rgba(0,0,0,0.08); }
+    body.light .cart-qty-input { background: rgba(0,0,0,0.02); border-color: rgba(0,0,0,0.12); color: #1A1A1A; }
+    body.light .cart-summary { background: #fff; border-color: rgba(0,0,0,0.08); box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
+    body.light .summary-row.total { border-top-color: rgba(0,0,0,0.1); }
+    body.light .product-card { background: #fff; border-color: rgba(0,0,0,0.08); box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    body.light .product-card:hover { box-shadow: 0 12px 36px rgba(0,0,0,0.12); }
+    body.light .product-img { background: #f0f0f0; }
+    body.light .product-name { color: #1A1A1A; }
+    body.light .btn-red { color: #fff !important; }
+    body.light .nav-links .nav-cta { color: #fff !important; }
+    body.light .theme-btn { border-color: rgba(0,0,0,0.15); }
+    body.light .theme-label { background: rgba(0,0,0,0.75); }
+    body.light .footer { background: #1A1A1A; color: #fff; }
+    body.light .footer h4, body.light .footer p, body.light .footer a { color: #ccc; }
+    body.light .footer a:hover { color: #fff; }
+
+    @media (max-width: 960px) {
+      .nav-links, .nav-sub { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-dark); padding: 20px 32px; gap: 16px; border-bottom: 1px solid rgba(255,255,255,0.06); z-index: 200; }
+      .mobile-sub-links { display: flex; flex-direction: column; gap: 0; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 12px; margin-top: 4px; width: 100%; }
+      .mobile-sub-links a { font-size: 0.82rem; color: var(--text-muted) !important; padding: 8px 0; }
+      .cart-layout { grid-template-columns: 1fr; }
+      .cart-item { grid-template-columns: 60px 1fr; gap: 12px; }
+      .cart-item-price { display: none; }
+      .cart-qty { grid-column: 2; }
+      .cart-item-total { grid-column: 2; text-align: left; }
+      .cart-remove { position: absolute; right: 0; top: 24px; }
+      .cart-item { position: relative; }
+      .rec-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .theme-label { display: none; }
+    }
+    @media (max-width: 600px) {
+      .wrap { padding: 0 20px; }
+      .rec-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .footer-legal { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Announcement Bar -->
+<div class="topbar" onclick="location.href='happyme-happyfamily.html'">
+  <span class="pulse"></span>
+  <strong>Nächstes Seminar:</strong> HappyMe-HappyFamily am 26. April 2026 – Jetzt Platz sichern!
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-main">
+    <a href="index.html" class="nav-logo">Life Upgreater<sup>&reg;</sup></a>
+    <div class="nav-links" id="navLinks">
+      <a href="ueber-uns.html">Über uns</a>
+      <a href="index.html#kostenlos">Kostenlose Angebote</a>
+      <a href="index.html#angebote">Unsere Angebote</a>
+      <a href="shop.html" class="active">Shop</a>
+      <a href="#" class="nav-cta">Kontakt</a>
+    </div>
+    <button class="nav-hamburger" id="navToggle" aria-label="Menü"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-sub">
+    <div class="nav-sub-inner">
+      <a href="index.html#kostenlos" class="nav-sub-item"><h4>Kostenlose Angebote</h4><p>Sportkurse &amp; Gruppen-Mentaltraining</p></a>
+      <a href="personal-training.html" class="nav-sub-item"><h4>Personal Training</h4><p>Exklusives 1:1 Training mit Marco &amp; Lisa</p></a>
+      <a href="seminare.html" class="nav-sub-item"><h4>Seminare</h4><p>Impulsseminare für Familien &amp; Paare</p></a>
+      <a href="business.html" class="nav-sub-item"><h4>Business Upgreater</h4><p>Firmenfitness &amp; Teambuilding</p></a>
+    </div>
+  </div>
+</nav>
+
+<!-- CART HEADER -->
+<section class="cart-header">
+  <div class="wrap">
+    <h1 class="fade-up">Dein Warenkorb</h1>
+    <p class="item-count fade-up d1" id="cartItemCount">1 Artikel</p>
+  </div>
+</section>
+
+<!-- CART CONTENT -->
+<section class="cart-section">
+  <div class="wrap">
+    <div class="cart-layout">
+      <!-- CART ITEMS -->
+      <div id="cartItems">
+        <div class="cart-item fade-up" id="cartItem1" data-price="89">
+          <div class="cart-item-img">
+            <a href="produkt-yogaletics-10er.html"><img src="img/hero-marco.jpg" alt="10er Karte Yogaletics"></a>
+          </div>
+          <div class="cart-item-info">
+            <h3><a href="produkt-yogaletics-10er.html">10er Karte Yogaletics<sup>&reg;</sup></a></h3>
+            <div class="cart-item-cat">Training</div>
+          </div>
+          <div class="cart-item-price">89,00 €</div>
+          <div class="cart-qty">
+            <button class="cart-qty-btn cart-minus">−</button>
+            <input type="number" class="cart-qty-input" value="1" min="1" max="10">
+            <button class="cart-qty-btn cart-plus">+</button>
+          </div>
+          <div class="cart-item-total" data-unit="89">89,00 €</div>
+          <button class="cart-remove" title="Entfernen">✕</button>
+        </div>
+
+        <!-- EMPTY STATE -->
+        <div class="cart-empty" id="cartEmpty">
+          <h2>Dein Warenkorb ist leer</h2>
+          <p>Entdecke unsere Produkte und finde das Richtige für Dich.</p>
+          <a href="shop.html" class="btn btn-red">Zum Shop</a>
+        </div>
+      </div>
+
+      <!-- CART SUMMARY -->
+      <div class="cart-summary fade-up d1" id="cartSummary">
+        <h3>Bestellübersicht</h3>
+        <div class="summary-row">
+          <span>Zwischensumme</span>
+          <span id="subtotal">89,00 €</span>
+        </div>
+        <div class="summary-row">
+          <span>Versand</span>
+          <span class="free" id="shippingCost">Kostenlos</span>
+        </div>
+        <div class="summary-row total">
+          <span>Gesamt</span>
+          <span id="cartTotal">89,00 €</span>
+        </div>
+        <button class="checkout-btn" onclick="location.href='checkout.html'">Zur Kasse</button>
+        <a href="shop.html" class="continue-shopping">← Weiter einkaufen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECOMMENDATIONS -->
+<section class="recommendations">
+  <div class="wrap">
+    <h2 class="fade-up">Das könnte Dir auch gefallen</h2>
+    <div class="rec-grid fade-up d1">
+      <a href="shop.html" class="product-card">
+        <div class="product-img"><img src="img/seminar-marco.jpg" alt="10er Karte Functional Training"></div>
+        <div class="product-body"><div class="product-cat">Training</div><div class="product-name">10er Karte Functional Training</div><div class="product-price">89,00 €</div></div>
+        <button class="product-btn">In den Warenkorb</button>
+      </a>
+      <a href="shop.html" class="product-card">
+        <div class="product-img"><img src="img/selftest-audience.jpg" alt="Online-Kurs Stressbewältigung"></div>
+        <div class="product-body"><div class="product-cat">Kurse</div><div class="product-name">Online-Kurs: Stressbewältigung in 21 Tagen</div><div class="product-price">79,00 €</div></div>
+        <button class="product-btn">In den Warenkorb</button>
+      </a>
+      <a href="shop.html" class="product-card">
+        <div class="product-img"><img src="img/hero-marco.jpg" alt="Widerstandsband Set"><div class="product-badge">Bestseller</div></div>
+        <div class="product-body"><div class="product-cat">Equipment</div><div class="product-name">Widerstandsband Set (5 Stärken)</div><div class="product-price">24,90 €</div></div>
+        <button class="product-btn">In den Warenkorb</button>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>Life Upgreater<sup>&reg;</sup></h4>
+        <p style="color:var(--text-light); margin-bottom:14px; font-size:0.82rem;">...um glücklich &amp; gesund zu sein.</p>
+        <div class="footer-contact-line">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          <a href="tel:+491731949242">Marco – 0173 19 49 242</a>
+        </div>
+        <div class="footer-contact-line">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+          <a href="mailto:info@life-upgreater.com">info@life-upgreater.com</a>
+        </div>
+        <div class="footer-contact-line">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>
+          <a href="https://wa.me/491731949242" target="_blank">WhatsApp – Marco</a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Angebote</h4>
+        <a href="index.html#kostenlos">Kostenlose Angebote</a>
+        <a href="personal-training.html">Personal Training</a>
+        <a href="seminare.html">Seminare</a>
+        <a href="business.html">Business Upgreater</a>
+      </div>
+      <div class="footer-links">
+        <h4>Shop</h4>
+        <a href="shop.html">Alle Produkte</a>
+        <a href="ueber-uns.html">Über uns</a>
+      </div>
+      <div>
+        <h4>Sicher einkaufen</h4>
+        <p style="font-size:0.82rem; color:var(--text-muted); line-height:1.7;">Sichere Bezahlung per PayPal, Kreditkarte oder Überweisung. Versandkostenfrei ab 40 €. 14 Tage Rückgaberecht.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p style="font-size:0.78rem; color:var(--text-muted);">&copy; 2026 Life Upgreater<sup>&reg;</sup> – Marco &amp; Lisa Fuchs</p>
+      <div class="footer-legal">
+        <a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">AGB</a><a href="#">Widerrufsbelehrung</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Theme Switcher -->
+<div class="theme-switcher" id="themeSwitcher">
+  <button class="theme-btn theme-btn-dark active" data-theme="dark"><span class="theme-label">Dunkel</span><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <button class="theme-btn theme-btn-light" data-theme="light"><span class="theme-label">Hell</span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="1" x2="12" y2="3" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="23" stroke-linecap="round"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke-linecap="round"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke-linecap="round"/><line x1="1" y1="12" x2="3" y2="12" stroke-linecap="round"/><line x1="21" y1="12" x2="23" y2="12" stroke-linecap="round"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke-linecap="round"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke-linecap="round"/></svg></button>
+</div>
+
+<script>
+  // Nav toggle + mobile sub-links
+  (function() {
+    var navLinks = document.getElementById('navLinks');
+    var subItems = document.querySelectorAll('.nav-sub-item');
+    if (subItems.length && !navLinks.querySelector('.mobile-sub-links')) {
+      var wrapper = document.createElement('div');
+      wrapper.className = 'mobile-sub-links';
+      subItems.forEach(function(item) {
+        var a = document.createElement('a');
+        a.href = item.getAttribute('href');
+        a.textContent = item.querySelector('h4').textContent;
+        wrapper.appendChild(a);
+      });
+      navLinks.appendChild(wrapper);
+    }
+    document.getElementById('navToggle').addEventListener('click', function() {
+      navLinks.classList.toggle('open');
+    });
+  })();
+
+  // Scroll reveal
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(function(el) { obs.observe(el); });
+
+  // Cart functionality
+  (function() {
+    function formatPrice(num) {
+      return num.toFixed(2).replace('.', ',') + ' €';
+    }
+
+    function updateCart() {
+      var items = document.querySelectorAll('.cart-item:not([style*="display: none"])');
+      var total = 0;
+      var count = 0;
+      items.forEach(function(item) {
+        var qty = parseInt(item.querySelector('.cart-qty-input').value) || 1;
+        var unit = parseFloat(item.getAttribute('data-price'));
+        var lineTotal = qty * unit;
+        item.querySelector('.cart-item-total').textContent = formatPrice(lineTotal);
+        total += lineTotal;
+        count += qty;
+      });
+
+      document.getElementById('subtotal').textContent = formatPrice(total);
+      document.getElementById('cartTotal').textContent = formatPrice(total);
+      document.getElementById('cartItemCount').textContent = count + (count === 1 ? ' Artikel' : ' Artikel');
+
+      if (total >= 40) {
+        document.getElementById('shippingCost').textContent = 'Kostenlos';
+        document.getElementById('shippingCost').className = 'free';
+      } else if (total > 0) {
+        document.getElementById('shippingCost').textContent = '4,90 €';
+        document.getElementById('shippingCost').className = '';
+        document.getElementById('cartTotal').textContent = formatPrice(total + 4.9);
+      }
+
+      // Show/hide empty state
+      if (items.length === 0) {
+        document.getElementById('cartEmpty').style.display = 'block';
+        document.getElementById('cartSummary').style.display = 'none';
+      }
+    }
+
+    // Quantity buttons
+    document.querySelectorAll('.cart-minus').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var input = this.parentElement.querySelector('.cart-qty-input');
+        var v = parseInt(input.value) || 1;
+        if (v > 1) { input.value = v - 1; updateCart(); }
+      });
+    });
+
+    document.querySelectorAll('.cart-plus').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var input = this.parentElement.querySelector('.cart-qty-input');
+        var v = parseInt(input.value) || 1;
+        if (v < 10) { input.value = v + 1; updateCart(); }
+      });
+    });
+
+    document.querySelectorAll('.cart-qty-input').forEach(function(input) {
+      input.addEventListener('change', function() {
+        var v = parseInt(this.value) || 1;
+        if (v < 1) this.value = 1;
+        if (v > 10) this.value = 10;
+        updateCart();
+      });
+    });
+
+    // Remove buttons
+    document.querySelectorAll('.cart-remove').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        this.closest('.cart-item').style.display = 'none';
+        updateCart();
+      });
+    });
+  })();
+
+  // Theme Switcher
+  (function() {
+    var sw = document.getElementById('themeSwitcher');
+    if (!sw) return;
+    var btns = sw.querySelectorAll('.theme-btn');
+    function applyTheme(theme) {
+      if (theme === 'light') { document.body.classList.add('light'); }
+      else { document.body.classList.remove('light'); }
+      for (var j = 0; j < btns.length; j++) {
+        btns[j].classList.toggle('active', btns[j].getAttribute('data-theme') === theme);
+      }
+      try { localStorage.setItem('lu_theme', theme); } catch(e) {}
+    }
+    try { var saved = localStorage.getItem('lu_theme'); if (saved) applyTheme(saved); } catch(e) {}
+    for (var i = 0; i < btns.length; i++) {
+      (function(btn) {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault(); e.stopPropagation();
+          applyTheme(btn.getAttribute('data-theme'));
+        });
+      })(btns[i]);
+    }
+  })();
+</script>
+
+</body>
+</html>
