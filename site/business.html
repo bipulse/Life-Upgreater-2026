@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Upgreater – Life Upgreater®</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'DIN Alternate';
+      src: url('fonts/din-alternate-bold.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-dark: #1A1A1A;
+      --bg-dark-warm: #2A2220;
+      --bg-trust: #2A2220;
+      --red: #CC2936;
+      --red-hover: #E03040;
+      --white: #FFFFFF;
+      --light-gray: #F5F5F5;
+      --gold: #C8A951;
+      --text-light: #CCCCCC;
+      --text-muted: #999999;
+      --font-display: 'DIN Alternate', 'Source Sans 3', sans-serif;
+      --font-body: 'Source Sans 3', sans-serif;
+      --font-accent: 'Lora', Georgia, serif;
+      --max-w: 1200px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      color: var(--white);
+      background: var(--bg-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.25s;
+      border: 2px solid transparent;
+    }
+    .btn-red {
+      background: var(--red);
+      color: var(--white);
+      border-color: var(--red);
+    }
+    .btn-red:hover {
+      background: var(--red-hover);
+      border-color: var(--red-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(204,41,54,0.3);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255,255,255,0.5);
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.08); }
+
+    /* ── Section Label ── */
+    .label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 14px;
+    }
+
+    /* ═══════════════════════════════════════
+       NAVIGATION
+    ═══════════════════════════════════════ */
+    .nav {
+      background: var(--bg-dark);
+      position: sticky; top: 0; z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-main {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+      max-width: var(--max-w); margin: 0 auto; padding: 0 32px;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.15rem; font-weight: 700; white-space: nowrap;
+    }
+    .nav-logo sup { color: var(--red); font-size: 0.7em; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a {
+      font-size: 0.85rem; font-weight: 500; color: var(--text-light);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-links .active { color: var(--white); }
+    .nav-links .nav-cta {
+      background: var(--red); color: #fff !important;
+      padding: 9px 22px; border-radius: 6px;
+    }
+    .nav-links .nav-cta:hover { background: var(--red-hover); }
+
+    /* Sub-Nav */
+    .nav-sub {
+      background: #222;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-sub-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 14px 32px;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+    }
+    .nav-sub-item h4 {
+      font-family: var(--font-display);
+      font-size: 0.9rem; font-weight: 700; margin-bottom: 2px;
+    }
+    .nav-sub-item p {
+      font-size: 0.78rem; color: var(--text-muted); line-height: 1.4;
+    }
+
+    .nav-hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .nav-hamburger span {
+      width: 24px; height: 2px; background: #fff; border-radius: 2px;
+    }
+
+    /* ═══════════════════════════════════════
+       SUBPAGE HERO (smaller than homepage)
+    ═══════════════════════════════════════ */
+    .sub-hero {
+      position: relative;
+      min-height: 50vh;
+      display: flex; align-items: center;
+      background: var(--bg-dark);
+      overflow: hidden;
+    }
+    .sub-hero-img {
+      position: absolute; inset: 0;
+      background: url('img/business-team.jpg') center center / cover no-repeat;
+    }
+    .sub-hero-img::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(26,26,26,0.95) 0%,
+        rgba(26,26,26,0.82) 40%,
+        rgba(26,26,26,0.5) 70%,
+        rgba(26,26,26,0.3) 100%
+      );
+    }
+    .sub-hero-body {
+      position: relative; z-index: 2;
+      max-width: var(--max-w); margin: 0 auto; padding: 80px 32px;
+      width: 100%;
+    }
+    .sub-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      font-weight: 700; line-height: 1.1;
+      max-width: 600px;
+      margin-bottom: 16px;
+    }
+    .sub-hero-sub {
+      font-size: 1.1rem; color: var(--text-light);
+      max-width: 520px; line-height: 1.6;
+    }
+
+    /* ═══════════════════════════════════════
+       INTRO SECTION
+    ═══════════════════════════════════════ */
+    .intro {
+      background: var(--bg-dark-warm);
+      padding: 80px 0 90px;
+    }
+    .intro-inner {
+      max-width: 800px;
+    }
+    .intro h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 700; line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .intro p {
+      font-size: 0.95rem; color: var(--text-light);
+      line-height: 1.75; margin-bottom: 16px;
+    }
+    .intro .gold { color: var(--gold); font-weight: 600; }
+
+    /* ═══════════════════════════════════════
+       ANGEBOTE GRID (dark cards)
+    ═══════════════════════════════════════ */
+    .biz-offers {
+      background: var(--bg-dark);
+      padding: 80px 0 90px;
+    }
+    .biz-offers-head {
+      text-align: center;
+      margin-bottom: 44px;
+    }
+    .biz-offers-head h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3.5vw, 2.3rem);
+      font-weight: 700;
+    }
+    .biz-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .biz-card {
+      background: var(--bg-dark-warm);
+      border-radius: 10px;
+      padding: 36px 32px;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .biz-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.3);
+    }
+    .biz-card-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .biz-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem; font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .biz-card .biz-card-sub {
+      font-size: 0.85rem; color: var(--red);
+      font-weight: 600; margin-bottom: 12px;
+    }
+    .biz-card p {
+      font-size: 0.88rem; color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    /* ═══════════════════════════════════════
+       VORTEILE SECTION
+    ═══════════════════════════════════════ */
+    .benefits {
+      background: var(--bg-dark-warm);
+      padding: 80px 0 90px;
+    }
+    .benefits-head {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .benefits-head h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3.5vw, 2.3rem);
+      font-weight: 700;
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+      text-align: center;
+    }
+    .benefit-item {
+      padding: 28px 16px;
+    }
+    .benefit-icon {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: rgba(204,41,54,0.12);
+      border: 1px solid rgba(204,41,54,0.25);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 18px;
+      font-size: 1.4rem;
+    }
+    .benefit-item h3 {
+      font-family: var(--font-display);
+      font-size: 1rem; font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .benefit-item p {
+      font-size: 0.85rem; color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ═══════════════════════════════════════
+       CTA SECTION
+    ═══════════════════════════════════════ */
+    .cta-section {
+      background: var(--red);
+      padding: 64px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%);
+    }
+    .cta-inner {
+      position: relative; z-index: 1;
+    }
+    .cta-section h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .cta-section p {
+      font-size: 1rem; opacity: 0.9;
+      max-width: 540px; margin: 0 auto 28px;
+      line-height: 1.6;
+    }
+    .cta-section .btn-white {
+      display: inline-block;
+      background: #fff; color: var(--red);
+      padding: 14px 32px; border-radius: 8px;
+      font-weight: 700; font-size: 0.95rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: none; cursor: pointer;
+    }
+    .cta-section .btn-white:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+
+    /* ═══════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════ */
+    .footer {
+      background: var(--bg-dark);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 56px 0 28px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.8fr 0.8fr 1.1fr;
+      gap: 36px;
+      margin-bottom: 40px;
+    }
+    .footer h4 {
+      font-family: var(--font-display);
+      font-size: 1rem; font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .footer p, .footer a {
+      font-size: 0.85rem; color: var(--text-muted);
+      line-height: 1.8;
+    }
+    .footer a:hover { color: #fff; }
+    .footer-links a { display: block; padding: 2px 0; }
+    .footer-contact-line {
+      display: flex; align-items: center; gap: 8px;
+      margin-bottom: 6px; font-size: 0.85rem;
+    }
+    .footer-contact-line .ico { color: var(--gold); width: 18px; text-align: center; }
+    .footer-newsletter {
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .footer-newsletter input {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 6px;
+      padding: 11px 14px; color: #fff;
+      font-family: var(--font-body); font-size: 0.88rem;
+    }
+    .footer-newsletter input::placeholder { color: var(--text-muted); }
+    .footer-newsletter input:focus { outline: none; border-color: var(--red); }
+    .footer-newsletter .check-row {
+      display: flex; align-items: flex-start; gap: 8px;
+      font-size: 0.75rem; color: var(--text-muted);
+    }
+    .footer-newsletter .check-row input { margin-top: 2px; accent-color: var(--red); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 20px;
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 12px;
+    }
+    .footer-legal { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-legal a { font-size: 0.78rem; color: var(--text-muted); }
+    .footer-legal a:hover { color: #fff; }
+
+    /* ── Scroll animation ── */
+    .fade-up {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.vis { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+      .nav-links, .nav-sub { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-links.open {
+        display: flex; flex-direction: column;
+        position: absolute; top: 64px; left: 0; right: 0;
+        background: var(--bg-dark); padding: 20px 32px; gap: 16px;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        z-index: 200;
+      }
+      .biz-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
+      .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .wrap { padding: 0 20px; }
+      .sub-hero { min-height: 40vh; }
+      .sub-hero-body { padding: 60px 20px; }
+      .sub-hero h1 { font-size: 1.8rem; }
+      .sub-hero-sub { font-size: 0.95rem; }
+      .benefits-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .benefit-item { padding: 20px 10px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .footer-legal { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAVIGATION ═══ -->
+<nav class="nav">
+  <div class="nav-main">
+    <a href="index.html" class="nav-logo">Life Upgreater<sup>&reg;</sup></a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html#about">Über uns</a>
+      <a href="index.html#kostenlos">Kostenlose Angebote</a>
+      <a href="index.html#angebote">Unsere Angebote</a>
+      <a href="index.html#selftest">Selbsttest</a>
+      <a href="#" class="nav-cta">Kontakt</a>
+    </div>
+    <button class="nav-hamburger" id="navToggle" aria-label="Menü">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <!-- Sub-Navigation -->
+  <div class="nav-sub">
+    <div class="nav-sub-inner">
+      <a href="personal-training.html" class="nav-sub-item">
+        <h4>Personal Training</h4>
+        <p>Körperlich &amp; Mental – Exklusives 1:1 Coaching mit Marco &amp; Lisa</p>
+      </a>
+      <a href="seminare.html" class="nav-sub-item">
+        <h4>Seminare</h4>
+        <p>Impulsseminare für Familien &amp; Paare</p>
+      </a>
+      <a href="business.html" class="nav-sub-item">
+        <h4>Business Upgreater</h4>
+        <p>Firmenfitness, Gesundheitstage &amp; Teambuilding für Unternehmen</p>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ 1: SUBPAGE HERO ═══ -->
+<section class="sub-hero">
+  <div class="sub-hero-img"></div>
+  <div class="sub-hero-body">
+    <p class="label fade-up">Business Upgreater</p>
+    <h1 class="fade-up d1">Stärke Dein Team</h1>
+    <p class="sub-hero-sub fade-up d2">Firmenfitness, Gesundheitstage &amp; Coaching für Unternehmen in der Region Aachen – für gesündere, zufriedenere Teams.</p>
+  </div>
+</section>
+
+<!-- ═══ 2: INTRO ═══ -->
+<section class="intro">
+  <div class="wrap">
+    <div class="intro-inner fade-up">
+      <p class="label">Was ist Business Upgreater?</p>
+      <h2>Ganzheitliche Gesundheitsförderung für Dein Unternehmen</h2>
+      <p>Business Upgreater bringt die Philosophie von Life Upgreater<sup>&reg;</sup> direkt in Dein Unternehmen. Wir verbinden <span class="gold">körperliches Training</span>, <span class="gold">mentale Stärke</span> und <span class="gold">Teambuilding</span> zu maßgeschneiderten Programmen für Firmen in der Region Aachen.</p>
+      <p>Ob regelmäßige Firmenfitness-Kurse, inspirierende Gesundheitstage, energiegeladene Teamevents oder individuelles Führungskräfte-Coaching – wir gestalten Angebote, die zu Deinem Team passen und echte Veränderung bewirken.</p>
+      <p>Marco &amp; Lisa bringen über 7 Jahre Erfahrung mit und haben bereits zahlreiche Unternehmen dabei unterstützt, die Gesundheit und Zufriedenheit ihrer Mitarbeiter nachhaltig zu steigern.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 3: ANGEBOTE GRID ═══ -->
+<section class="biz-offers">
+  <div class="wrap">
+    <div class="biz-offers-head fade-up">
+      <p class="label">Unsere Business-Angebote</p>
+      <h2>Das richtige Programm für Dein Team</h2>
+    </div>
+    <div class="biz-grid">
+
+      <div class="biz-card fade-up">
+        <span class="biz-card-icon">💪</span>
+        <h3>Firmenfitness</h3>
+        <p class="biz-card-sub">Regelmäßige Sportangebote für Mitarbeiter</p>
+        <p>Wöchentliche Kurse wie Yogaletics<sup>&reg;</sup>, Functional Training oder Rückenfit – direkt in Eurem Unternehmen oder an einem Standort in Aachen. Flexible Zeiten, die in den Arbeitsalltag passen.</p>
+      </div>
+
+      <div class="biz-card fade-up d1">
+        <span class="biz-card-icon">🏥</span>
+        <h3>Gesundheitstage</h3>
+        <p class="biz-card-sub">Workshops &amp; Vorträge zu Gesundheit &amp; Wohlbefinden</p>
+        <p>Ein Tag voller Impulse: Von Ernährung und Stressbewältigung über Achtsamkeit bis hin zu aktivem Bewegungstraining. Kompakt, inspirierend und perfekt für Euer Betriebliches Gesundheitsmanagement.</p>
+      </div>
+
+      <div class="biz-card fade-up d2">
+        <span class="biz-card-icon">🤝</span>
+        <h3>Teambuilding</h3>
+        <p class="biz-card-sub">Teamevents mit Sport &amp; Mentaltraining</p>
+        <p>Gemeinsam wachsen: Events, die Euer Team zusammenschweißen. Sport, mentale Challenges und Blickwinkel Training<sup>&reg;</sup> sorgen für neue Perspektiven und stärkeren Zusammenhalt.</p>
+      </div>
+
+      <div class="biz-card fade-up d3">
+        <span class="biz-card-icon">🎯</span>
+        <h3>Coaching</h3>
+        <p class="biz-card-sub">Führungskräfte-Coaching &amp; Stressmanagement</p>
+        <p>Individuelles 1:1 Coaching für Führungskräfte und Teams. Stressmanagement, Resilienz und mentale Stärke – für Menschen, die Verantwortung tragen und ihr volles Potenzial entfalten wollen.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 4: VORTEILE FÜR UNTERNEHMEN ═══ -->
+<section class="benefits">
+  <div class="wrap">
+    <div class="benefits-head fade-up">
+      <p class="label">Warum Business Upgreater?</p>
+      <h2>Vorteile für Dein Unternehmen</h2>
+    </div>
+    <div class="benefits-grid">
+
+      <div class="benefit-item fade-up">
+        <div class="benefit-icon">📉</div>
+        <h3>Weniger Krankheitstage</h3>
+        <p>Aktive und mental starke Mitarbeiter sind seltener krank und langfristig leistungsfähiger.</p>
+      </div>
+
+      <div class="benefit-item fade-up d1">
+        <div class="benefit-icon">🤝</div>
+        <h3>Stärkerer Teamzusammenhalt</h3>
+        <p>Gemeinsame Erlebnisse und Herausforderungen schweißen zusammen und fördern die Kommunikation.</p>
+      </div>
+
+      <div class="benefit-item fade-up d2">
+        <div class="benefit-icon">😊</div>
+        <h3>Höhere Mitarbeiterzufriedenheit</h3>
+        <p>Wer sich wertgeschätzt und gesund fühlt, arbeitet motivierter und bleibt dem Unternehmen treu.</p>
+      </div>
+
+      <div class="benefit-item fade-up d3">
+        <div class="benefit-icon">⭐</div>
+        <h3>Attraktiver Arbeitgeber</h3>
+        <p>Betriebliche Gesundheitsförderung ist ein starkes Signal im Wettbewerb um die besten Talente.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 5: CTA ═══ -->
+<section class="cta-section">
+  <div class="wrap">
+    <div class="cta-inner fade-up">
+      <h2>Interesse an einem Business Angebot?</h2>
+      <p>Lass uns gemeinsam ein maßgeschneidertes Programm für Dein Unternehmen entwickeln. Wir beraten Dich gerne – unverbindlich und kostenlos.</p>
+      <a href="mailto:info@life-upgreater.com" class="btn-white">Jetzt Kontakt aufnehmen</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+
+      <!-- Spalte 1: Kontakt -->
+      <div>
+        <h4>Life Upgreater<sup>&reg;</sup></h4>
+        <p style="color:var(--text-light); margin-bottom:14px; font-size:0.82rem;">
+          ...um glücklich &amp; gesund zu sein.
+        </p>
+        <div class="footer-contact-line">
+          <span class="ico">📞</span>
+          <a href="tel:+491731949242">Marco Fuchs – 0173 19 49 242</a>
+        </div>
+        <div class="footer-contact-line">
+          <span class="ico">📞</span>
+          <a href="tel:+491766447148">Lisa Fuchs – 0176 644 711 48</a>
+        </div>
+        <div class="footer-contact-line">
+          <span class="ico">✉️</span>
+          <a href="mailto:info@life-upgreater.com">info@life-upgreater.com</a>
+        </div>
+      </div>
+
+      <!-- Spalte 2: Online-Shop -->
+      <div class="footer-links">
+        <h4>Online-Shop</h4>
+        <a href="#">Equipment</a>
+        <a href="#">Gutscheine</a>
+        <a href="#">Kurse</a>
+        <a href="#">Schulungen</a>
+        <a href="#">Seminare</a>
+      </div>
+
+      <!-- Spalte 3: Angebote -->
+      <div class="footer-links">
+        <h4>Angebote</h4>
+        <a href="index.html#kostenlos">Kostenlose Angebote</a>
+        <a href="personal-training.html">Personal Training</a>
+        <a href="seminare.html">Seminare</a>
+        <a href="business.html">Business Upgreater</a>
+        <a href="index.html#about">Über uns</a>
+      </div>
+
+      <!-- Spalte 4: Newsletter -->
+      <div>
+        <h4>Newsletter</h4>
+        <form class="footer-newsletter" onsubmit="event.preventDefault()">
+          <input type="text" placeholder="Vorname">
+          <input type="text" placeholder="Nachname">
+          <input type="email" placeholder="E-Mail-Adresse" required>
+          <div class="check-row">
+            <input type="checkbox" id="priv" required>
+            <label for="priv">Ich stimme der Verarbeitung meiner Daten gemäß der Datenschutzerklärung zu.</label>
+          </div>
+          <button type="submit" class="btn btn-red" style="width:100%;text-align:center;">Anmelden</button>
+        </form>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-legal">
+        <a href="#">Kooperationen</a>
+        <a href="#">Downloads</a>
+        <a href="#">AGB</a>
+        <a href="#">Widerrufsbelehrung</a>
+        <a href="#">Datenschutz</a>
+        <a href="#">Impressum</a>
+        <a href="#">Kontakt</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* Nav Toggle */
+  document.getElementById('navToggle').addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+
+  /* Scroll Reveal */
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>

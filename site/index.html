@@ -804,7 +804,7 @@
       .about-slide { grid-template-columns: 1fr; }
       .about-slide-photo { order: -1; }
       .seminars-grid { grid-template-columns: 1fr; }
-      .offers-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+      .offers-grid { grid-template-columns: 1fr !important; max-width: 420px !important; margin: 0 auto !important; }
       .selftest-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
       .trust .wrap { grid-template-columns: repeat(2,1fr); }
@@ -815,6 +815,7 @@
     @media (max-width: 600px) {
       .wrap { padding: 0 20px; }
       .hero { min-height: 70vh; }
+      .hero-img { background-position: 70% center; }
       .hero h1 { font-size: 1.9rem; }
       .hero-sub { font-size: 0.95rem; }
       .hero-ctas { flex-direction: column; }
@@ -851,9 +852,9 @@
     <a href="#" class="nav-logo">Life Upgreater<sup>®</sup></a>
     <div class="nav-links" id="navLinks">
       <a href="#about">Über uns</a>
+      <a href="#kostenlos">Kostenlose Angebote</a>
       <a href="#angebote" class="active">Unsere Angebote</a>
       <a href="#selftest">Selbsttest</a>
-      <a href="#seminare">Seminare</a>
       <a href="#" class="nav-cta">Kontakt</a>
     </div>
     <button class="nav-hamburger" id="navToggle" aria-label="Menü">
@@ -863,17 +864,21 @@
   <!-- Sub-Navigation: 3 Angebots-Spalten wie im Mockup -->
   <div class="nav-sub">
     <div class="nav-sub-inner">
-      <a href="#seminare" class="nav-sub-item">
-        <h4>Seminare</h4>
-        <p>Impulse für ein erfüllteres Leben – für Familien, Paare &amp; Einzelpersonen</p>
+      <a href="#kostenlos" class="nav-sub-item">
+        <h4>Kostenlose Angebote</h4>
+        <p>Sportkurse &amp; Gruppen-Mentaltraining – Dein Einstieg bei Life Upgreater</p>
       </a>
-      <a href="#personal" class="nav-sub-item">
+      <a href="personal-training.html" class="nav-sub-item">
         <h4>Personal Training</h4>
-        <p>Körperlich &amp; Mental – Dein 1:1 Coach mit Marco &amp; Lisa</p>
+        <p>Körperlich &amp; Mental – Exklusives 1:1 Coaching mit Marco &amp; Lisa</p>
       </a>
-      <a href="#business" class="nav-sub-item">
-        <h4>Business Training</h4>
-        <p>Firmenfitness &amp; Coaching für Unternehmen in der Region</p>
+      <a href="seminare.html" class="nav-sub-item">
+        <h4>Seminare</h4>
+        <p>Impulsseminare für Familien &amp; Paare</p>
+      </a>
+      <a href="business.html" class="nav-sub-item">
+        <h4>Business Upgreater</h4>
+        <p>Firmenfitness, Gesundheitstage &amp; Teambuilding für Unternehmen</p>
       </a>
     </div>
   </div>
@@ -884,10 +889,10 @@
   <div class="hero-img"></div>
   <div class="hero-body">
     <h1 class="fade-up">Entfalte Dein volles<br>Potenzial mit<br>Life Upgreater<sup>®</sup></h1>
-    <p class="hero-sub fade-up d1">Trainiere körperlich &amp; mental – um glücklich &amp; gesund zu sein.</p>
+    <p class="hero-sub fade-up d1">Körperliches &amp; mentales Training für Menschen, die mehr aus ihrem Leben machen wollen – glücklich &amp; gesund.</p>
     <div class="hero-ctas fade-up d2">
       <a href="#angebote" class="btn btn-red">Finde Dein Angebot</a>
-      <a href="#selftest" class="btn btn-ghost">Kostenloser Selbsttest</a>
+      <a href="#kostenlos" class="btn btn-ghost">Kostenlos starten</a>
     </div>
   </div>
   <span class="hero-handwriting">Upgreat your Life</span>
@@ -1002,45 +1007,83 @@
   </div>
 </section>
 
-<!-- ═══ 4: ANGEBOTE ═══ -->
+<!-- ═══ KOSTENLOSE ANGEBOTE (Funnel-Einstieg) ═══ -->
+<section class="offers" id="kostenlos" style="background: var(--bg-dark); color: var(--white);">
+  <div class="wrap">
+    <div class="offers-head fade-up">
+      <p class="label">Kostenlos für Dich</p>
+      <h2 style="color: var(--white);">Starte kostenlos – lerne uns kennen</h2>
+      <p style="color: var(--text-light); font-size: 0.95rem; margin-top: 10px; max-width: 600px; margin-left: auto; margin-right: auto;">Probiere unsere kostenlosen Angebote aus und erlebe, was Life Upgreater<sup>®</sup> für Dich tun kann.</p>
+    </div>
+    <div class="offers-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 800px; margin: 0 auto;">
+
+      <div class="card fade-up">
+        <div class="card-img">
+          <img src="img/seminare-gruppe.jpg" alt="Kostenlose Sportkurse">
+        </div>
+        <div class="card-body">
+          <h3>Kostenlose Sportkurse</h3>
+          <p class="card-sub">Offene Kurse in Aachen &amp; Online</p>
+          <p class="card-text">Komm vorbei und trainiere mit uns – ohne Verpflichtung. Regelmäßige Kurse für alle Fitnesslevel.</p>
+          <a href="#" class="btn btn-red">Kurse ansehen</a>
+        </div>
+      </div>
+
+      <div class="card fade-up d1">
+        <div class="card-img">
+          <img src="img/about-marco-lisa.jpg" alt="Gruppen-Mentaltraining">
+        </div>
+        <div class="card-body">
+          <h3>Gruppen-Mentaltraining</h3>
+          <p class="card-sub">4× im Jahr – kostenlos &amp; offen für alle</p>
+          <p class="card-text">Mentale Stärke in der Gruppe erleben. Viermal im Jahr bieten wir offene Sessions – für mehr Klarheit und innere Ruhe.</p>
+          <a href="#" class="btn btn-red">Nächsten Termin sehen</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 4: ANGEBOTE (Funnel: Seminare → Premium → Personal Training) ═══ -->
 <section class="offers" id="angebote">
   <div class="wrap">
     <div class="offers-head fade-up">
-      <p class="label">Unsere Angebote für Dich</p>
-      <h2>Finde den richtigen Weg für Dein Upgreat</h2>
+      <p class="label">Unsere Angebote</p>
+      <h2>Dein Weg zu einem erfüllteren Leben</h2>
     </div>
     <div class="offers-grid">
 
-      <a href="#seminare" class="card fade-up" id="seminare">
-        <div class="card-img">
-          <img src="img/seminare-gruppe.jpg" alt="Seminare">
-        </div>
-        <div class="card-body">
-          <h3>Seminare</h3>
-          <p class="card-sub">Impulse für ein erfüllteres Leben</p>
-          <p class="card-text">Für Familien, Paare &amp; alle, die Verbindung suchen. Präsenz &amp; Online.</p>
-          <span class="btn btn-red">Seminare entdecken</span>
-        </div>
-      </a>
-
-      <a href="#personal" class="card fade-up d1" id="personal">
+      <a href="personal-training.html" class="card fade-up" id="personal">
         <div class="card-img">
           <img src="img/personal-lisa.jpg" alt="Personal Training">
         </div>
         <div class="card-body">
           <h3>Personal Training</h3>
           <p class="card-sub">Körperlich &amp; Mental – Dein 1:1 Coach</p>
-          <p class="card-text">Maßgeschneidertes Training mit Marco &amp; Lisa. Inkl. Blickwinkel Training<sup>®</sup>.</p>
-          <span class="btn btn-red">Training starten</span>
+          <p class="card-text">Maßgeschneidertes Training mit Marco &amp; Lisa für Führungskräfte und alle, die das Maximum aus sich herausholen wollen.</p>
+          <span class="btn btn-red">Training anfragen</span>
         </div>
       </a>
 
-      <a href="#business" class="card fade-up d2" id="business">
+      <a href="seminare.html" class="card fade-up d1" id="seminare">
         <div class="card-img">
-          <img src="img/business-team.jpg" alt="Business Training">
+          <img src="img/seminare-gruppe.jpg" alt="Seminare">
         </div>
         <div class="card-body">
-          <h3>Business Training</h3>
+          <h3>Seminare</h3>
+          <p class="card-sub">Impulse für Familien, Eltern &amp; Paare</p>
+          <p class="card-text">Workshops und Impulsseminare für mehr Verbindung, Lebensfreude und ein erfüllteres Miteinander.</p>
+          <span class="btn btn-red">Seminare entdecken</span>
+        </div>
+      </a>
+
+      <a href="business.html" class="card fade-up d2" id="business">
+        <div class="card-img">
+          <img src="img/business-team.jpg" alt="Business Upgreater">
+        </div>
+        <div class="card-body">
+          <h3>Business Upgreater</h3>
           <p class="card-sub">Stärke Dein Team – Firmenfitness &amp; Coaching</p>
           <p class="card-text">Firmenfitness, Gesundheitstage, Teambuilding – für Unternehmen in der Region.</p>
           <span class="btn btn-red">Angebot für Firmen</span>
@@ -1057,11 +1100,11 @@
     <div class="seminars-grid">
       <div class="fade-up">
         <p class="label">Seminare</p>
-        <h2>Seminare für ein erfüllteres Leben</h2>
-        <p class="seminars-sub">Erfahre mehr über unsere exklusiven Seminare für Eltern, Paare und alle, die mehr Verbindung suchen.</p>
+        <h2>Impulse für ein erfüllteres Leben</h2>
+        <p class="seminars-sub">Unsere Seminare verbinden körperliches und mentales Training – für Familien, Eltern, Paare und alle, die mehr Verbindung suchen.</p>
         <div class="seminars-date">📅 Nächster Termin: HappyMe-HappyFamily am 26. April 2026</div>
-        <p class="seminars-body">Unsere Impulsseminare verbinden körperliches und mentales Training. Von Familienseminaren über Gesundheits-Workshops bis zu Partnerschafts-Impulsen – finde das Seminar, das Dein Leben bereichert.</p>
-        <a href="#" class="btn btn-red">Alle Seminare &amp; Termine</a>
+        <p class="seminars-body">Von kompakten Impulsseminaren zu Themen wie Familie, Partnerschaft und Gesundheit bis hin zu intensiven Workshops – finde das Seminar, das Dein Leben bereichert.</p>
+        <a href="seminare.html" class="btn btn-red">Alle Seminare &amp; Termine</a>
       </div>
       <div class="seminars-photo fade-up d2">
         <img src="img/seminar-marco.jpg" alt="Marco Fuchs – Seminar">
@@ -1219,9 +1262,10 @@
       <!-- Spalte 3: Angebote -->
       <div class="footer-links">
         <h4>Angebote</h4>
-        <a href="#seminare">Seminare</a>
-        <a href="#personal">Personal Training</a>
-        <a href="#business">Business Training</a>
+        <a href="#kostenlos">Kostenlose Angebote</a>
+        <a href="personal-training.html">Personal Training</a>
+        <a href="seminare.html">Seminare</a>
+        <a href="business.html">Business Upgreater</a>
         <a href="#about">Über uns</a>
       </div>
 
