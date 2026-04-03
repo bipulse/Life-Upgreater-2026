@@ -600,12 +600,13 @@
       margin-bottom: 36px;
     }
     .testi-avatar {
-      width: 72px; height: 72px; border-radius: 50%;
+      width: 96px; height: 96px; border-radius: 50%;
       overflow: hidden; border: 3px solid transparent;
       cursor: pointer; transition: border-color 0.3s, transform 0.3s;
       background: #ddd;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
-    .testi-avatar.active { border-color: var(--red); transform: scale(1.1); }
+    .testi-avatar.active { border-color: var(--red); transform: scale(1.15); box-shadow: 0 6px 20px rgba(204,41,54,0.25); }
     .testi-avatar img { width: 100%; height: 100%; object-fit: cover; }
     /* Zitat-Karten Container */
     .testi-cards {
@@ -888,8 +889,8 @@
       .footer-legal { justify-content: center; }
       .topbar { font-size: 0.82rem; padding: 10px 12px; }
       .date-banner h3 { font-size: 1rem; }
-      .testi-avatars { gap: 12px; }
-      .testi-avatar { width: 56px; height: 56px; }
+      .testi-avatars { gap: 14px; }
+      .testi-avatar { width: 72px; height: 72px; }
       .quote-text { font-size: 1.05rem; }
     }
 
@@ -936,6 +937,36 @@
     body.light .quote-section { background: #FAFAFA; }
     body.light .selftest { background: #F0EDEA; }
     body.light .test-card { background: #fff; border-color: rgba(0,0,0,0.06); }
+    body.light .testi-card blockquote { color: #333; }
+    body.light .testi-card .testi-name { color: #1A1A1A; }
+    body.light .testi-card .testi-role { color: #777; }
+    body.light .testi-avatar { background: #eee; border-color: rgba(0,0,0,0.08); }
+    body.light .testi-dot { background: rgba(0,0,0,0.15); }
+    body.light .testi-dot.active { background: var(--red); }
+    body.light .test-teaser { background: #F0EDEA; color: #1A1A1A; }
+    body.light .test-teaser .test-teaser-text { color: #333; }
+    body.light .test-teaser .freebee-inline { background: rgba(204,41,54,0.1); color: var(--red); }
+    body.light .quote-section { background: #FAFAFA; }
+    body.light .quote-text { color: #1A1A1A; }
+    body.light .quote-author { color: #777; }
+    body.light .quote-marks { color: var(--red); opacity: 0.15; }
+    body.light .selftest { background: #F0EDEA; color: #1A1A1A; }
+    body.light .selftest-head h2 { color: #1A1A1A; }
+    body.light .selftest-head p { color: #555; }
+    body.light .selftest-intro { color: #555; }
+    body.light .test-card-body h3 { color: #1A1A1A; }
+    body.light .freebee { background: rgba(204,41,54,0.1); color: var(--red); }
+    body.light .date-banner { background: #F0EDEA; color: #1A1A1A; }
+    body.light .date-banner h3 { color: #1A1A1A; }
+    body.light .date-banner p { color: #555; }
+    body.light .seminars h2 { color: #1A1A1A; }
+    body.light .seminars-sub { color: #555; }
+    body.light .seminars-body { color: #555; }
+    body.light .seminars-date { color: #1A1A1A; }
+    body.light .about-slide-text p { color: #555; }
+    body.light .about-slide-text .role { color: var(--red); }
+    body.light .offers-head p { color: #555; }
+    body.light .card-body .card-sub { color: var(--red); }
     body.light .footer { background: #1A1A1A; color: #fff; }
     body.light .footer h4, body.light .footer p, body.light .footer a { color: #ccc; }
     body.light .footer a:hover { color: #fff; }
@@ -1831,6 +1862,14 @@
   startBtn.addEventListener('click', startTour);
   startBtn.addEventListener('touchend', function(e) { e.preventDefault(); startTour(); });
   overlay.addEventListener('click', function(e) { if (e.target === overlay) endTour(); });
+
+  // Auto-start tour on first visit
+  try {
+    if (!localStorage.getItem('lu_tour_seen')) {
+      setTimeout(function() { startTour(); }, 1500);
+      localStorage.setItem('lu_tour_seen', '1');
+    }
+  } catch(e) {}
 })();
 </script>
 
