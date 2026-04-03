@@ -242,9 +242,13 @@
       box-shadow: 0 12px 36px rgba(0,0,0,0.3);
     }
     .biz-card-icon {
-      font-size: 2rem;
       margin-bottom: 16px;
       display: block;
+    }
+    .biz-card-icon svg {
+      width: 36px; height: 36px; stroke: var(--gold); fill: none;
+      stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+      display: inline-block;
     }
     .biz-card h3 {
       font-family: var(--font-display);
@@ -292,7 +296,10 @@
       border: 1px solid rgba(204,41,54,0.25);
       display: flex; align-items: center; justify-content: center;
       margin: 0 auto 18px;
-      font-size: 1.4rem;
+    }
+    .benefit-icon svg {
+      width: 26px; height: 26px; stroke: var(--gold); fill: none;
+      stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
     }
     .benefit-item h3 {
       font-family: var(--font-display);
@@ -375,7 +382,8 @@
       display: flex; align-items: center; gap: 8px;
       margin-bottom: 6px; font-size: 0.85rem;
     }
-    .footer-contact-line .ico { color: var(--gold); width: 18px; text-align: center; }
+    .footer-contact-line .ico { width: 18px; text-align: center; display: inline-flex; align-items: center; }
+    .footer-contact-line .ico svg { width: 15px; height: 15px; stroke: var(--gold); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
     .footer-newsletter {
       display: flex; flex-direction: column; gap: 10px;
     }
@@ -511,28 +519,28 @@
     <div class="biz-grid">
 
       <div class="biz-card fade-up">
-        <span class="biz-card-icon">💪</span>
+        <span class="biz-card-icon"><svg viewBox="0 0 24 24"><path d="M6.5 6.5a3.5 3.5 0 1 0 7 0 3.5 3.5 0 1 0-7 0"/><path d="M2 21v-2a4 4 0 0 1 4-4h4"/><path d="M15.5 13l2.5 2.5L22 11"/></svg></span>
         <h3>Firmenfitness</h3>
         <p class="biz-card-sub">Regelmäßige Sportangebote für Mitarbeiter</p>
         <p>Wöchentliche Kurse wie Yogaletics<sup>&reg;</sup>, Functional Training oder Rückenfit – direkt in Eurem Unternehmen oder an einem Standort in Aachen. Flexible Zeiten, die in den Arbeitsalltag passen.</p>
       </div>
 
       <div class="biz-card fade-up d1">
-        <span class="biz-card-icon">🏥</span>
+        <span class="biz-card-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/><line x1="12" y1="10" x2="12" y2="16"/><line x1="9" y1="13" x2="15" y2="13"/></svg></span>
         <h3>Gesundheitstage</h3>
         <p class="biz-card-sub">Workshops &amp; Vorträge zu Gesundheit &amp; Wohlbefinden</p>
         <p>Ein Tag voller Impulse: Von Ernährung und Stressbewältigung über Achtsamkeit bis hin zu aktivem Bewegungstraining. Kompakt, inspirierend und perfekt für Euer Betriebliches Gesundheitsmanagement.</p>
       </div>
 
       <div class="biz-card fade-up d2">
-        <span class="biz-card-icon">🤝</span>
+        <span class="biz-card-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
         <h3>Teambuilding</h3>
         <p class="biz-card-sub">Teamevents mit Sport &amp; Mentaltraining</p>
         <p>Gemeinsam wachsen: Events, die Euer Team zusammenschweißen. Sport, mentale Challenges und Blickwinkel Training<sup>&reg;</sup> sorgen für neue Perspektiven und stärkeren Zusammenhalt.</p>
       </div>
 
       <div class="biz-card fade-up d3">
-        <span class="biz-card-icon">🎯</span>
+        <span class="biz-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
         <h3>Coaching</h3>
         <p class="biz-card-sub">Führungskräfte-Coaching &amp; Stressmanagement</p>
         <p>Individuelles 1:1 Coaching für Führungskräfte und Teams. Stressmanagement, Resilienz und mentale Stärke – für Menschen, die Verantwortung tragen und ihr volles Potenzial entfalten wollen.</p>
@@ -552,25 +560,25 @@
     <div class="benefits-grid">
 
       <div class="benefit-item fade-up">
-        <div class="benefit-icon">📉</div>
+        <div class="benefit-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
         <h3>Weniger Krankheitstage</h3>
         <p>Aktive und mental starke Mitarbeiter sind seltener krank und langfristig leistungsfähiger.</p>
       </div>
 
       <div class="benefit-item fade-up d1">
-        <div class="benefit-icon">🤝</div>
+        <div class="benefit-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
         <h3>Stärkerer Teamzusammenhalt</h3>
         <p>Gemeinsame Erlebnisse und Herausforderungen schweißen zusammen und fördern die Kommunikation.</p>
       </div>
 
       <div class="benefit-item fade-up d2">
-        <div class="benefit-icon">😊</div>
+        <div class="benefit-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
         <h3>Höhere Mitarbeiterzufriedenheit</h3>
         <p>Wer sich wertgeschätzt und gesund fühlt, arbeitet motivierter und bleibt dem Unternehmen treu.</p>
       </div>
 
       <div class="benefit-item fade-up d3">
-        <div class="benefit-icon">⭐</div>
+        <div class="benefit-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
         <h3>Attraktiver Arbeitgeber</h3>
         <p>Betriebliche Gesundheitsförderung ist ein starkes Signal im Wettbewerb um die besten Talente.</p>
       </div>
@@ -602,15 +610,15 @@
           ...um glücklich &amp; gesund zu sein.
         </p>
         <div class="footer-contact-line">
-          <span class="ico">📞</span>
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
           <a href="tel:+491731949242">Marco Fuchs – 0173 19 49 242</a>
         </div>
         <div class="footer-contact-line">
-          <span class="ico">📞</span>
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
           <a href="tel:+491766447148">Lisa Fuchs – 0176 644 711 48</a>
         </div>
         <div class="footer-contact-line">
-          <span class="ico">✉️</span>
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
           <a href="mailto:info@life-upgreater.com">info@life-upgreater.com</a>
         </div>
       </div>
