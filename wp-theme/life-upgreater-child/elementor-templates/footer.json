@@ -1,0 +1,361 @@
+{
+  "title": "Life Upgreater – Footer",
+  "type": "footer",
+  "version": "0.4",
+  "page_settings": {
+    "template": "elementor_header_footer"
+  },
+  "content": [
+    {
+      "id": "lu_footer_main",
+      "elType": "container",
+      "settings": {
+        "_title": "Footer – Hauptbereich",
+        "content_width": "boxed",
+        "flex_direction": "row",
+        "flex_justify_content": "space-between",
+        "flex_align_items": "flex-start",
+        "flex_gap": {
+          "size": 48,
+          "unit": "px"
+        },
+        "background_background": "classic",
+        "background_color": "#1A1A1A",
+        "padding": {
+          "top": "60",
+          "right": "24",
+          "bottom": "48",
+          "left": "24",
+          "unit": "px",
+          "isLinked": false
+        },
+        "flex_wrap": "wrap"
+      },
+      "elements": [
+        {
+          "id": "lu_footer_kontakt",
+          "elType": "container",
+          "settings": {
+            "_title": "Footer – Kontakt",
+            "content_width": "full",
+            "flex_direction": "column",
+            "width": {
+              "size": 35,
+              "unit": "%"
+            },
+            "min_width": {
+              "size": 280,
+              "unit": "px"
+            }
+          },
+          "elements": [
+            {
+              "id": "lu_footer_logo",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Footer Logo",
+                "title": "Life Upgreater®",
+                "header_size": "p",
+                "title_color": "#FFFFFF",
+                "typography_typography": "custom",
+                "typography_font_family": "Inter",
+                "typography_font_size": {
+                  "size": 1.3,
+                  "unit": "rem"
+                },
+                "typography_font_weight": "800"
+              }
+            },
+            {
+              "id": "lu_footer_tagline",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "_title": "Tagline",
+                "editor": "<p style=\"color:#888;font-size:0.9rem;line-height:1.5;\">Trainiere mental & körperlich<br>um glücklich & gesund zu sein.</p>"
+              }
+            },
+            {
+              "id": "lu_footer_marco",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "_title": "Kontakt – Marco",
+                "editor": "<p style=\"color:#D0D0D0;font-size:0.92rem;line-height:1.5;\"><strong>Marco Fuchs</strong> – Inhaber & Geschäftsführer<br>📱 <a href=\"tel:+4917319 49242\" style=\"color:#D0D0D0;\">0173 – 19 49 242</a></p>"
+              }
+            },
+            {
+              "id": "lu_footer_lisa",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "_title": "Kontakt – Lisa",
+                "editor": "<p style=\"color:#D0D0D0;font-size:0.92rem;line-height:1.5;\"><strong>Lisa Fuchs</strong> – Inhaberin & Geschäftsführerin<br>📱 <a href=\"tel:+4917664471148\" style=\"color:#D0D0D0;\">0176 – 644 711 48</a></p>"
+              }
+            },
+            {
+              "id": "lu_footer_email",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "_title": "Kontakt – E-Mail",
+                "editor": "<p style=\"color:#D0D0D0;font-size:0.92rem;\">📧 <a href=\"mailto:info@life-upgreater.com\" style=\"color:#D0D0D0;\">info@life-upgreater.com</a></p>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "lu_footer_links",
+          "elType": "container",
+          "settings": {
+            "_title": "Footer – Angebote & Shop",
+            "content_width": "full",
+            "flex_direction": "column",
+            "width": {
+              "size": 25,
+              "unit": "%"
+            },
+            "min_width": {
+              "size": 200,
+              "unit": "px"
+            }
+          },
+          "elements": [
+            {
+              "id": "lu_footer_angebote_title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Überschrift – Angebote",
+                "title": "Angebote",
+                "header_size": "h4",
+                "title_color": "#FFFFFF",
+                "typography_typography": "custom",
+                "typography_font_size": {
+                  "size": 1,
+                  "unit": "rem"
+                },
+                "typography_font_weight": "700"
+              }
+            },
+            {
+              "id": "lu_footer_angebote_list",
+              "elType": "widget",
+              "widgetType": "icon-list",
+              "settings": {
+                "_title": "Angebote Links",
+                "icon_list": [
+                  {"text": "Seminare", "link": {"url": "/seminare"}, "selected_icon": {"value": ""}},
+                  {"text": "Personal Training", "link": {"url": "/personal-training"}, "selected_icon": {"value": ""}},
+                  {"text": "Business Training", "link": {"url": "/business"}, "selected_icon": {"value": ""}},
+                  {"text": "Über uns", "link": {"url": "/ueber-uns"}, "selected_icon": {"value": ""}},
+                  {"text": "Selbsttest", "link": {"url": "/#selbsttest"}, "selected_icon": {"value": ""}}
+                ],
+                "icon_color": "#888",
+                "text_color": "#888",
+                "text_color_hover": "#FFFFFF",
+                "typography_typography": "custom",
+                "typography_font_size": {
+                  "size": 0.9,
+                  "unit": "rem"
+                }
+              }
+            },
+            {
+              "id": "lu_footer_shop_title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Überschrift – Online-Shop",
+                "title": "Online-Shop",
+                "header_size": "h4",
+                "title_color": "#FFFFFF",
+                "typography_typography": "custom",
+                "typography_font_size": {
+                  "size": 1,
+                  "unit": "rem"
+                },
+                "typography_font_weight": "700",
+                "margin": {
+                  "top": "28",
+                  "unit": "px"
+                }
+              }
+            },
+            {
+              "id": "lu_footer_shop_list",
+              "elType": "widget",
+              "widgetType": "icon-list",
+              "settings": {
+                "_title": "Shop Links",
+                "icon_list": [
+                  {"text": "Equipment", "link": {"url": "/shop/equipment"}, "selected_icon": {"value": ""}},
+                  {"text": "Gutscheine", "link": {"url": "/shop/gutscheine"}, "selected_icon": {"value": ""}},
+                  {"text": "Kurse", "link": {"url": "/shop/kurse"}, "selected_icon": {"value": ""}}
+                ],
+                "text_color": "#888",
+                "text_color_hover": "#FFFFFF",
+                "typography_typography": "custom",
+                "typography_font_size": {
+                  "size": 0.9,
+                  "unit": "rem"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "lu_footer_newsletter",
+          "elType": "container",
+          "settings": {
+            "_title": "Footer – Newsletter",
+            "content_width": "full",
+            "flex_direction": "column",
+            "width": {
+              "size": 35,
+              "unit": "%"
+            },
+            "min_width": {
+              "size": 280,
+              "unit": "px"
+            }
+          },
+          "elements": [
+            {
+              "id": "lu_footer_nl_title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Überschrift – Newsletter",
+                "title": "Newsletter",
+                "header_size": "h4",
+                "title_color": "#FFFFFF",
+                "typography_typography": "custom",
+                "typography_font_size": {
+                  "size": 1,
+                  "unit": "rem"
+                },
+                "typography_font_weight": "700"
+              }
+            },
+            {
+              "id": "lu_footer_nl_text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "_title": "Newsletter Beschreibung",
+                "editor": "<p style=\"color:#888;font-size:0.88rem;line-height:1.6;\">Abonniere unseren Newsletter für eine gemeinsame Weiterentwicklung. Bleibe auf dem neuesten Stand über Angebote, Neuigkeiten und Trends.</p>"
+              }
+            },
+            {
+              "id": "lu_footer_nl_form",
+              "elType": "widget",
+              "widgetType": "form",
+              "settings": {
+                "_title": "Newsletter Formular",
+                "form_name": "Newsletter",
+                "form_fields": [
+                  {
+                    "_id": "name",
+                    "field_type": "text",
+                    "field_label": "Vorname",
+                    "placeholder": "Vorname",
+                    "required": "",
+                    "width": "100"
+                  },
+                  {
+                    "_id": "email",
+                    "field_type": "email",
+                    "field_label": "E-Mail",
+                    "placeholder": "E-Mail",
+                    "required": "true",
+                    "width": "100"
+                  },
+                  {
+                    "_id": "consent",
+                    "field_type": "acceptance",
+                    "field_label": "",
+                    "acceptance_text": "Ich habe die Datenschutzbestimmungen gelesen und erkenne diese ausdrücklich an.",
+                    "required": "true",
+                    "width": "100"
+                  }
+                ],
+                "button_text": "Anmelden",
+                "button_background_color": "#CC2936",
+                "button_color": "#FFFFFF",
+                "button_hover_background_color": "#E0313F",
+                "button_border_radius": {
+                  "top": "8",
+                  "right": "8",
+                  "bottom": "8",
+                  "left": "8",
+                  "unit": "px"
+                },
+                "button_width": "100",
+                "field_background_color": "#252525",
+                "field_border_color": "#333333",
+                "field_text_color": "#FFFFFF",
+                "field_border_radius": "8",
+                "success_message": "Erfolgreich angemeldet! Willkommen bei Life Upgreater®."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lu_footer_bottom",
+      "elType": "container",
+      "settings": {
+        "_title": "Footer – Rechtslinks",
+        "content_width": "boxed",
+        "flex_direction": "row",
+        "flex_justify_content": "space-between",
+        "flex_align_items": "center",
+        "flex_wrap": "wrap",
+        "background_background": "classic",
+        "background_color": "#1A1A1A",
+        "border_border": "solid",
+        "border_width": {
+          "top": "1",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "unit": "px",
+          "isLinked": false
+        },
+        "border_color": "#333333",
+        "padding": {
+          "top": "20",
+          "right": "24",
+          "bottom": "20",
+          "left": "24",
+          "unit": "px",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "lu_footer_legal",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "_title": "Rechtliche Links",
+            "editor": "<p style=\"font-size:0.8rem;\"><a href=\"/kooperationen\" style=\"color:#888;margin-right:16px;\">Kooperationen</a><a href=\"/downloads\" style=\"color:#888;margin-right:16px;\">Downloads</a><a href=\"/agb\" style=\"color:#888;margin-right:16px;\">AGB</a><a href=\"/widerrufsbelehrung\" style=\"color:#888;margin-right:16px;\">Widerrufsbelehrung</a><a href=\"/datenschutz\" style=\"color:#888;margin-right:16px;\">Datenschutz</a><a href=\"/impressum\" style=\"color:#888;margin-right:16px;\">Impressum</a><a href=\"/kontakt\" style=\"color:#888;\">Kontakt</a></p>"
+          }
+        },
+        {
+          "id": "lu_footer_copy",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "_title": "Copyright",
+            "editor": "<p style=\"color:#888;font-size:0.8rem;\">© 2026 Life Upgreater®. Alle Rechte vorbehalten.</p>",
+            "align": "right"
+          }
+        }
+      ]
+    }
+  ]
+}

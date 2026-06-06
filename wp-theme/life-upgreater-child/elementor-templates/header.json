@@ -1,0 +1,202 @@
+{
+  "title": "Life Upgreater – Header",
+  "type": "header",
+  "version": "0.4",
+  "page_settings": {
+    "template": "elementor_header_footer"
+  },
+  "content": [
+    {
+      "id": "lu_ann_bar",
+      "elType": "container",
+      "settings": {
+        "_title": "Announcement Bar",
+        "content_width": "full",
+        "flex_direction": "row",
+        "flex_justify_content": "center",
+        "flex_align_items": "center",
+        "background_background": "classic",
+        "background_color": "#CC2936",
+        "padding": {
+          "top": "8",
+          "right": "20",
+          "bottom": "8",
+          "left": "20",
+          "unit": "px",
+          "isLinked": false
+        },
+        "z_index": 100
+      },
+      "elements": [
+        {
+          "id": "lu_ann_text",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "_title": "Announcement Text",
+            "editor": "<p style=\"text-align:center;color:#fff;font-size:0.9rem;margin:0;\">Bist du bereit zum Glücklichsein? <a href=\"#kontakt\" style=\"color:#fff;text-decoration:underline;font-weight:700;\">Nimm jetzt Kontakt auf!</a></p>",
+            "align": "center"
+          }
+        }
+      ]
+    },
+    {
+      "id": "lu_header_main",
+      "elType": "container",
+      "settings": {
+        "_title": "Header – Navigation",
+        "content_width": "boxed",
+        "flex_direction": "row",
+        "flex_justify_content": "space-between",
+        "flex_align_items": "center",
+        "background_background": "classic",
+        "background_color": "rgba(26,26,26,0.95)",
+        "padding": {
+          "top": "16",
+          "right": "24",
+          "bottom": "16",
+          "left": "24",
+          "unit": "px",
+          "isLinked": false
+        },
+        "sticky": "top",
+        "sticky_offset": 0,
+        "motion_fx_motion_fx_scrolling": "yes",
+        "css_classes": "lu-header-sticky"
+      },
+      "elements": [
+        {
+          "id": "lu_logo_wrap",
+          "elType": "container",
+          "settings": {
+            "_title": "Logo",
+            "content_width": "full",
+            "flex_direction": "row",
+            "flex_align_items": "center",
+            "width": {
+              "size": 20,
+              "unit": "%"
+            }
+          },
+          "elements": [
+            {
+              "id": "lu_logo",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Logo Text",
+                "title": "Life Upgreater®",
+                "header_size": "p",
+                "title_color": "#FFFFFF",
+                "typography_typography": "custom",
+                "typography_font_family": "Inter",
+                "typography_font_size": {
+                  "size": 1.2,
+                  "unit": "rem"
+                },
+                "typography_font_weight": "800",
+                "link": {
+                  "url": "/",
+                  "is_external": false
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "lu_nav_wrap",
+          "elType": "container",
+          "settings": {
+            "_title": "Navigation Links",
+            "content_width": "full",
+            "flex_direction": "row",
+            "flex_justify_content": "center",
+            "flex_align_items": "center",
+            "flex_gap": {
+              "size": 28,
+              "unit": "px"
+            }
+          },
+          "elements": [
+            {
+              "id": "lu_nav_menu",
+              "elType": "widget",
+              "widgetType": "nav-menu",
+              "settings": {
+                "_title": "Hauptmenü",
+                "menu": "hauptmenu",
+                "layout": "horizontal",
+                "submenu_icon": "none",
+                "text_color": "#D0D0D0",
+                "text_color_hover": "#FFFFFF",
+                "typography_typography": "custom",
+                "typography_font_family": "Inter",
+                "typography_font_size": {
+                  "size": 0.92,
+                  "unit": "rem"
+                },
+                "toggle_color": "#FFFFFF",
+                "toggle_background_color": "transparent"
+              }
+            }
+          ]
+        },
+        {
+          "id": "lu_nav_cta_wrap",
+          "elType": "container",
+          "settings": {
+            "_title": "CTA Button Wrapper",
+            "content_width": "full",
+            "flex_direction": "row",
+            "flex_justify_content": "flex-end",
+            "flex_align_items": "center",
+            "width": {
+              "size": 20,
+              "unit": "%"
+            }
+          },
+          "elements": [
+            {
+              "id": "lu_nav_cta",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "_title": "Kontakt Button",
+                "text": "Kontakt",
+                "link": {
+                  "url": "#kontakt"
+                },
+                "button_type": "default",
+                "background_color": "#CC2936",
+                "button_text_color": "#FFFFFF",
+                "border_radius": {
+                  "top": "8",
+                  "right": "8",
+                  "bottom": "8",
+                  "left": "8",
+                  "unit": "px",
+                  "isLinked": true
+                },
+                "typography_typography": "custom",
+                "typography_font_size": {
+                  "size": 0.9,
+                  "unit": "rem"
+                },
+                "typography_font_weight": "600",
+                "button_hover_background_color": "#E0313F",
+                "padding": {
+                  "top": "10",
+                  "right": "24",
+                  "bottom": "10",
+                  "left": "24",
+                  "unit": "px",
+                  "isLinked": false
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

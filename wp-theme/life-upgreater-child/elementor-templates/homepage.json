@@ -1,0 +1,591 @@
+{
+  "title": "Life Upgreater – Homepage",
+  "type": "page",
+  "version": "0.4",
+  "page_settings": {
+    "template": "elementor_canvas"
+  },
+  "content": [
+    {
+      "id": "lu_hero",
+      "elType": "container",
+      "settings": {
+        "_title": "Hero Section",
+        "content_width": "full",
+        "min_height": {"size": 90, "unit": "vh"},
+        "flex_direction": "row",
+        "flex_align_items": "center",
+        "background_background": "gradient",
+        "background_color": "#1A1A1A",
+        "background_color_b": "#2A2220",
+        "background_gradient_angle": {"size": 135, "unit": "deg"},
+        "background_overlay_background": "classic",
+        "background_overlay_color": "rgba(26,26,26,0.6)",
+        "padding": {
+          "top": "100", "right": "24", "bottom": "80", "left": "24",
+          "unit": "px", "isLinked": false
+        },
+        "css_classes": "lu-section-dark"
+      },
+      "elements": [
+        {
+          "id": "lu_hero_content",
+          "elType": "container",
+          "settings": {
+            "_title": "Hero – Inhalt",
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "max_width": {"size": 680, "unit": "px"}
+          },
+          "elements": [
+            {
+              "id": "lu_hero_h1",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Hero Headline",
+                "title": "Entfalte Dein volles Potenzial mit <span style=\"color:#CC2936\">Life Upgreater®</span>",
+                "header_size": "h1",
+                "title_color": "#FFFFFF",
+                "typography_typography": "custom",
+                "typography_font_family": "Inter",
+                "typography_font_size": {"size": 3.8, "unit": "rem"},
+                "typography_font_size_mobile": {"size": 2.2, "unit": "rem"},
+                "typography_font_weight": "800",
+                "typography_line_height": {"size": 1.15, "unit": "em"}
+              }
+            },
+            {
+              "id": "lu_hero_sub",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "_title": "Hero Subline",
+                "editor": "<p style=\"font-size:1.25rem;color:#D0D0D0;line-height:1.7;\">Trainiere körperlich & mental – um glücklich & gesund zu sein.</p>"
+              }
+            },
+            {
+              "id": "lu_hero_buttons",
+              "elType": "container",
+              "settings": {
+                "_title": "Hero – Buttons",
+                "content_width": "full",
+                "flex_direction": "row",
+                "flex_gap": {"size": 16, "unit": "px"},
+                "flex_wrap": "wrap",
+                "margin": {"bottom": "40", "unit": "px"}
+              },
+              "elements": [
+                {
+                  "id": "lu_hero_cta1",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "settings": {
+                    "_title": "CTA – Angebot finden",
+                    "text": "Finde Dein Angebot",
+                    "link": {"url": "#angebote"},
+                    "background_color": "#CC2936",
+                    "button_text_color": "#FFFFFF",
+                    "button_hover_background_color": "#E0313F",
+                    "border_radius": {"top": "8", "right": "8", "bottom": "8", "left": "8", "unit": "px", "isLinked": true},
+                    "typography_typography": "custom",
+                    "typography_font_size": {"size": 1.1, "unit": "rem"},
+                    "typography_font_weight": "600",
+                    "padding": {"top": "18", "right": "40", "bottom": "18", "left": "40", "unit": "px", "isLinked": false}
+                  }
+                },
+                {
+                  "id": "lu_hero_cta2",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "settings": {
+                    "_title": "CTA – Selbsttest",
+                    "text": "Kostenloser Selbsttest →",
+                    "link": {"url": "#selbsttest"},
+                    "background_color": "transparent",
+                    "button_text_color": "#FFFFFF",
+                    "border_border": "solid",
+                    "border_width": {"top": "2", "right": "2", "bottom": "2", "left": "2", "unit": "px", "isLinked": true},
+                    "border_color": "rgba(255,255,255,0.4)",
+                    "button_hover_border_color": "#FFFFFF",
+                    "button_hover_background_color": "rgba(255,255,255,0.08)",
+                    "border_radius": {"top": "8", "right": "8", "bottom": "8", "left": "8", "unit": "px", "isLinked": true},
+                    "typography_typography": "custom",
+                    "typography_font_size": {"size": 1.1, "unit": "rem"},
+                    "typography_font_weight": "600",
+                    "padding": {"top": "18", "right": "40", "bottom": "18", "left": "40", "unit": "px", "isLinked": false}
+                  }
+                }
+              ]
+            },
+            {
+              "id": "lu_hero_handwriting",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Handschrift – Upgreat your Life",
+                "title": "Upgreat your Life",
+                "header_size": "p",
+                "title_color": "rgba(208,208,208,0.3)",
+                "typography_typography": "custom",
+                "typography_font_family": "Caveat",
+                "typography_font_size": {"size": 2.5, "unit": "rem"},
+                "typography_font_weight": "600"
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "lu_ueber_uns",
+      "elType": "container",
+      "settings": {
+        "_title": "Über uns – Teaser",
+        "content_width": "boxed",
+        "flex_direction": "row",
+        "flex_align_items": "center",
+        "flex_gap": {"size": 60, "unit": "px"},
+        "flex_wrap": "wrap",
+        "background_background": "classic",
+        "background_color": "#2A2220",
+        "padding": {"top": "100", "right": "24", "bottom": "100", "left": "24", "unit": "px", "isLinked": false},
+        "css_classes": "lu-section-warm-dark"
+      },
+      "elements": [
+        {
+          "id": "lu_ueber_text",
+          "elType": "container",
+          "settings": {
+            "_title": "Über uns – Text",
+            "content_width": "full",
+            "flex_direction": "column",
+            "width": {"size": 58, "unit": "%"},
+            "min_width": {"size": 300, "unit": "px"}
+          },
+          "elements": [
+            {
+              "id": "lu_ueber_label",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Section Label",
+                "title": "Über uns",
+                "header_size": "p",
+                "css_classes": "lu-section-label",
+                "title_color": "#CC2936",
+                "typography_typography": "custom",
+                "typography_font_size": {"size": 0.85, "unit": "rem"},
+                "typography_font_weight": "600",
+                "typography_letter_spacing": {"size": 3, "unit": "px"},
+                "typography_text_transform": "lowercase"
+              }
+            },
+            {
+              "id": "lu_ueber_h2",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Über uns Headline",
+                "title": "Die Gesichter hinter Life Upgreater® – Marco & Lisa",
+                "header_size": "h2",
+                "title_color": "#FFFFFF",
+                "typography_typography": "custom",
+                "typography_font_family": "Inter",
+                "typography_font_size": {"size": 2.2, "unit": "rem"},
+                "typography_font_weight": "800"
+              }
+            },
+            {
+              "id": "lu_ueber_p1",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "_title": "Über uns Text 1",
+                "editor": "<p style=\"color:#D0D0D0;line-height:1.7;\">Als zertifizierte Trainer und Coaches verbinden wir körperliches mit mentalem Training. Unsere persönliche Geschichte hat uns gelehrt: Wahres Glück entsteht, wenn Kopf und Körper zusammenarbeiten.</p>"
+              }
+            },
+            {
+              "id": "lu_ueber_p2",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "_title": "Über uns Text 2",
+                "editor": "<p style=\"color:#D0D0D0;line-height:1.7;\">Heute helfen wir Menschen, Familien und Unternehmen in der Region Aachen, ihr volles Potenzial zu entfalten.</p>"
+              }
+            },
+            {
+              "id": "lu_ueber_btn",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "_title": "CTA – Lerne uns kennen",
+                "text": "Lerne uns kennen",
+                "link": {"url": "/ueber-uns"},
+                "background_color": "#CC2936",
+                "button_text_color": "#FFFFFF",
+                "button_hover_background_color": "#E0313F",
+                "border_radius": {"top": "8", "right": "8", "bottom": "8", "left": "8", "unit": "px", "isLinked": true},
+                "typography_font_weight": "600",
+                "padding": {"top": "14", "right": "32", "bottom": "14", "left": "32", "unit": "px", "isLinked": false}
+              }
+            }
+          ]
+        },
+        {
+          "id": "lu_ueber_bild",
+          "elType": "container",
+          "settings": {
+            "_title": "Über uns – Bild",
+            "content_width": "full",
+            "width": {"size": 38, "unit": "%"},
+            "min_width": {"size": 280, "unit": "px"}
+          },
+          "elements": [
+            {
+              "id": "lu_ueber_img",
+              "elType": "widget",
+              "widgetType": "image",
+              "settings": {
+                "_title": "Foto Marco & Lisa",
+                "image": {"url": "", "id": ""},
+                "image_size": "large",
+                "border_radius": {"top": "12", "right": "12", "bottom": "12", "left": "12", "unit": "px", "isLinked": true}
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "lu_angebote",
+      "elType": "container",
+      "settings": {
+        "_title": "Angebote – 3 Karten",
+        "content_width": "boxed",
+        "flex_direction": "column",
+        "flex_align_items": "center",
+        "background_background": "classic",
+        "background_color": "#F5F5F5",
+        "padding": {"top": "100", "right": "24", "bottom": "100", "left": "24", "unit": "px", "isLinked": false},
+        "css_classes": "lu-section-light",
+        "_element_id": "angebote"
+      },
+      "elements": [
+        {
+          "id": "lu_angebote_label",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "_title": "Section Label",
+            "title": "Unsere Angebote für Dich",
+            "header_size": "p",
+            "css_classes": "lu-section-label",
+            "title_color": "#CC2936",
+            "align": "center",
+            "typography_typography": "custom",
+            "typography_font_size": {"size": 0.85, "unit": "rem"},
+            "typography_font_weight": "600",
+            "typography_letter_spacing": {"size": 3, "unit": "px"},
+            "typography_text_transform": "lowercase"
+          }
+        },
+        {
+          "id": "lu_angebote_h2",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "_title": "Angebote Headline",
+            "title": "Finde den richtigen Weg für Dein Upgrade",
+            "header_size": "h2",
+            "title_color": "#222222",
+            "align": "center",
+            "typography_typography": "custom",
+            "typography_font_family": "Inter",
+            "typography_font_size": {"size": 2.5, "unit": "rem"},
+            "typography_font_weight": "800"
+          }
+        },
+        {
+          "id": "lu_angebote_grid",
+          "elType": "container",
+          "settings": {
+            "_title": "Angebote – Karten Grid",
+            "content_width": "full",
+            "flex_direction": "row",
+            "flex_gap": {"size": 24, "unit": "px"},
+            "flex_wrap": "wrap",
+            "flex_justify_content": "center",
+            "margin": {"top": "48", "unit": "px"}
+          },
+          "elements": [
+            {
+              "id": "lu_card_seminare",
+              "elType": "container",
+              "settings": {
+                "_title": "Karte – Seminare",
+                "content_width": "full",
+                "flex_direction": "column",
+                "width": {"size": 31, "unit": "%"},
+                "min_width": {"size": 300, "unit": "px"},
+                "background_background": "classic",
+                "background_color": "#FFFFFF",
+                "border_border": "solid",
+                "border_width": {"top": "1", "right": "1", "bottom": "1", "left": "1", "unit": "px", "isLinked": true},
+                "border_color": "#DDDDDD",
+                "border_radius": {"top": "12", "right": "12", "bottom": "12", "left": "12", "unit": "px", "isLinked": true},
+                "css_classes": "lu-card",
+                "padding": {"top": "0", "right": "0", "bottom": "0", "left": "0", "unit": "px", "isLinked": true}
+              },
+              "elements": [
+                {
+                  "id": "lu_card1_img",
+                  "elType": "widget",
+                  "widgetType": "image",
+                  "settings": {
+                    "_title": "Seminare Bild",
+                    "image": {"url": "", "id": ""},
+                    "image_size": "medium_large"
+                  }
+                },
+                {
+                  "id": "lu_card1_body",
+                  "elType": "container",
+                  "settings": {
+                    "_title": "Seminare – Inhalt",
+                    "flex_direction": "column",
+                    "padding": {"top": "28", "right": "24", "bottom": "28", "left": "24", "unit": "px", "isLinked": false}
+                  },
+                  "elements": [
+                    {"id": "lu_c1_h3", "elType": "widget", "widgetType": "heading", "settings": {"_title": "Titel", "title": "Seminare", "header_size": "h3", "title_color": "#222", "typography_font_weight": "700", "typography_font_size": {"size": 1.3, "unit": "rem"}}},
+                    {"id": "lu_c1_sub", "elType": "widget", "widgetType": "heading", "settings": {"_title": "Untertitel", "title": "Impulse für ein erfüllteres Leben", "header_size": "p", "title_color": "#CC2936", "typography_font_weight": "600", "typography_font_size": {"size": 0.95, "unit": "rem"}}},
+                    {"id": "lu_c1_txt", "elType": "widget", "widgetType": "text-editor", "settings": {"_title": "Beschreibung", "editor": "<p style=\"color:#555;line-height:1.6;\">Für Familien, Paare & alle, die Verbindung suchen. Präsenz & Online.</p>"}},
+                    {"id": "lu_c1_btn", "elType": "widget", "widgetType": "button", "settings": {"_title": "CTA", "text": "Seminare entdecken", "link": {"url": "/seminare"}, "background_color": "#CC2936", "button_text_color": "#FFF", "button_hover_background_color": "#E0313F", "border_radius": {"top": "8", "right": "8", "bottom": "8", "left": "8", "unit": "px", "isLinked": true}, "button_width": "100"}}
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "lu_card_personal",
+              "elType": "container",
+              "settings": {
+                "_title": "Karte – Personal Training",
+                "content_width": "full",
+                "flex_direction": "column",
+                "width": {"size": 31, "unit": "%"},
+                "min_width": {"size": 300, "unit": "px"},
+                "background_background": "classic",
+                "background_color": "#FFFFFF",
+                "border_border": "solid",
+                "border_width": {"top": "1", "right": "1", "bottom": "1", "left": "1", "unit": "px", "isLinked": true},
+                "border_color": "#DDDDDD",
+                "border_radius": {"top": "12", "right": "12", "bottom": "12", "left": "12", "unit": "px", "isLinked": true},
+                "css_classes": "lu-card",
+                "padding": {"top": "0", "right": "0", "bottom": "0", "left": "0", "unit": "px", "isLinked": true}
+              },
+              "elements": [
+                {"id": "lu_card2_img", "elType": "widget", "widgetType": "image", "settings": {"_title": "Training Bild", "image": {"url": "", "id": ""}, "image_size": "medium_large"}},
+                {
+                  "id": "lu_card2_body",
+                  "elType": "container",
+                  "settings": {"_title": "Personal Training – Inhalt", "flex_direction": "column", "padding": {"top": "28", "right": "24", "bottom": "28", "left": "24", "unit": "px", "isLinked": false}},
+                  "elements": [
+                    {"id": "lu_c2_h3", "elType": "widget", "widgetType": "heading", "settings": {"_title": "Titel", "title": "Personal Training", "header_size": "h3", "title_color": "#222", "typography_font_weight": "700", "typography_font_size": {"size": 1.3, "unit": "rem"}}},
+                    {"id": "lu_c2_sub", "elType": "widget", "widgetType": "heading", "settings": {"_title": "Untertitel", "title": "Körperlich & Mental – Dein 1:1 Coach", "header_size": "p", "title_color": "#CC2936", "typography_font_weight": "600", "typography_font_size": {"size": 0.95, "unit": "rem"}}},
+                    {"id": "lu_c2_txt", "elType": "widget", "widgetType": "text-editor", "settings": {"_title": "Beschreibung", "editor": "<p style=\"color:#555;line-height:1.6;\">Maßgeschneidertes Training mit Marco & Lisa. Inkl. Blickwinkel Training®.</p>"}},
+                    {"id": "lu_c2_btn", "elType": "widget", "widgetType": "button", "settings": {"_title": "CTA", "text": "Training starten", "link": {"url": "/personal-training"}, "background_color": "#CC2936", "button_text_color": "#FFF", "button_hover_background_color": "#E0313F", "border_radius": {"top": "8", "right": "8", "bottom": "8", "left": "8", "unit": "px", "isLinked": true}, "button_width": "100"}}
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "lu_card_business",
+              "elType": "container",
+              "settings": {
+                "_title": "Karte – Business Training",
+                "content_width": "full",
+                "flex_direction": "column",
+                "width": {"size": 31, "unit": "%"},
+                "min_width": {"size": 300, "unit": "px"},
+                "background_background": "classic",
+                "background_color": "#FFFFFF",
+                "border_border": "solid",
+                "border_width": {"top": "1", "right": "1", "bottom": "1", "left": "1", "unit": "px", "isLinked": true},
+                "border_color": "#DDDDDD",
+                "border_radius": {"top": "12", "right": "12", "bottom": "12", "left": "12", "unit": "px", "isLinked": true},
+                "css_classes": "lu-card",
+                "padding": {"top": "0", "right": "0", "bottom": "0", "left": "0", "unit": "px", "isLinked": true}
+              },
+              "elements": [
+                {"id": "lu_card3_img", "elType": "widget", "widgetType": "image", "settings": {"_title": "Business Bild", "image": {"url": "", "id": ""}, "image_size": "medium_large"}},
+                {
+                  "id": "lu_card3_body",
+                  "elType": "container",
+                  "settings": {"_title": "Business Training – Inhalt", "flex_direction": "column", "padding": {"top": "28", "right": "24", "bottom": "28", "left": "24", "unit": "px", "isLinked": false}},
+                  "elements": [
+                    {"id": "lu_c3_h3", "elType": "widget", "widgetType": "heading", "settings": {"_title": "Titel", "title": "Business Training", "header_size": "h3", "title_color": "#222", "typography_font_weight": "700", "typography_font_size": {"size": 1.3, "unit": "rem"}}},
+                    {"id": "lu_c3_sub", "elType": "widget", "widgetType": "heading", "settings": {"_title": "Untertitel", "title": "Stärke Dein Team – Firmenfitness & Coaching", "header_size": "p", "title_color": "#CC2936", "typography_font_weight": "600", "typography_font_size": {"size": 0.95, "unit": "rem"}}},
+                    {"id": "lu_c3_txt", "elType": "widget", "widgetType": "text-editor", "settings": {"_title": "Beschreibung", "editor": "<p style=\"color:#555;line-height:1.6;\">Firmenfitness, Gesundheitstage, Teambuilding – für Unternehmen in der Region.</p>"}},
+                    {"id": "lu_c3_btn", "elType": "widget", "widgetType": "button", "settings": {"_title": "CTA", "text": "Angebot für Firmen", "link": {"url": "/business"}, "background_color": "#CC2936", "button_text_color": "#FFF", "button_hover_background_color": "#E0313F", "border_radius": {"top": "8", "right": "8", "bottom": "8", "left": "8", "unit": "px", "isLinked": true}, "button_width": "100"}}
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "lu_seminare_hl",
+      "elType": "container",
+      "settings": {
+        "_title": "Seminare – Highlight",
+        "content_width": "boxed",
+        "flex_direction": "row",
+        "flex_align_items": "center",
+        "flex_gap": {"size": 60, "unit": "px"},
+        "flex_wrap": "wrap",
+        "background_background": "classic",
+        "background_color": "#1A1A1A",
+        "padding": {"top": "100", "right": "24", "bottom": "100", "left": "24", "unit": "px", "isLinked": false},
+        "css_classes": "lu-section-dark",
+        "_element_id": "seminare"
+      },
+      "elements": [
+        {
+          "id": "lu_sem_text",
+          "elType": "container",
+          "settings": {"_title": "Seminare – Text", "flex_direction": "column", "width": {"size": 55, "unit": "%"}, "min_width": {"size": 300, "unit": "px"}},
+          "elements": [
+            {"id": "lu_sem_label", "elType": "widget", "widgetType": "heading", "settings": {"_title": "Section Label", "title": "Seminare", "header_size": "p", "css_classes": "lu-section-label", "title_color": "#CC2936", "typography_font_size": {"size": 0.85, "unit": "rem"}, "typography_font_weight": "600", "typography_letter_spacing": {"size": 3, "unit": "px"}, "typography_text_transform": "lowercase"}},
+            {"id": "lu_sem_h2", "elType": "widget", "widgetType": "heading", "settings": {"_title": "Seminare Headline", "title": "Seminare für ein erfüllteres Leben", "header_size": "h2", "title_color": "#FFF", "typography_font_size": {"size": 2.2, "unit": "rem"}, "typography_font_weight": "800"}},
+            {"id": "lu_sem_termin", "elType": "widget", "widgetType": "text-editor", "settings": {"_title": "Nächster Termin", "editor": "<p style=\"color:#CC2936;font-size:1.05rem;\">Nächster Termin: <strong>HappyMe-HappyFamily</strong> – Bald verfügbar</p>"}},
+            {"id": "lu_sem_txt", "elType": "widget", "widgetType": "text-editor", "settings": {"_title": "Seminare Text", "editor": "<p style=\"color:#D0D0D0;line-height:1.7;\">Unsere Impulsseminare verbinden körperliches und mentales Training. Von Familienseminaren über Gesundheits-Workshops bis zu Partnerschafts-Impulsen – finde das Seminar, das Dein Leben bereichert.</p>"}},
+            {"id": "lu_sem_btn", "elType": "widget", "widgetType": "button", "settings": {"_title": "CTA – Alle Seminare", "text": "Alle Seminare & Termine", "link": {"url": "/seminare"}, "background_color": "#CC2936", "button_text_color": "#FFF", "button_hover_background_color": "#E0313F", "border_radius": {"top": "8", "right": "8", "bottom": "8", "left": "8", "unit": "px", "isLinked": true}}}
+          ]
+        },
+        {
+          "id": "lu_sem_bild",
+          "elType": "container",
+          "settings": {"_title": "Seminare – Bild", "width": {"size": 40, "unit": "%"}, "min_width": {"size": 280, "unit": "px"}},
+          "elements": [
+            {"id": "lu_sem_img", "elType": "widget", "widgetType": "image", "settings": {"_title": "Seminar Foto", "image": {"url": "", "id": ""}, "image_size": "large", "border_radius": {"top": "12", "right": "12", "bottom": "12", "left": "12", "unit": "px", "isLinked": true}}}
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "lu_testimonials",
+      "elType": "container",
+      "settings": {
+        "_title": "Testimonials",
+        "content_width": "boxed",
+        "flex_direction": "column",
+        "flex_align_items": "center",
+        "background_background": "classic",
+        "background_color": "#F5F5F5",
+        "padding": {"top": "100", "right": "24", "bottom": "100", "left": "24", "unit": "px", "isLinked": false},
+        "css_classes": "lu-section-light"
+      },
+      "elements": [
+        {"id": "lu_testi_label", "elType": "widget", "widgetType": "heading", "settings": {"_title": "Section Label", "title": "Echte Ergebnisse", "header_size": "p", "css_classes": "lu-section-label", "title_color": "#CC2936", "align": "center", "typography_font_size": {"size": 0.85, "unit": "rem"}, "typography_font_weight": "600", "typography_letter_spacing": {"size": 3, "unit": "px"}, "typography_text_transform": "lowercase"}},
+        {"id": "lu_testi_h2", "elType": "widget", "widgetType": "heading", "settings": {"_title": "Testimonials Headline", "title": "Echte Menschen, echte Veränderungen", "header_size": "h2", "title_color": "#222", "align": "center", "typography_font_size": {"size": 2.5, "unit": "rem"}, "typography_font_weight": "800"}},
+        {
+          "id": "lu_testi_note",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "_title": "Hinweis Carousel",
+            "editor": "<p style=\"color:#888;text-align:center;font-style:italic;\">→ Hier JetElements \"Testimonials\" Widget einfügen.<br>Source: Custom Post Type <code>lu_testimonial</code> | Auto-Rotation: 6s | Dots Navigation | Quote Mark: #C8A951 (Gold)</p>"
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "lu_zitat",
+      "elType": "container",
+      "settings": {
+        "_title": "Zitat – Inspiration",
+        "content_width": "boxed",
+        "flex_direction": "column",
+        "flex_align_items": "center",
+        "background_background": "classic",
+        "background_color": "#2A2220",
+        "padding": {"top": "120", "right": "24", "bottom": "120", "left": "24", "unit": "px", "isLinked": false}
+      },
+      "elements": [
+        {
+          "id": "lu_zitat_mark",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "_title": "Anführungszeichen",
+            "title": "\"",
+            "header_size": "p",
+            "title_color": "#C8A951",
+            "align": "center",
+            "typography_typography": "custom",
+            "typography_font_family": "Georgia",
+            "typography_font_size": {"size": 8, "unit": "rem"},
+            "typography_line_height": {"size": 0.3, "unit": "em"}
+          }
+        },
+        {
+          "id": "lu_zitat_text",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "_title": "Zitat Text",
+            "editor": "<p style=\"color:#FFF;font-size:1.8rem;font-weight:500;line-height:1.6;text-align:center;max-width:700px;margin:24px auto;\">Glücklich und gesund zu sein ist keine Frage des Glücks. Es ist eine Entscheidung – jeden Tag aufs Neue.</p>",
+            "align": "center"
+          }
+        },
+        {
+          "id": "lu_zitat_author",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "_title": "Zitat Autor",
+            "editor": "<p style=\"color:#888;font-size:1rem;text-align:center;\">– Marco Fuchs, Gründer Life Upgreater®</p>",
+            "align": "center"
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "lu_selbsttest",
+      "elType": "container",
+      "settings": {
+        "_title": "Selbsttest – Lead Magnet",
+        "content_width": "boxed",
+        "flex_direction": "column",
+        "flex_align_items": "center",
+        "background_background": "classic",
+        "background_color": "#F5F5F5",
+        "padding": {"top": "100", "right": "24", "bottom": "100", "left": "24", "unit": "px", "isLinked": false},
+        "css_classes": "lu-section-light",
+        "_element_id": "selbsttest"
+      },
+      "elements": [
+        {"id": "lu_test_label", "elType": "widget", "widgetType": "heading", "settings": {"_title": "Section Label", "title": "Kostenlos für Dich", "header_size": "p", "css_classes": "lu-section-label", "title_color": "#CC2936", "align": "center", "typography_font_size": {"size": 0.85, "unit": "rem"}, "typography_font_weight": "600", "typography_letter_spacing": {"size": 3, "unit": "px"}, "typography_text_transform": "lowercase"}},
+        {"id": "lu_test_h2", "elType": "widget", "widgetType": "heading", "settings": {"_title": "Selbsttest Headline", "title": "Finde Deinen Startpunkt", "header_size": "h2", "title_color": "#222", "align": "center", "typography_font_size": {"size": 2.5, "unit": "rem"}, "typography_font_weight": "800"}},
+        {"id": "lu_test_sub", "elType": "widget", "widgetType": "text-editor", "settings": {"_title": "Selbsttest Subline", "editor": "<p style=\"color:#555;text-align:center;font-size:1.1rem;max-width:600px;margin:0 auto 48px;\">In nur 2 Minuten weißt Du, wo Du stehst – und was Dein nächster Schritt ist.</p>"}},
+        {
+          "id": "lu_test_shortcode",
+          "elType": "widget",
+          "widgetType": "shortcode",
+          "settings": {
+            "_title": "Selbsttest Shortcode",
+            "shortcode": "[lu_selbsttest]"
+          }
+        }
+      ]
+    }
+  ]
+}
