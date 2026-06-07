@@ -1,0 +1,26 @@
+name: Deploy Theme to Lima City (FTP)
+
+on:
+  push:
+    branches:
+      - claude/remote-control-setup-aV4Ru
+    paths:
+      - 'wp-theme/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy to Lima City via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: life-upgreater.lima-ftp.de
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASS }}
+          protocol: ftps
+          port: 21
+          local-dir: ./wp-theme/life-upgreater-child/
+          server-dir: /wp-content/themes/life-upgreater-child/
+          dangerous-clean-slate: false
