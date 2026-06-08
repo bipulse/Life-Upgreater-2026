@@ -128,34 +128,26 @@
     }
     .nav-links .nav-cta:hover { background: var(--red-hover); }
 
-    /* Sub-Nav */
-    .nav-sub {
+    /* Sub-Nav */ {
       background: #222;
       border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    .nav-sub-inner {
+    }-inner {
       max-width: var(--max-w); margin: 0 auto; padding: 14px 32px;
       display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;
-    }
-    .nav-sub-item {
+    }-item {
       display: block; padding: 10px 14px; border-radius: 6px;
       text-decoration: none; color: inherit; cursor: pointer;
       transition: background 0.2s, border-color 0.2s;
       border: 1px solid transparent;
-    }
-    .nav-sub-item:hover {
+    }-item:hover {
       background: rgba(255,255,255,0.06);
       border-color: rgba(255,255,255,0.1);
-    }
-    .nav-sub-item h4 {
+    }-item h4 {
       font-family: var(--font-display);
       font-size: 0.9rem; font-weight: 700; margin-bottom: 2px;
-    }
-    .nav-sub-item h4::after {
+    }-item h4::after {
       content: ' →'; opacity: 0; transition: opacity 0.2s;
-    }
-    .nav-sub-item:hover h4::after { opacity: 1; }
-    .nav-sub-item p {
+    }-item:hover h4::after { opacity: 1; }-item p {
       font-size: 0.78rem; color: var(--text-muted); line-height: 1.4;
     }
 
@@ -409,8 +401,9 @@
        CTA SECTION
     ═══════════════════════════════════════ */
     .cta-section {
-      background: var(--red);
-      padding: 60px 0;
+      background: var(--bg-dark-warm);
+      border-top: 1px solid rgba(200,169,81,0.15);
+      padding: 80px 0;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -418,7 +411,7 @@
     .cta-section::before {
       content: '';
       position: absolute; inset: 0;
-      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%);
+      background: linear-gradient(135deg, rgba(200,169,81,0.05) 0%, transparent 60%);
     }
     .cta-inner {
       position: relative; z-index: 1;
@@ -428,25 +421,27 @@
       font-size: clamp(1.5rem, 3vw, 2.2rem);
       font-weight: 700;
       margin-bottom: 12px;
+      color: var(--white);
     }
     .cta-section p {
       font-size: 1rem;
-      opacity: 0.9;
+      color: var(--text-light);
       max-width: 560px;
-      margin: 0 auto 28px;
-      line-height: 1.6;
+      margin: 0 auto 32px;
+      line-height: 1.7;
     }
     .cta-section .btn-white {
       display: inline-block;
-      background: #fff; color: var(--red);
+      background: var(--red); color: #fff;
       padding: 14px 32px; border-radius: 8px;
       font-weight: 700; font-size: 0.95rem;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
       border: none; cursor: pointer;
     }
     .cta-section .btn-white:hover {
+      background: var(--red-hover);
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      box-shadow: 0 6px 20px rgba(204,41,54,0.3);
     }
 
     /* ═══════════════════════════════════════
@@ -521,7 +516,7 @@
 
     /* ── Responsive ── */
     @media (max-width: 960px) {
-      .nav-links, .nav-sub { display: none; }
+      .nav-links { display: none; }
       .nav-hamburger { display: flex; }
       .nav-links.open {
         display: flex; flex-direction: column;
@@ -568,8 +563,8 @@
     }
     body.light { background: #FAFAFA; color: #1A1A1A; }
     body.light .nav { background: #fff; border-bottom-color: rgba(0,0,0,0.08); }
-    body.light .nav-sub { background: #F5F5F5; border-bottom-color: rgba(0,0,0,0.06); }
-    body.light .nav-sub-item:hover { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.08); }
+    body.light { background: #F5F5F5; border-bottom-color: rgba(0,0,0,0.06); }
+    body.light-item:hover { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.08); }
     body.light .nav-links a { color: #555; }
     body.light .nav-links a:hover { color: #1A1A1A; }
     body.light .nav-links .active { color: #1A1A1A; }
@@ -588,7 +583,9 @@
     body.light .step { background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
     body.light .step h4 { color: #1A1A1A; }
     body.light .step-number { background: var(--red); color: #fff; }
-    body.light .cta-section { background: var(--red); }
+    body.light .cta-section { background: #F0EDEA; border-top: 1px solid rgba(0,0,0,0.06); }
+    body.light .cta-section h2 { color: #1A1A1A; }
+    body.light .cta-section p { color: #555; }
     body.light .topbar { background: var(--red); }
     body.light .btn-red { color: #fff !important; }
     body.light .nav-links .nav-cta { color: #fff !important; }
@@ -679,27 +676,6 @@
       <span></span><span></span><span></span>
     </button>
   </div>
-  <!-- Sub-Navigation -->
-  <div class="nav-sub">
-    <div class="nav-sub-inner">
-      <a href="index.html#kostenlos" class="nav-sub-item">
-        <h4>Kostenlose Angebote</h4>
-        <p>Sportkurse &amp; Gruppen-Mentaltraining – Dein Einstieg bei Life Upgreater</p>
-      </a>
-      <a href="personal-training.html" class="nav-sub-item">
-        <h4>Personal Training</h4>
-        <p>Körperlich &amp; Mental – Exklusives 1:1 Training mit Marco &amp; Lisa</p>
-      </a>
-      <a href="seminare.html" class="nav-sub-item">
-        <h4>Seminare</h4>
-        <p>Impulsseminare für Familien &amp; Paare</p>
-      </a>
-      <a href="business.html" class="nav-sub-item">
-        <h4>Business Upgreater</h4>
-        <p>Firmenfitness, Gesundheitstage &amp; Teambuilding für Unternehmen</p>
-      </a>
-    </div>
-  </div>
 </nav>
 
 <!-- ═══ 1: HERO ═══ -->
@@ -716,11 +692,11 @@
 <section class="intro">
   <div class="wrap">
     <div class="fade-up">
-      <p class="label">Was ist Personal Training bei Life Upgreater?</p>
-      <h2>Dein maßgeschneidertes 1:1 Training</h2>
+      <p class="label">Personal Training</p>
+      <h2>Du weißt, dass mehr in Dir steckt</h2>
     </div>
-    <p class="intro-text fade-up d1">Personal Training bei Life Upgreater<sup>&reg;</sup> ist mehr als klassisches Fitness-Training. Wir verbinden körperliches Training mit mentaler Beratung – basierend auf dem einzigartigen Blickwinkel Training<sup>&reg;</sup>. In exklusiven 1:1 Sessions arbeiten Marco und Lisa gezielt an Deinen individuellen Zielen – ob Du körperlich fitter werden, mental stärker werden oder beides kombinieren möchtest.</p>
-    <p class="intro-text fade-up d1">Jede Session wird individuell auf Dich abgestimmt. Kein Schema F, keine Gruppenübungen – sondern volle Aufmerksamkeit für Dich und Deine Entwicklung. Das macht den Unterschied.</p>
+    <p class="intro-text fade-up d1">Vielleicht fehlt Dir der richtige Plan. Vielleicht die Energie. Oder einfach jemand, der Dich wirklich sieht – und gezielt begleitet, statt Standardprogramme abzuarbeiten. Genau hier setzen wir an.</p>
+    <p class="intro-text fade-up d1">Im 1:1 Training mit Marco oder Lisa geht es ausschließlich um Dich: Deine Ziele, Deine Situation, Dein Tempo. Körperlich fit werden, mental stärker werden – oder beides. Kein Schema F, keine Gruppenübungen. Nur volle Aufmerksamkeit für Dich und Deine Entwicklung.</p>
 
     <div class="intro-usps">
       <div class="usp-item fade-up">
@@ -735,8 +711,8 @@
       </div>
       <div class="usp-item fade-up d2">
         <span class="usp-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
-        <h4>Zwei Experten, ein Ziel</h4>
-        <p>Marco für den Körper, Lisa für den Geist – oder beide zusammen für Dein ganzheitliches Upgreat.</p>
+        <h4>Jemand, der Dich wirklich kennt</h4>
+        <p>Marco oder Lisa – oder beide. Du entscheidest, wer Dich begleitet. Ganz nach dem, was Du gerade brauchst.</p>
       </div>
     </div>
   </div>
@@ -746,8 +722,8 @@
 <section class="coaches">
   <div class="wrap">
     <div class="coaches-head fade-up">
-      <p class="label">Deine Trainer</p>
-      <h2>Zwei Experten – ein Team für Dein Upgreat</h2>
+      <p class="label">Deine Begleitung</p>
+      <h2>Persönlich, auf Augenhöhe – für Dich da</h2>
     </div>
 
     <div class="coaches-grid">
@@ -759,8 +735,8 @@
         <div class="coach-body">
           <h3>Marco Fuchs</h3>
           <p class="coach-role">Körperliches Training, Sport &amp; Fitness</p>
-          <p>Als zertifizierter Trainer bringt Marco Dich körperlich an Dein nächstes Level. Ob Kraft, Ausdauer, Beweglichkeit oder Yogaletics<sup>&reg;</sup> – Marco entwickelt einen Trainingsplan, der genau zu Dir passt und Dich Schritt für Schritt stärker macht.</p>
-          <p>Seine Energie und Motivation sind ansteckend. Er glaubt fest daran, dass jeder Mensch mehr in sich trägt, als er denkt.</p>
+          <p>Mit Marco weißt Du, dass Du nicht alleine bist. Er holt Dich dort ab, wo Du gerade stehst – und begleitet Dich Schritt für Schritt zu mehr Kraft, Ausdauer und Beweglichkeit. Sein Training ist intensiv, aber immer mit einem Lächeln.</p>
+          <p>Er glaubt fest daran, dass in jedem Menschen mehr steckt, als er selbst denkt – und genau das spürst Du in jeder Session.</p>
           <div class="coach-tags">
             <span class="coach-tag">Fitness</span>
             <span class="coach-tag">Kraft</span>
@@ -783,8 +759,8 @@
         <div class="coach-body">
           <h3>Lisa Fuchs</h3>
           <p class="coach-role">Mentales Training, Beratung &amp; Blickwinkel Training<sup>&reg;</sup></p>
-          <p>Lisa ist Deine Expertin für mentale Stärke. Mit dem Blickwinkel Training<sup>&reg;</sup> hilft sie Dir, eingefahrene Denkmuster zu erkennen, neue Perspektiven zu entwickeln und innere Blockaden zu lösen – für mehr Klarheit, Gelassenheit und Lebensfreude.</p>
-          <p>Ihr empathischer Ansatz schafft einen sicheren Raum, in dem echte Veränderung möglich wird.</p>
+          <p>Bei Lisa darfst Du einfach Du sein. Sie schafft einen Raum, in dem Du Dinge aussprechen kannst, die Du vielleicht schon lange mit Dir trägst – und findet gemeinsam mit Dir neue Wege, wie Du damit umgehst.</p>
+          <p>Mit dem Blickwinkel Training<sup>&reg;</sup> löst Du Denkmuster, die Dich aufhalten – und findest zurück zu mehr Klarheit, Gelassenheit und Lebensfreude.</p>
           <div class="coach-tags">
             <span class="coach-tag">Blickwinkel Training<sup>&reg;</sup></span>
             <span class="coach-tag">Beratung</span>
@@ -835,8 +811,16 @@
   <div class="wrap">
     <div class="cta-inner fade-up">
       <h2>Starte Dein Personal Training</h2>
-      <p>Bereit für Dein persönliches Upgreat? Vereinbare jetzt Dein kostenloses Erstgespräch mit Marco &amp; Lisa.</p>
-      <a href="#" class="btn-white">Kostenloses Erstgespräch vereinbaren</a>
+      <p>Bereit für Dein persönliches Upgreat? Ruf uns einfach an oder schreib uns – wir melden uns innerhalb von 24 Stunden.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:16px;">
+        <a href="tel:+491731949242" class="btn-white">📞 Marco – 0173 1949 242</a>
+        <a href="tel:+491766447148" class="btn-white" style="background:transparent;border:2px solid rgba(255,255,255,0.4);color:#fff;">📞 Lisa – 0176 6447 1148</a>
+      </div>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a href="https://wa.me/4917319492424" target="_blank" class="btn-white" style="background:transparent;border:2px solid rgba(255,255,255,0.4);color:#fff;font-size:0.85rem;">WhatsApp Marco</a>
+        <a href="https://wa.me/4917664471148" target="_blank" class="btn-white" style="background:transparent;border:2px solid rgba(255,255,255,0.4);color:#fff;font-size:0.85rem;">WhatsApp Lisa</a>
+        <a href="mailto:info@life-upgreater.com" class="btn-white" style="background:transparent;border:2px solid rgba(255,255,255,0.4);color:#fff;font-size:0.85rem;">E-Mail schreiben</a>
+      </div>
     </div>
   </div>
 </section>
@@ -937,7 +921,7 @@
   /* Nav Toggle */
   (function() {
     var navLinks = document.getElementById('navLinks');
-    var subItems = document.querySelectorAll('.nav-sub-item');
+    var subItems = document.querySelectorAll('-item');
     if (subItems.length && !navLinks.querySelector('.mobile-sub-links')) {
       var wrapper = document.createElement('div');
       wrapper.className = 'mobile-sub-links';

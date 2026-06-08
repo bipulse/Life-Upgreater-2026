@@ -49,15 +49,7 @@
     .nav-links a:hover { color: #fff; }
     .nav-links .active { color: var(--white); }
     .nav-links .nav-cta { background: var(--red); color: #fff !important; padding: 9px 22px; border-radius: 6px; }
-    .nav-links .nav-cta:hover { background: var(--red-hover); }
-    .nav-sub { background: #222; border-bottom: 1px solid rgba(255,255,255,0.06); }
-    .nav-sub-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
-    .nav-sub-item { display: block; padding: 10px 14px; border-radius: 6px; text-decoration: none; color: inherit; cursor: pointer; transition: background 0.2s, border-color 0.2s; border: 1px solid transparent; }
-    .nav-sub-item:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.1); }
-    .nav-sub-item h4 { font-family: var(--font-display); font-size: 0.9rem; font-weight: 700; margin-bottom: 2px; }
-    .nav-sub-item h4::after { content: ' \2192'; opacity: 0; transition: opacity 0.2s; }
-    .nav-sub-item:hover h4::after { opacity: 1; }
-    .nav-sub-item p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; }
+    .nav-links .nav-cta:hover { background: var(--red-hover); } { background: #222; border-bottom: 1px solid rgba(255,255,255,0.06); }-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }-item { display: block; padding: 10px 14px; border-radius: 6px; text-decoration: none; color: inherit; cursor: pointer; transition: background 0.2s, border-color 0.2s; border: 1px solid transparent; }-item:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.1); }-item h4 { font-family: var(--font-display); font-size: 0.9rem; font-weight: 700; margin-bottom: 2px; }-item h4::after { content: ' \2192'; opacity: 0; transition: opacity 0.2s; }-item:hover h4::after { opacity: 1; }-item p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; }
     .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
     .nav-hamburger span { width: 24px; height: 2px; background: #fff; border-radius: 2px; }
 
@@ -178,8 +170,8 @@
     @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.4); } }
 
     body.light .nav { background: #fff; border-bottom-color: rgba(0,0,0,0.08); }
-    body.light .nav-sub { background: #F5F5F5; border-bottom-color: rgba(0,0,0,0.06); }
-    body.light .nav-sub-item:hover { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.08); }
+    body.light { background: #F5F5F5; border-bottom-color: rgba(0,0,0,0.06); }
+    body.light-item:hover { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.08); }
     body.light .nav-links a { color: #555; } body.light .nav-links a:hover { color: #1A1A1A; }
     body.light .nav-links .active { color: #1A1A1A; } body.light .nav-hamburger span { background: #1A1A1A; }
     body.light .hero-sub-page { background: #FAFAFA; }
@@ -197,7 +189,7 @@
     body.light .footer a:hover { color: #fff; }
 
     @media (max-width: 960px) {
-      .nav-links, .nav-sub { display: none; }
+      .nav-links { display: none; }
       .nav-hamburger { display: flex; }
       .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-dark); padding: 20px 32px; gap: 16px; border-bottom: 1px solid rgba(255,255,255,0.06); z-index: 200; }
       .mobile-sub-links { display: flex; flex-direction: column; gap: 0; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 12px; margin-top: 4px; width: 100%; }
@@ -239,14 +231,6 @@
       <a href="#" class="nav-cta">Kontakt</a>
     </div>
     <button class="nav-hamburger" id="navToggle" aria-label="Menü"><span></span><span></span><span></span></button>
-  </div>
-  <div class="nav-sub">
-    <div class="nav-sub-inner">
-      <a href="index.html#kostenlos" class="nav-sub-item"><h4>Kostenlose Angebote</h4><p>Sportkurse &amp; Gruppen-Mentaltraining</p></a>
-      <a href="personal-training.html" class="nav-sub-item"><h4>Personal Training</h4><p>Exklusives 1:1 Training mit Marco &amp; Lisa</p></a>
-      <a href="seminare.html" class="nav-sub-item"><h4>Seminare</h4><p>Business-Seminare für Familien &amp; Paare</p></a>
-      <a href="business.html" class="nav-sub-item"><h4>Business Upgreater</h4><p>Firmenfitness &amp; Teambuilding</p></a>
-    </div>
   </div>
 </nav>
 
@@ -483,7 +467,7 @@
   // Nav toggle + mobile sub-links
   (function() {
     var navLinks = document.getElementById('navLinks');
-    var subItems = document.querySelectorAll('.nav-sub-item');
+    var subItems = document.querySelectorAll('-item');
     if (subItems.length && !navLinks.querySelector('.mobile-sub-links')) {
       var wrapper = document.createElement('div');
       wrapper.className = 'mobile-sub-links';
